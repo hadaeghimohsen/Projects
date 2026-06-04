@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  Ref Constraints for Table USER_NOTIFICATION
+--------------------------------------------------------
+
+  ALTER TABLE "FCEO$KRNL"."USER_NOTIFICATION" ADD CONSTRAINT "FK_UNOT_USRA" FOREIGN KEY ("USRA_CODE")
+	  REFERENCES "FCEO$KRNL"."USER_APPLICATION" ("CODE") ENABLE;
+  ALTER TABLE "FCEO$KRNL"."USER_NOTIFICATION" ADD CONSTRAINT "FK_UNOT_NEWS" FOREIGN KEY ("NEWS_CODE")
+	  REFERENCES "FCEO$KRNL"."NEWS" ("CODE") ENABLE;

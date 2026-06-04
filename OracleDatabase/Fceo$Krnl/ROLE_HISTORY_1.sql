@@ -1,0 +1,17 @@
+--------------------------------------------------------
+--  DDL for Table ROLE_HISTORY
+--------------------------------------------------------
+
+  CREATE TABLE "FCEO$KRNL"."ROLE_HISTORY" 
+   (	"ROLE_CODE" RAW(16), 
+	"CODE" RAW(16), 
+	"CHNG_STAT" VARCHAR2(3 BYTE), 
+	"CRET_BY" VARCHAR2(30 BYTE), 
+	"CRET_DATE" DATE
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "FCEO_KRNL_TS"   NO INMEMORY ;
+
+   COMMENT ON COLUMN "FCEO$KRNL"."ROLE_HISTORY"."CRET_BY" IS 'کاربر ثبت کننده';
+   COMMENT ON COLUMN "FCEO$KRNL"."ROLE_HISTORY"."CRET_DATE" IS 'تاریخ ثبت';

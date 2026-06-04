@@ -1,0 +1,9 @@
+--------------------------------------------------------
+--  DDL for Index PK_UIMG
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "FCEO$KRNL"."PK_UIMG" ON "FCEO$KRNL"."USER_IMAGE" ("CODE") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE( PCTINCREASE 0
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "FCEO_KRNL_TS" ;

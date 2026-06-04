@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  Constraints for Table ROLE_SYSTEM_REPORT
+--------------------------------------------------------
+
+  ALTER TABLE "FCEO$KRNL"."ROLE_SYSTEM_REPORT" MODIFY ("CODE" NOT NULL ENABLE);
+  ALTER TABLE "FCEO$KRNL"."ROLE_SYSTEM_REPORT" ADD CONSTRAINT "PK_RLSR" PRIMARY KEY ("CODE")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "FCEO_KRNL_TS"  ENABLE;

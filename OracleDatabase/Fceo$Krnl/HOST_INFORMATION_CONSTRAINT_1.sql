@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  Constraints for Table HOST_INFORMATION
+--------------------------------------------------------
+
+  ALTER TABLE "FCEO$KRNL"."HOST_INFORMATION" MODIFY ("CODE" NOT NULL ENABLE);
+  ALTER TABLE "FCEO$KRNL"."HOST_INFORMATION" ADD CONSTRAINT "PK_HINF" PRIMARY KEY ("CODE")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "FCEO_KRNL_TS"  ENABLE;

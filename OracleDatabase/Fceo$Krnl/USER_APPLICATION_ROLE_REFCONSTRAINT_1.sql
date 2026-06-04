@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  Ref Constraints for Table USER_APPLICATION_ROLE
+--------------------------------------------------------
+
+  ALTER TABLE "FCEO$KRNL"."USER_APPLICATION_ROLE" ADD CONSTRAINT "FK_UARL_ROLE" FOREIGN KEY ("ROLE_CODE")
+	  REFERENCES "FCEO$KRNL"."ROLE" ("CODE") ENABLE;
+  ALTER TABLE "FCEO$KRNL"."USER_APPLICATION_ROLE" ADD CONSTRAINT "FK_UARL_USRA" FOREIGN KEY ("USRA_CODE")
+	  REFERENCES "FCEO$KRNL"."USER_APPLICATION" ("CODE") ENABLE;
