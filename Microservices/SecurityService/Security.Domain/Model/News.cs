@@ -14,7 +14,7 @@ namespace Security.Domain.Model
         [Key]
         [Column("CODE")]
         [MaxLength(16)]
-        public byte[] Code { get; set; }
+        public byte[] Code { get; set; } = Array.Empty<byte>();
 
         [Column("NEWS_NAME")]
         [MaxLength(100)]

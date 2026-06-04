@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
@@ -14,7 +14,7 @@ namespace Security.Domain.Model
         [Key]
         [Column("CODE")]
         [MaxLength(16)]
-        public byte[] Code { get; set; }  // RAW(16) -> GUID یا byte[]
+        public byte[] Code { get; set; } = Array.Empty<byte>();  // RAW(16) -> GUID یا byte[]
 
         [Column("USER_APP_NAME")]
         [MaxLength(30)]

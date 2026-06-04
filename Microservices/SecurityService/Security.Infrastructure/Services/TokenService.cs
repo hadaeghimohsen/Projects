@@ -22,7 +22,7 @@ public class TokenService : ITokenService
         var secretKey = jwtSettings["SecretKey"];
         var expirationMinutes = int.Parse(jwtSettings["ExpirationMinutes"] ?? "60");
 
-        var key = Encoding.ASCII.GetBytes(secretKey);
+        var key = Encoding.ASCII.GetBytes(secretKey ?? "");
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(new[]
