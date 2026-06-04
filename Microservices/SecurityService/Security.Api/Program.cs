@@ -7,6 +7,15 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.IdentityModel.Tokens;
 using Security.Api.Configs;
 
+// تشخیص خودکار محیط بر اساس نام کامپیوتر
+var envName = Environment.MachineName switch
+{
+    "hadaeghi-it"  => "Organization",
+    "DESKTOP-6D1V2SU" => "Home",
+    _              => "Development"
+};
+Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", envName);
+
 var builder = WebApplication.CreateBuilder(args);
 
 // 1. افزودن سرویس‌ها
