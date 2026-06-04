@@ -1,0 +1,185 @@
+@{
+    Layout = "_LayoutAuth";
+    ViewData["Title"] = "ثبت نام";
+}
+
+<div class="authentication-wrapper authentication-cover">
+    <div class="authentication-inner row m-0">
+        <div class="d-none d-lg-flex col-lg-7 col-xl-8 align-items-center authentication-cover-img-bg">
+            <div class="flex-row text-center mx-auto">
+                <img src="~/frest-assets/img/pages/login-light.png" alt="Register" width="520" class="img-fluid authentication-cover-img">
+                <div class="mx-auto mt-4">
+                    <h3>به سامانه مدیریت خوش آمدید</h3>
+                    <p class="text-muted">
+                        با ثبت نام در سامانه، به امکانات کامل دسترسی پیدا کنید<br>
+                        امنیت بالا با تایید دو مرحله‌ای
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex col-12 col-lg-5 col-xl-4 align-items-center authentication-bg p-sm-5 p-4">
+            <div class="w-px-400 mx-auto">
+                <div class="app-brand mb-4">
+                    <a href="~/" class="app-brand-link gap-2 mb-2">
+                        <span class="app-brand-logo demo">
+                            <svg width="26" height="26" viewbox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="5.5" y="5.5" width="15" height="15" rx="3" fill="url(#lg-grad)" />
+                                <circle cx="13" cy="13" r="4" fill="#fff" />
+                                <defs>
+                                    <linearGradient id="lg-grad" x1="0" y1="0" x2="26" y2="26">
+                                        <stop stop-color="#5A8DEE" />
+                                        <stop offset="1" stop-color="#699AF9" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </span>
+                        <span class="app-brand-text demo h3 mb-0 fw-bold">سامانه مدیریت</span>
+                    </a>
+                </div>
+                <h4 class="mb-3 secondary-font">ثبت نام</h4>
+                <p class="mb-4 text-muted">اطلاعات خود را وارد کنید</p>
+
+                <form id="registerForm" class="mb-3" method="post" action="javascript:void(0);">
+                    <div class="mb-3">
+                        <label for="regUsername" class="form-label">نام کاربری</label>
+                        <input type="text" class="form-control" id="regUsername" placeholder="نام کاربری خود را وارد کنید" autofocus dir="auto">
+                    </div>
+                    <div class="mb-3">
+                        <label for="regUserDesc" class="form-label">نام و نام خانوادگی</label>
+                        <input type="text" class="form-control" id="regUserDesc" placeholder="نام و نام خانوادگی خود را وارد کنید" dir="auto">
+                    </div>
+                    <div class="mb-3">
+                        <label for="regPhone" class="form-label">شماره تلفن همراه</label>
+                        <input type="text" class="form-control" id="regPhone" placeholder="شماره تلفن خود را وارد کنید" dir="auto">
+                    </div>
+                    <div class="mb-3">
+                        <label for="regEmail" class="form-label">ایمیل</label>
+                        <input type="email" class="form-control" id="regEmail" placeholder="ایمیل خود را وارد کنید" dir="auto">
+                    </div>
+                    <div class="mb-3 form-password-toggle">
+                        <label class="form-label" for="regPassword">رمز عبور</label>
+                        <div class="input-group input-group-merge">
+                            <input type="password" id="regPassword" class="form-control" placeholder="············" dir="auto">
+                            <span class="input-group-text cursor-pointer" id="toggle-reg-password"><i class="bx bx-hide"></i></span>
+                        </div>
+                    </div>
+                    <div class="mb-3 form-password-toggle">
+                        <label class="form-label" for="regConfirm">تکرار رمز عبور</label>
+                        <div class="input-group input-group-merge">
+                            <input type="password" id="regConfirm" class="form-control" placeholder="············" dir="auto">
+                            <span class="input-group-text cursor-pointer" id="toggle-reg-confirm"><i class="bx bx-hide"></i></span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary d-grid w-100 waves-effect waves-light">ثبت نام</button>
+                    <div id="regMessage" class="mt-3"></div>
+                </form>
+
+                <div class="text-center mt-1">
+                    <p class="text-muted mb-0">
+                        قبلا ثبت نام کرده‌اید؟
+                        <a href="@Url.Action("LGIN_USRA_V", "EXTR_USRA_CTRL")" class="fw-bold">وارد شوید</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        (function () {
+            var form = document.getElementById('registerForm');
+            var msgDiv = document.getElementById('regMessage');
+            var submitBtn = form.querySelector('button[type="submit"]');
+
+            function togglePwdIcon(btnId, inputId) {
+                document.getElementById(btnId).addEventListener('click', function () {
+                    var inp = document.getElementById(inputId);
+                    var icon = this.querySelector('i');
+                    if (inp.type === 'password') {
+                        inp.type = 'text';
+                        icon.className = 'bx bx-show';
+                    } else {
+                        inp.type = 'password';
+                        icon.className = 'bx bx-hide';
+                    }
+                });
+            }
+            togglePwdIcon('toggle-reg-password', 'regPassword');
+            togglePwdIcon('toggle-reg-confirm', 'regConfirm');
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                var username = document.getElementById('regUsername').value.trim();
+                var userDesc = document.getElementById('regUserDesc').value.trim();
+                var phone = document.getElementById('regPhone').value.trim();
+                var email = document.getElementById('regEmail').value.trim();
+                var password = document.getElementById('regPassword').value;
+                var confirm = document.getElementById('regConfirm').value;
+
+                msgDiv.className = '';
+                msgDiv.textContent = '';
+                submitBtn.disabled = true;
+
+                if (!username || !password || !confirm) {
+                    msgDiv.className = 'alert alert-danger';
+                    msgDiv.textContent = 'نام کاربری و رمز عبور الزامی است';
+                    submitBtn.disabled = false;
+                    return;
+                }
+                if (password !== confirm) {
+                    msgDiv.className = 'alert alert-danger';
+                    msgDiv.textContent = 'رمز عبور و تکرار آن مطابقت ندارد';
+                    submitBtn.disabled = false;
+                    return;
+                }
+                if (password.length < 6) {
+                    msgDiv.className = 'alert alert-danger';
+                    msgDiv.textContent = 'رمز عبور باید حداقل ۶ کاراکتر باشد';
+                    submitBtn.disabled = false;
+                    return;
+                }
+
+                showLoading('در حال ثبت نام...');
+
+                try {
+                    var payload = JSON.stringify({
+                        lgintype: '001',
+                        USER_APP_NAME: username,
+                        USER_APP_DESC: userDesc,
+                        PHON_NUMB: phone,
+                        EMAL_ADRS: email,
+                        PASS_WORD: password,
+                        REMEMBER_ME: '0'
+                    });
+
+                    var response = await fetch('/EXTR_USRA_CTRL/RGTR_USRA_U', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    var data = await response.json();
+
+                    hideLoading();
+                    submitBtn.disabled = false;
+
+                    if (data.rspncode === '0') {
+                        msgDiv.className = 'alert alert-success';
+                        msgDiv.innerHTML = 'ثبت نام با موفقیت انجام شد.<br>اکنون می‌توانید <a href="@Url.Action("LGIN_USRA_V", "EXTR_USRA_CTRL")" class="fw-bold">وارد شوید</a>';
+                        form.reset();
+                    } else {
+                        msgDiv.className = 'alert alert-danger';
+                        msgDiv.textContent = data.rspndesc || 'خطا در ثبت نام';
+                    }
+                } catch {
+                    hideLoading();
+                    submitBtn.disabled = false;
+                    msgDiv.className = 'alert alert-danger';
+                    msgDiv.innerHTML = '<strong>سرور در دسترس نیست</strong><br>پس از بررسی اتصال خود، مجددا تلاش کنید';
+                }
+            });
+        })();
+    </script>
+}

@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+
+<!-- =========================================================
+* Frest Docs - Bootstrap Admin Template | v3.0.0
+==============================================================
+
+* Product Page: https://1.envato.market/frest_admin
+* Created by: PIXINVENT
+* License: You must have a valid license purchased in order to legally use the theme for your project.
+* Copyright PIXINVENT (https://pixinvent.com)
+
+=========================================================
+ -->
+<!-- beautify ignore:start -->
+<html lang="en" class="light-style docs-page  layout-menu-fixed-offcanvas " data-assets-path="assets/">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Table - DataTables | Frest - Bootstrap Admin Template </title>
+
+    <meta name="description" content="Start your development with a Dashboard for Bootstrap" />
+    <meta name="keywords" content="dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    <link rel="stylesheet" href="assets/css/docs.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/highlight/highlight.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/docsearch/docsearch.min.css" />
+    <!-- Datatable css -->
+<link rel="stylesheet" href="assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css">
+<link rel="stylesheet" href="assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css">
+<link rel="stylesheet" href="assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css">
+<link rel="stylesheet" href="assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css">
+
+    <!-- Page CSS -->
+    
+
+    <!-- Core JS -->
+    <script src="assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: Don't remove unless you are aware of it, To hide customizer set displayCustomizer value false in config.js.  -->
+    <!-- <script src="assets/vendor/js/template-customizer.js"></script> -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="assets/js/config.js"></script>
+
+  </head>
+
+  <body>
+
+    
+    <!-- Layout wrapper -->
+<div class="layout-wrapper layout-navbar-full ">
+  <div class="layout-container">
+
+    
+    
+
+
+<!-- Navbar main -->
+
+<nav class="layout-navbar navbar navbar-expand-lg align-items-lg-center bg-primary" id="layout-navbar">
+  <div class="container-fluid">
+    
+    <!-- Menu toggle (see assets/css/demo/demo.css) -->
+    <div class="layout-menu-toggle navbar-nav d-lg-none align-items-lg-center">
+      <a class="nav-item nav-link px-0 me-lg-4" href="javascript:void(0)">
+        <i class="bx bx-menu bx-sm align-middle"></i>
+      </a>
+    </div>
+    
+
+    <!-- Brand demo (see assets/css/demo/demo.css) -->
+    <div class="navbar-brand app-brand demo py-0 me-4">
+      <a href="index.html" class="app-brand-link gap-2">
+        <span class="app-brand-logo demo bg-primary">
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>icon</title>
+  <defs>
+    <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+      <stop stop-color="#5A8DEE" offset="0%"></stop>
+      <stop stop-color="#699AF9" offset="100%"></stop>
+    </linearGradient>
+    <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-2">
+      <stop stop-color="#FDAC41" offset="0%"></stop>
+      <stop stop-color="#E38100" offset="100%"></stop>
+    </linearGradient>
+  </defs>
+  <g id="Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Login---V2" transform="translate(-667.000000, -290.000000)">
+      <g id="Login" transform="translate(519.000000, 244.000000)">
+        <g id="Logo" transform="translate(148.000000, 42.000000)">
+          <g id="icon" transform="translate(0.000000, 4.000000)">
+            <path d="M13.8863636,4.72727273 C18.9447899,4.72727273 23.0454545,8.82793741 23.0454545,13.8863636 C23.0454545,18.9447899 18.9447899,23.0454545 13.8863636,23.0454545 C8.82793741,23.0454545 4.72727273,18.9447899 4.72727273,13.8863636 C4.72727273,13.5423509 4.74623858,13.2027679 4.78318172,12.8686032 L8.54810407,12.8689442 C8.48567157,13.19852 8.45300462,13.5386269 8.45300462,13.8863636 C8.45300462,16.887125 10.8856023,19.3197227 13.8863636,19.3197227 C16.887125,19.3197227 19.3197227,16.887125 19.3197227,13.8863636 C19.3197227,10.8856023 16.887125,8.45300462 13.8863636,8.45300462 C13.5386269,8.45300462 13.19852,8.48567157 12.8689442,8.54810407 L12.8686032,4.78318172 C13.2027679,4.74623858 13.5423509,4.72727273 13.8863636,4.72727273 Z" id="Combined-Shape" fill="#4880EA"></path>
+            <path d="M13.5909091,1.77272727 C20.4442608,1.77272727 26,7.19618701 26,13.8863636 C26,20.5765403 20.4442608,26 13.5909091,26 C6.73755742,26 1.18181818,20.5765403 1.18181818,13.8863636 C1.18181818,13.540626 1.19665566,13.1982714 1.22574292,12.8598734 L6.30410592,12.859962 C6.25499466,13.1951893 6.22958398,13.5378796 6.22958398,13.8863636 C6.22958398,17.8551125 9.52536149,21.0724191 13.5909091,21.0724191 C17.6564567,21.0724191 20.9522342,17.8551125 20.9522342,13.8863636 C20.9522342,9.91761479 17.6564567,6.70030817 13.5909091,6.70030817 C13.2336969,6.70030817 12.8824272,6.72514561 12.5388136,6.77314791 L12.5392575,1.81561642 C12.8859498,1.78721495 13.2366963,1.77272727 13.5909091,1.77272727 Z" id="Combined-Shape2" fill="#fff"></path>
+            <rect id="Rectangle" fill="url(#linearGradient-2)" x="0" y="0" width="7.68181818" height="7.68181818"></rect>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
+
+</span>
+        <span class="app-brand-text demo menu-text fw-bold">Frest</span>
+      </a>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse" id="navbar-collapse">
+      <!-- Divider -->
+      <hr class="d-lg-none w-100 my-2" />
+
+      <!-- <div class="navbar-nav align-items-lg-center"> -->
+      <!-- Search -->
+      <!-- <label class="nav-item navbar-search-box p-0 active">
+          <i class="bx bx-search navbar-icon align-middle pe-2"></i>
+          <span class="navbar-search-input">
+            <input type="text" class="form-control mx-2" placeholder="Search..." style="width:200px" />
+          </span>
+        </label>
+      </div> -->
+
+      <div class="navbar-nav align-items-lg-center ms-auto">
+        
+        <ul class="navbar-nav">
+          
+          <li class="nav-item me-2">
+            <a href="https://demos.pixinvent.com/frest-html-admin-template/html/vertical-menu-template/" target="_blank" class="nav-link"><i class="tf-icons bx bx-target-lock"></i>
+              Live preview</a>
+          </li>
+          
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- / Navbar main -->
+
+    
+
+    <!-- Layout page -->
+    <div class="layout-page">
+
+      
+      
+
+
+
+
+<!-- Menu -->
+<aside id="layout-menu" class="layout-menu menu-doc menu menu-vertical bg-menu-theme">
+
+  
+  <div class="menu-divider mt-0   d-xl-none ">
+  </div>
+
+
+  <!-- Links -->
+  <ul class="menu-inner py-1">
+    <li class="menu-header small fw-semibold">Getting Started</li>
+    <li class="menu-item">
+      <a href="index.html" class="menu-link">
+        <div>Introduction</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="folder-structure.html" class="menu-link">
+        <div>Folder Structure</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="quick-start.html" class="menu-link">
+        <div>Quick Start</div>
+        
+
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="config.html" class="menu-link">
+        <div>Config 🤩</div>
+        
+
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="installation-build.html" class="menu-link">
+        <div>Installation & Build</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="template-customizer.html" class="menu-link">
+        <div>Template Customizer</div>
+        
+
+      </a>
+    </li>
+    <li class="menu-item
+">
+      <a href="javascript:void(0)" class="menu-link menu-toggle">
+        <div>Customization</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="customization-sass.html" class="menu-link">
+            <div>SASS</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="customization-js.html" class="menu-link">
+            <div>JavaScript</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="customization-third-party-plugins.html" class="menu-link">
+            <div>Third Party Plugins</div>
+            
+
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item">
+      <a href="layouts.html" class="menu-link">
+        <div>Layouts</div>
+        
+
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="dependencies.html" class="menu-link">
+        <div>Dependencies</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="faq.html" class="menu-link">
+        <div>FAQs</div>
+      </a>
+    </li>
+    
+    <!-- Apps & Pages -->
+    <li class="menu-divider mb-1"></li>
+    <li class="menu-header small fw-semibold">Design System</li>
+
+    <li class="menu-item">
+      <a href="typography.html" class="menu-link">
+        <div>Typography</div>
+      </a>
+    </li>
+
+    <li class="menu-item">
+      <a href="colors.html" class="menu-link">
+        <div>Colors</div>
+      </a>
+    </li>
+
+    <li class="menu-item">
+      <a href="Icons.html" class="menu-link">
+        <div>Icons</div>
+      </a>
+    </li>
+
+    <!-- Components -->
+    <li class="menu-divider mb-1"></li>
+    <li class="menu-header small fw-semibold">Components</li>
+
+    <!-- UI Elements -->
+    <li class="menu-item
+">
+      <a href="javascript:void(0)" class="menu-link menu-toggle">
+        <div>UI Elements</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="ui-accordion.html" class="menu-link">
+            <div>Accordion</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-alerts.html" class="menu-link">
+            <div>Alerts</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-app-brand.html" class="menu-link">
+            <div>App Brand</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-badges.html" class="menu-link">
+            <div>Badges</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-buttons.html" class="menu-link">
+            <div>Buttons</div>
+          </a>
+        </li>
+        <li class="menu-item
+">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <div>Cards</div>
+          </a>
+          <ul class="menu-sub">
+            <li class="menu-item">
+              <a href="ui-cards-basic.html" class="menu-link">
+                <div>Basic</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="ui-cards-actions.html" class="menu-link">
+                <div>Actions</div>
+                
+
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <a href="ui-carousel.html" class="menu-link">
+            <div>Carousel</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-collapse.html" class="menu-link">
+            <div>Collapse</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-dropdowns.html" class="menu-link">
+            <div>Dropdowns</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-footer.html" class="menu-link">
+            <div>Footer</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-list-groups.html" class="menu-link">
+            <div>List groups</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-modals.html" class="menu-link">
+            <div>Modals</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-menu.html" class="menu-link">
+            <div>Menu</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-navbar.html" class="menu-link">
+            <div>Navbar</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-offcanvas.html" class="menu-link">
+            <div>Offcanvas</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-pagination-breadcrumbs.html" class="menu-link">
+            <div>Pagination &amp; Breadcrumbs</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-popovers.html" class="menu-link">
+            <div>Popovers</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-progress.html" class="menu-link">
+            <div>Progress</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-spinners.html" class="menu-link">
+            <div>Spinners</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-navs.html" class="menu-link">
+            <div>Navs</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-tabs-pills.html" class="menu-link">
+            <div>Tabs &amp; Pills</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-toasts.html" class="menu-link">
+            <div>Toasts</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-tooltips.html" class="menu-link">
+            <div>Tooltips</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Extended components -->
+    <li class="menu-item
+">
+      <a href="javascript:void(0)" class="menu-link menu-toggle">
+        <div>Extended UI</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="extended-ui-avatar.html" class="menu-link">
+            <div>Avatar</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-blockui.html" class="menu-link">
+            <div>BlockUI</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-drag-and-drop.html" class="menu-link">
+            <div>Drag &amp; Drop</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-media-player.html" class="menu-link">
+            <div>Media Player</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-perfect-scrollbar.html" class="menu-link">
+            <div>Perfect scrollbar</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-star-ratings.html" class="menu-link">
+            <div>Star Ratings</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-sweetalert2.html" class="menu-link">
+            <div>SweetAlert2</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-text-divider.html" class="menu-link">
+            <div>Text Divider</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-timeline.html" class="menu-link">
+            <div>Timeline</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-tour.html" class="menu-link">
+            <div>Tour</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-treeview.html" class="menu-link">
+            <div>Treeview</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-misc.html" class="menu-link">
+            <div>Miscellaneous</div>
+            
+
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Forms -->
+    <li class="menu-item
+">
+      <a href="javascript:void(0)" class="menu-link menu-toggle">
+        <div>Forms</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="forms-basic-inputs.html" class="menu-link">
+            <div>Basic Inputs</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-input-groups.html" class="menu-link">
+            <div>Input groups</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-custom-options.html" class="menu-link">
+            <div>Custom Options</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-editors.html" class="menu-link">
+            <div>Editors</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-file-upload.html" class="menu-link">
+            <div>File Upload</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-pickers.html" class="menu-link">
+            <div>Pickers</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-selects.html" class="menu-link">
+            <div>Select &amp; Tags</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-sliders.html" class="menu-link">
+            <div>Sliders</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-switches.html" class="menu-link">
+            <div>Switches</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-extras.html" class="menu-link">
+            <div>Extras</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-validation.html" class="menu-link">
+            <div>Validation</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-wizard.html" class="menu-link">
+            <div>Wizard</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-layouts-sticky.html" class="menu-link">
+            <div>Sticky Actions</div>
+            
+
+          </a>
+        </li>
+      </ul>
+    </li>
+    <!-- Tables -->
+    <li class="menu-item">
+      <a href="tables-basic.html" class="menu-link">
+        <div>Tables</div>
+      </a>
+    </li>
+    <li class="menu-item active">
+      <a href="tables-datatables.html" class="menu-link">
+        <div>Datatables</div>
+        
+
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="utilities.html" class="menu-link">
+        <div>Utilities</div>
+      </a>
+    </li>
+
+    <!-- Charts & Maps -->
+    <li class="menu-divider mb-1"></li>
+    <li class="menu-header small fw-semibold">Charts &amp; Maps</li>
+
+    <li class="menu-item">
+      <a href="charts-apex.html" class="menu-link">
+        <div>Apex Charts</div>
+        
+
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="charts-chartjs.html" class="menu-link">
+        <div>ChartJS</div>
+        
+
+      </a>
+    </li>
+    <li class="menu-item
+">
+      <a href="javascript:void(0)" class="menu-link menu-toggle">
+        <div>Maps</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="maps-leaflet.html" class="menu-link">
+            <div>Leaflet</div>
+
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Charts & Maps -->
+    <li class="menu-divider mb-1"></li>
+    <li class="menu-header small fw-semibold">Others</li>
+    <li class="menu-item">
+      <a href="credits.html" class="menu-link">
+        <div>Credits</div>
+      </a>
+    </li>
+  </ul>
+</aside>
+<!-- / Menu -->
+
+      
+
+      <!-- Content wrapper -->
+      <div class="content-wrapper">
+
+        <!-- Content -->
+        
+          <div class="container-xxl flex-grow-1 container-p-y">
+            
+            
+<div class="row flex-xl-nowrap">
+  <div class="DocSearch-content col-12 col-xl-10 container-p-y">
+    <h2 class="mb-4 doc-page-title">DataTables</h2>
+    <p>
+      DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, built upon the
+      foundations of progressive enhancement,
+      that adds all of these advanced features to any HTML table.<br />Read the official
+      <a href="https://datatables.net/" target="_blank">DataTables</a> for a full list of instructions
+      and other options.
+    </p>
+
+    <hr class="my-5" />
+
+    <!-- Basic DataTable -->
+    <div class="row">
+      <div class="col-12">
+        <h4 id="basic-datatable" class="anchor-heading mb-4 fw-bold">Basic DataTable</h4>
+        <p>
+          Here you can find basic dataTable with filter, pagination, Length Changing, information, etc.. We have added a
+          button to Add new record in the table. You can find details in the example below :
+        </p>
+        <p>You need to install buttons and other export extensions to use the buttons as we have displayed in this
+          table.</p>
+        <div class="alert alert-info">We are providing <strong>Add new record</strong> functionality but this
+          won't be
+          useful to add record into the database, API, etc. We are fetching the data and drawing the record with fetched
+          data.
+          So you have to integrate add new record things as per your requirements. To remove this functionality of this
+          template, you need to remove JS code from <strong>tables-datatables-basic.js</strong> file.</div>
+        <div class="doc-example">
+          <ul class="nav nav-tabs-example justify-content-end" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="basic-datatable-preview-tab" data-bs-toggle="tab" data-bs-target="#basic-datatable-preview" role="tab" aria-controls="basic-datatable-preview" aria-selected="true">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="basic-datatable-html-tab" data-bs-toggle="tab" data-bs-target="#basic-datatable-html" role="tab" aria-controls="basic-datatable-html" aria-selected="false">HTML</a>
+            <li class="nav-item">
+              <a class="nav-link" id="basic-datatable-js-tab" data-bs-toggle="tab" data-bs-target="#basic-datatable-js" role="tab" aria-controls="basic-datatable-js" aria-selected="false">JS</a>
+            </li>
+          </ul>
+          <div class="tab-content doc-example-content" id="tab-tabContent" data-label="Example">
+            <div class="tab-pane fade show active" id="basic-datatable-preview" role="tabpanel" aria-labelledby="basic-datatable-preview-tab">
+              <div class="card">
+                <div class="card-datatable table-responsive pt-0">
+                  <table class="datatables-basic table table-bordered">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th></th>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Date</th>
+                        <th>Salary</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="basic-datatable-html" role="tabpanel" aria-labelledby="basic-datatable-html-tab">
+              <div class="doc-clipboard">
+                <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                  Copy
+                </button>
+              </div>
+              <pre
+                class="docs-code"><code class="html">&lt;div class=&quot;card-datatable table-responsive pt-0&quot;&gt;&#13;&#10;  &lt;table class=&quot;datatables-basic table table-bordered&quot;&gt;&#13;&#10;    &lt;thead&gt;&#13;&#10;      &lt;tr&gt;&#13;&#10;        &lt;th&gt;&lt;/th&gt;&#13;&#10;        &lt;th&gt;&lt;/th&gt;&#13;&#10;        &lt;th&gt;id&lt;/th&gt;&#13;&#10;        &lt;th&gt;Name&lt;/th&gt;&#13;&#10;        &lt;th&gt;Email&lt;/th&gt;&#13;&#10;        &lt;th&gt;Date&lt;/th&gt;&#13;&#10;        &lt;th&gt;Salary&lt;/th&gt;&#13;&#10;        &lt;th&gt;Status&lt;/th&gt;&#13;&#10;        &lt;th&gt;Action&lt;/th&gt;&#13;&#10;      &lt;/tr&gt;&#13;&#10;    &lt;/thead&gt;&#13;&#10;  &lt;/table&gt;&#13;&#10;&lt;/div&gt;</code></pre>
+            </div>
+            <div class="tab-pane fade" id="basic-datatable-js" role="tabpanel" aria-labelledby="basic-datatable-js-tab">
+              <div class="doc-clipboard">
+                <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                  Copy
+                </button>
+              </div>
+              <pre
+                class="docs-code"><code class="js">$(function() {&#13;&#10;  &apos;use strict&apos;;&#13;&#10;&#13;&#10;  var dt_basic_table = $(&apos;.datatables-basic&apos;);&#13;&#10;&#13;&#10;  // DataTable with buttons&#13;&#10;  // --------------------------------------------------------------------&#13;&#10;&#13;&#10;  if (dt_basic_table.length) {&#13;&#10;    var dt_basic = dt_basic_table.DataTable({&#13;&#10;      ajax: assetsPath + &apos;/json/table-datatable.json&apos;,&#13;&#10;      columns: [&#13;&#10;        { data: &apos;&apos; },&#13;&#10;        { data: &apos;id&apos; },&#13;&#10;        { data: &apos;id&apos; },&#13;&#10;        { data: &apos;full_name&apos; },&#13;&#10;        { data: &apos;email&apos; },&#13;&#10;        { data: &apos;start_date&apos; },&#13;&#10;        { data: &apos;salary&apos; },&#13;&#10;        { data: &apos;status&apos; },&#13;&#10;        { data: &apos;&apos; }&#13;&#10;      ],&#13;&#10;      columnDefs: [&#13;&#10;        {&#13;&#10;          // For Responsive&#13;&#10;          className: &apos;control&apos;,&#13;&#10;          orderable: false,&#13;&#10;          responsivePriority: 2,&#13;&#10;          searchable: false,&#13;&#10;          targets: 0,&#13;&#10;          render: function(data, type, full, meta) {&#13;&#10;            return &apos;&apos;;&#13;&#10;          }&#13;&#10;        },&#13;&#10;        {&#13;&#10;          // For Checkboxes&#13;&#10;          targets: 1,&#13;&#10;          orderable: false,&#13;&#10;          responsivePriority: 3,&#13;&#10;          searchable: false,&#13;&#10;          checkboxes: true,&#13;&#10;          render: function() {&#13;&#10;            return &apos;&lt;input type=&quot;checkbox&quot; class=&quot;dt-checkboxes form-check-input&quot;&gt;&apos;;&#13;&#10;          },&#13;&#10;          checkboxes: {&#13;&#10;            selectAllRender: &apos;&lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot;&gt;&apos;&#13;&#10;          }&#13;&#10;        },&#13;&#10;        {&#13;&#10;          targets: 2,&#13;&#10;          searchable: false,&#13;&#10;          visible: false&#13;&#10;        },&#13;&#10;        {&#13;&#10;          // Avatar image/badge, Name and post&#13;&#10;          targets: 3,&#13;&#10;          responsivePriority: 4,&#13;&#10;          render: function(data, type, full, meta) {&#13;&#10;            var $user_img = full[&apos;avatar&apos;],&#13;&#10;              $name = full[&apos;full_name&apos;],&#13;&#10;              $post = full[&apos;post&apos;];&#13;&#10;            if ($user_img) {&#13;&#10;              // For Avatar image&#13;&#10;              var $output =&#13;&#10;                &apos;&lt;img src=&quot;&apos; + assetsPath + &apos;/img/avatars/&apos; + $user_img + &apos;&quot; alt=&quot;Avatar&quot; class=&quot;rounded-circle&quot;&gt;&apos;;&#13;&#10;            } else {&#13;&#10;              // For Avatar badge&#13;&#10;              var stateNum = Math.floor(Math.random() * 6);&#13;&#10;              var states = [&apos;success&apos;, &apos;danger&apos;, &apos;warning&apos;, &apos;info&apos;, &apos;dark&apos;, &apos;primary&apos;, &apos;secondary&apos;];&#13;&#10;              var $state = states[stateNum],&#13;&#10;                $name = full[&apos;full_name&apos;],&#13;&#10;                $initials = $name.match(/\b\w/g) || [];&#13;&#10;              $initials = (($initials.shift() || &apos;&apos;) + ($initials.pop() || &apos;&apos;)).toUpperCase();&#13;&#10;              $output = &apos;&lt;span class=&quot;avatar-initial rounded-circle bg-label-&apos; + $state + &apos;&quot;&gt;&apos; + $initials + &apos;&lt;/span&gt;&apos;;&#13;&#10;            }&#13;&#10;            // Creates full output for row&#13;&#10;            var $row_output =&#13;&#10;              &apos;&lt;div class=&quot;d-flex justify-content-start align-items-center&quot;&gt;&apos; +&#13;&#10;              &apos;&lt;div class=&quot;avatar-wrapper&quot;&gt;&apos; +&#13;&#10;              &apos;&lt;div class=&quot;avatar me-2&quot;&gt;&apos; +&#13;&#10;              $output +&#13;&#10;              &apos;&lt;/div&gt;&apos; +&#13;&#10;              &apos;&lt;/div&gt;&apos; +&#13;&#10;              &apos;&lt;div class=&quot;d-flex flex-column&quot;&gt;&apos; +&#13;&#10;              &apos;&lt;span class=&quot;emp_name text-truncate&quot;&gt;&apos; +&#13;&#10;              $name +&#13;&#10;              &apos;&lt;/span&gt;&apos; +&#13;&#10;              &apos;&lt;small class=&quot;emp_post text-truncate text-muted&quot;&gt;&apos; +&#13;&#10;              $post +&#13;&#10;              &apos;&lt;/small&gt;&apos; +&#13;&#10;              &apos;&lt;/div&gt;&apos; +&#13;&#10;              &apos;&lt;/div&gt;&apos;;&#13;&#10;            return $row_output;&#13;&#10;          }&#13;&#10;        },&#13;&#10;        {&#13;&#10;          responsivePriority: 1,&#13;&#10;          targets: 4&#13;&#10;        },&#13;&#10;        {&#13;&#10;          // Label&#13;&#10;          targets: -2,&#13;&#10;          render: function(data, type, full, meta) {&#13;&#10;            var $status_number = full[&apos;status&apos;];&#13;&#10;            var $status = {&#13;&#10;              1: { title: &apos;Current&apos;, class: &apos;bg-label-primary&apos; },&#13;&#10;              2: { title: &apos;Professional&apos;, class: &apos; bg-label-success&apos; },&#13;&#10;              3: { title: &apos;Rejected&apos;, class: &apos; bg-label-danger&apos; },&#13;&#10;              4: { title: &apos;Resigned&apos;, class: &apos; bg-label-warning&apos; },&#13;&#10;              5: { title: &apos;Applied&apos;, class: &apos; bg-label-info&apos; }&#13;&#10;            };&#13;&#10;            if (typeof $status[$status_number] === &apos;undefined&apos;) {&#13;&#10;              return data;&#13;&#10;            }&#13;&#10;            return (&#13;&#10;              &apos;&lt;span class=&quot;badge rounded-pill &apos; +&#13;&#10;              $status[$status_number].class +&#13;&#10;              &apos;&quot;&gt;&apos; +&#13;&#10;              $status[$status_number].title +&#13;&#10;              &apos;&lt;/span&gt;&apos;&#13;&#10;            );&#13;&#10;          }&#13;&#10;        },&#13;&#10;        {&#13;&#10;          // Actions&#13;&#10;          targets: -1,&#13;&#10;          title: &apos;Actions&apos;,&#13;&#10;          orderable: false,&#13;&#10;          searchable: false,&#13;&#10;          render: function(data, type, full, meta) {&#13;&#10;            return (&#13;&#10;              &apos;&lt;div class=&quot;d-inline-block&quot;&gt;&apos; +&#13;&#10;              &apos;&lt;a href=&quot;javascript:;&quot; class=&quot;btn btn-sm text-primary btn-icon dropdown-toggle hide-arrow&quot; data-bs-toggle=&quot;dropdown&quot;&gt;&lt;i class=&quot;bx bx-dots-vertical-rounded&quot;&gt;&lt;/i&gt;&lt;/a&gt;&apos; +&#13;&#10;              &apos;&lt;ul class=&quot;dropdown-menu dropdown-menu-end&quot;&gt;&apos; +&#13;&#10;              &apos;&lt;li&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;dropdown-item&quot;&gt;Details&lt;/a&gt;&lt;/li&gt;&apos; +&#13;&#10;              &apos;&lt;li&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;dropdown-item&quot;&gt;Archive&lt;/a&gt;&lt;/li&gt;&apos; +&#13;&#10;              &apos;&lt;div class=&quot;dropdown-divider&quot;&gt;&lt;/div&gt;&apos; +&#13;&#10;              &apos;&lt;li&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;dropdown-item text-danger delete-record&quot;&gt;Delete&lt;/a&gt;&lt;/li&gt;&apos; +&#13;&#10;              &apos;&lt;/ul&gt;&apos; +&#13;&#10;              &apos;&lt;/div&gt;&apos; +&#13;&#10;              &apos;&lt;a href=&quot;javascript:;&quot; class=&quot;btn btn-sm text-primary btn-icon item-edit&quot;&gt;&lt;i class=&quot;bx bxs-edit&quot;&gt;&lt;/i&gt;&lt;/a&gt;&apos;&#13;&#10;            );&#13;&#10;          }&#13;&#10;        }&#13;&#10;      ],&#13;&#10;      order: [[2, &apos;desc&apos;]],&#13;&#10;      dom:&#13;&#10;        &apos;&lt;&quot;card-header&quot;&lt;&quot;head-label text-center&quot;&gt;&lt;&quot;dt-action-buttons text-end&quot;B&gt;&gt;&lt;&quot;d-flex justify-content-between align-items-center row&quot;&lt;&quot;col-sm-12 col-md-6&quot;l&gt;&lt;&quot;col-sm-12 col-md-6&quot;f&gt;&gt;t&lt;&quot;d-flex justify-content-between row&quot;&lt;&quot;col-sm-12 col-md-6&quot;i&gt;&lt;&quot;col-sm-12 col-md-6&quot;p&gt;&gt;&apos;,&#13;&#10;      displayLength: 7,&#13;&#10;      lengthMenu: [7, 10, 25, 50, 75, 100],&#13;&#10;      buttons: [&#13;&#10;        {&#13;&#10;          extend: &apos;collection&apos;,&#13;&#10;          className: &apos;btn btn-label-primary dropdown-toggle me-2&apos;,&#13;&#10;          text: &apos;&lt;i class=&quot;bx bx-show me-1&quot;&gt;&lt;/i&gt;Export&apos;,&#13;&#10;          buttons: [&#13;&#10;            {&#13;&#10;              extend: &apos;print&apos;,&#13;&#10;              text: &apos;&lt;i class=&quot;bx bx-printer me-1&quot; &gt;&lt;/i&gt;Print&apos;,&#13;&#10;              className: &apos;dropdown-item&apos;,&#13;&#10;              exportOptions: { columns: [3, 4, 5, 6, 7] }&#13;&#10;            },&#13;&#10;            {&#13;&#10;              extend: &apos;csv&apos;,&#13;&#10;              text: &apos;&lt;i class=&quot;bx bx-file me-1&quot; &gt;&lt;/i&gt;Csv&apos;,&#13;&#10;              className: &apos;dropdown-item&apos;,&#13;&#10;              exportOptions: { columns: [3, 4, 5, 6, 7] }&#13;&#10;            },&#13;&#10;            {&#13;&#10;              extend: &apos;excel&apos;,&#13;&#10;              text: &apos;Excel&apos;,&#13;&#10;              className: &apos;dropdown-item&apos;,&#13;&#10;              exportOptions: { columns: [3, 4, 5, 6, 7] }&#13;&#10;            },&#13;&#10;            {&#13;&#10;              extend: &apos;pdf&apos;,&#13;&#10;              text: &apos;&lt;i class=&quot;bx bxs-file-pdf me-1&quot;&gt;&lt;/i&gt;Pdf&apos;,&#13;&#10;              className: &apos;dropdown-item&apos;,&#13;&#10;              exportOptions: { columns: [3, 4, 5, 6, 7] }&#13;&#10;            },&#13;&#10;            {&#13;&#10;              extend: &apos;copy&apos;,&#13;&#10;              text: &apos;&lt;i class=&quot;bx bx-copy me-1&quot; &gt;&lt;/i&gt;Copy&apos;,&#13;&#10;              className: &apos;dropdown-item&apos;,&#13;&#10;              exportOptions: { columns: [3, 4, 5, 6, 7] }&#13;&#10;            }&#13;&#10;          ]&#13;&#10;        },&#13;&#10;        {&#13;&#10;          text: &apos;&lt;i class=&quot;bx bx-plus me-1&quot;&gt;&lt;/i&gt; &lt;span class=&quot;d-none d-lg-inline-block&quot;&gt;Add New Record&lt;/span&gt;&apos;,&#13;&#10;          className: &apos;create-new btn btn-primary&apos;&#13;&#10;        }&#13;&#10;      ],&#13;&#10;      responsive: {&#13;&#10;        details: {&#13;&#10;          display: $.fn.dataTable.Responsive.display.modal({&#13;&#10;            header: function(row) {&#13;&#10;              var data = row.data();&#13;&#10;              return &apos;Details of &apos; + data[&apos;full_name&apos;];&#13;&#10;            }&#13;&#10;          }),&#13;&#10;          type: &apos;column&apos;,&#13;&#10;          renderer: function(api, rowIdx, columns) {&#13;&#10;            var data = $.map(columns, function(col, i) {&#13;&#10;              return col.title !== &apos;&apos; // ? Do not show row in modal popup if title is blank (for check box)&#13;&#10;                ? &apos;&lt;tr data-dt-row=&quot;&apos; +&#13;&#10;                    col.rowIndex +&#13;&#10;                    &apos;&quot; data-dt-column=&quot;&apos; +&#13;&#10;                    col.columnIndex +&#13;&#10;                    &apos;&quot;&gt;&apos; +&#13;&#10;                    &apos;&lt;td&gt;&apos; +&#13;&#10;                    col.title +&#13;&#10;                    &apos;:&apos; +&#13;&#10;                    &apos;&lt;/td&gt; &apos; +&#13;&#10;                    &apos;&lt;td&gt;&apos; +&#13;&#10;                    col.data +&#13;&#10;                    &apos;&lt;/td&gt;&apos; +&#13;&#10;                    &apos;&lt;/tr&gt;&apos;&#13;&#10;                : &apos;&apos;;&#13;&#10;            }).join(&apos;&apos;);&#13;&#10;&#13;&#10;            return data ? $(&apos;&lt;table class=&quot;table&quot;/&gt;&lt;tbody /&gt;&apos;).append(data) : false;&#13;&#10;          }&#13;&#10;        }&#13;&#10;      }&#13;&#10;    });&#13;&#10;    $(&apos;div.head-label&apos;).html(&apos;&lt;h5 class=&quot;card-title mb-0&quot;&gt;DataTable with Buttons&lt;/h5&gt;&apos;);&#13;&#10;  }&#13;&#10;});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Basic DataTable -->
+
+    <hr class="my-5">
+
+    <!-- Datatable Links -->
+    <div class="row">
+      <div class="col-12">
+        <h4 id="dt-links" class="anchor-heading mb-4 fw-bold">Important Links of DataTables</h4>
+        <table class="table table-bordered">
+          <tr>
+            <th>Title</th>
+            <th>Link</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td class="text-truncate">NPM Packages</td>
+            <td><a href="https://datatables.net/download/npm" target="_blank">https://datatables.net/download/npm</a></td>
+            <td>DataTables and its extensions are available as <a href="https://www.npmjs.com/" target="_blank">NPM</a>
+              packages.</td>
+          </tr>
+          <tr>
+            <td class="text-truncate">DataTables Extensions</td>
+            <td><a href="https://datatables.net/extensions/index" target="_blank">https://datatables.net/extensions/index</a></td>
+            <td>The features that DataTables provides can be greatly enhanced by the use of the plug-ins available on
+              this page, which give many new user interaction and configuration options.</td>
+          </tr>
+          <tr>
+            <td class="text-truncate">DataTables DOM</td>
+            <td><a href="https://datatables.net/reference/option/dom" target="_blank">https://datatables.net/reference/option/dom</a>
+            </td>
+            <td>Define the table control elements to appear on the page and in what order.</td>
+          </tr>
+          <tr>
+            <td class="text-truncate">DataTables Plugins</td>
+            <td><a href="https://datatables.net/plug-ins/index" target="_blank">https://datatables.net/plug-ins/index</a></td>
+            <td>DataTables provide plug-ins of various types, which has a lot of flexibility built-in by default.</td>
+          </tr>
+          <tr>
+            <td class="text-truncate">DataTables Manual</td>
+            <td><a href="https://datatables.net/manual/index" target="_blank">https://datatables.net/manual/index</a></td>
+            <td>DataTable manual is made to guide developer or end users to make it easy and more powerful.</td>
+          </tr>
+          <tr>
+            <td class="text-truncate">DataTables Examples</td>
+            <td><a href="https://datatables.net/examples/index" target="_blank">https://datatables.net/examples/index</a></td>
+            <td>DataTable examples will show you how to perform tasks ranging from something as simple as applying
+              DataTables to an HTML table, right the way through to doing server-side processing with pipelining and
+              custom plug-in functions.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!--/ Datatable Links -->
+
+    <hr class="my-5" />
+
+    <!-- Installation guide -->
+    <div class="row">
+      <div class="col-12">
+        <h4 id="installation-guide" class="anchor-heading mb-4 fw-bold">Installation Guide</h4>
+        <p>
+          As you have already used, <code> npm install </code> or <code>yarn install</code> command when you have
+          started this package,
+          that will include dataTables package with few extensions that we are using in this template. If you have not
+          executed any of these commands, then you can do it now :)
+        </p>
+      </div>
+    </div>
+    <!--/ Installation guide -->
+
+  </div>
+
+  <div class="d-none d-xl-block col-xl-2 doc-sidebar container-p-y">
+    <nav id="vertical-nav" class="navbar p-0">
+      <ul class="doc-sidebar-nav">
+        <li class="doc-entry doc-h2"><a class="nav-link" href="#basic-datatable">Basic DataTable</a></li>
+        <li class="doc-entry doc-h2"><a class="nav-link" href="#dt-links">Important Links of DataTables</a></li>
+        <li class="doc-entry doc-h2"><a class="nav-link" href="#installation-guide">Installation Guide</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+          </div>
+          <!-- / Content -->
+
+          
+          <footer class="content-footer footer">
+  <div class="container-fluid d-flex flex-wrap justify-content-between align-items-center text-center py-3">
+    <div>
+      © 2017- <script>
+      document.write(new Date().getFullYear())
+
+      </script>
+      
+      <a href="https://pixinvent.com" class="footer-text fw-bolder" target="_blank">PIXINVENT</a>, Hand-crafted
+      & Made with ❤️
+      
+    </div>
+    <div>
+      
+      <a href="https://www.facebook.com/pixinvents" class="footer-link me-3" target="_blank"><i class="tf-icons bx bxl-facebook"></i></a>
+       
+      <a href="https://twitter.com/pixinvents" class="footer-link me-3" target="_blank"><i class="tf-icons bx bxl-twitter"></i></a>
+       
+      <a href="https://github.com/pixinvent" class="footer-link me-3" target="_blank"><i class="tf-icons bx bxl-github"></i></a>
+       
+      <a href="https://dribbble.com/pixinvent" class="footer-link me-3" target="_blank"><i class="tf-icons bx bxl-dribbble"></i></a>
+       
+      <a href="https://www.instagram.com/pixinvents/" class="footer-link me-3" target="_blank"><i class="tf-icons bx bxl-instagram"></i></a>
+      
+    </div>
+  </div>
+</footer>
+
+          
+        </div>
+        <!-- Content wrapper -->
+
+      </div>
+      <!-- / Layout page -->
+
+    </div>
+
+     
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
+    
+    <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+    <div class="drag-target"></div>
+  </div>
+  <!-- / Layout wrapper -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/libs/highlight/highlight.js"></script>
+    <script src="assets/vendor/libs/clipboard/clipboard.js"></script>
+    
+    <script src="assets/vendor/libs/popper/popper.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/libs/hammer/hammer.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+    <script type="text/javascript" src="assets/vendor/libs/docsearch/docsearch.min.js"></script>
+    <!-- Vendors JS -->
+    <!-- BS table js -->
+<script src="assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
+
+    <!-- Page JS -->
+    <script src="assets/js/docs.js"></script>
+    <script src="assets/js/docs-tables-datatables.js"></script>
+  </body>
+
+</html>
+
+
+<!-- beautify ignore:end -->
+

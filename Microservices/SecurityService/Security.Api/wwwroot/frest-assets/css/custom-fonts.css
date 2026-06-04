@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Vazirmatn:wght@300;400;500;700;900&display=swap');
+
+html body,
+html .card-title,
+html .card-header,
+html .app-brand-text,
+html h1, html h2, html h3, html h4, html h5, html h6,
+html .primary-font {
+  font-family: "Vazirmatn", "Inter", "Segoe UI", "Tahoma", sans-serif !important;
+}
+
+html .secondary-font {
+  font-family: "Vazirmatn", "Inter", "Segoe UI", "Tahoma", sans-serif !important;
+}
+
+html .card-title,
+html .card-header,
+html .breadcrumb-wrapper,
+html .app-brand-text {
+  font-family: "Vazirmatn", "Inter", "Segoe UI", "Tahoma", sans-serif !important;
+}

@@ -1,0 +1,164 @@
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "اطلاعیه کاربر";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h4 class="fw-bold mb-0">اطلاعیه کاربر</h4>
+        <p class="text-muted mt-1 mb-0">لیست اطلاعیه کاربر</p>
+    </div>
+    <a href="@Url.Action("DASH_BORD_V", "DASH_BORD_CTRL")" class="btn btn-outline-secondary">
+        <i class="bx bx-arrow-right me-1"></i>بازگشت
+    </a>
+</div>
+
+<div class="table-wrap">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <input type="text" id="filterNOFT_NAME" class="form-control" placeholder="عنوان" onkeypress="if(event.key==='Enter'){loadItems(1)}">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="filterNOTF_DESC" class="form-control" placeholder="توضیحات" onkeypress="if(event.key==='Enter'){loadItems(1)}">
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary w-100" onclick="loadItems(1)">جستجو</button>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover mb-0" id="itemsTable">
+                <thead>
+                    <tr>
+                        <th>کد</th>
+                        <th>کد خبر</th>
+                        <th>کد کاربر</th>
+                        <th>عنوان</th>
+                        <th>توضیحات</th>
+                        <th>خوانده</th>
+                        <th>شرح</th>
+                        <th>پین</th>
+                        <th>شرح</th>
+                        <th style="width:60px">عملیات</th>
+                    </tr>
+                </thead>
+                <tbody id="itemsTableBody">
+                    <tr>
+                        <td colspan="10" class="text-center text-muted">در حال بارگذاری...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="paginationContainer" class="px-3 pb-3 pt-2"></div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        (function () {
+            var tbody = document.getElementById('itemsTableBody');
+            var currentPage = 1;
+
+            function getFilter() {
+                return {
+                    NOFT_NAME: document.getElementById('filterNOFT_NAME').value,
+                    NOTF_DESC: document.getElementById('filterNOTF_DESC').value
+                };
+            }
+
+            function loadItems(page) {
+                var f = getFilter();
+                var q = 'page=' + page
+                    + '&NOFT_NAME=' + encodeURIComponent(f.NOFT_NAME)
+                    + '&NOTF_DESC=' + encodeURIComponent(f.NOTF_DESC)
+                fetch('/EXTR_UNOT_CTRL/LIST_UNOT_U?' + q)
+                    .then(function (r) { return r.json(); })
+                    .then(function (data) {
+                        if (data.rspncode !== '0') {
+                            tbody.innerHTML = '<tr><td colspan="10" class="text-center text-danger">خطا در دریافت داده</td></tr>';
+                            return;
+                        }
+                        var items = data.data;
+                        currentPage = parseInt(data.page_numb) || 1;
+                        var totalCount = parseInt(data.total_count) || 0;
+                        var pageSize = parseInt(data.page_size) || 20;
+                        var totalPages = Math.ceil(totalCount / pageSize) || 1;
+                        if (!items || items.length === 0) {
+                            tbody.innerHTML = '<tr><td colspan="10" class="text-center text-muted">موردی یافت نشد</td></tr>';
+                            renderPagination(totalPages, totalCount);
+                            return;
+                        }
+                        var html = '';
+                        for (var i = 0; i < items.length; i++) {
+                            var item = items[i];
+                            html += '<tr>' +
+                            '<td>' + escapeHtml(item.CODE || '') + '</td>' +
+                            '<td>' + escapeHtml(item.NEWS_CODE || '') + '</td>' +
+                            '<td>' + escapeHtml(item.USRA_CODE || '') + '</td>' +
+                            '<td>' + escapeHtml(item.NOFT_NAME || '') + '</td>' +
+                            '<td>' + escapeHtml(item.NOTF_DESC || '') + '</td>' +
+                            '<td><span class=''badge '' + (item.READ_STAT === ''002'' ? ''bg-label-success'' : ''bg-label-danger'') + ''>' + escapeHtml(item.READ_STAT_DESC || item.READ_STAT) + '</span></td>' +
+                            '<td><span class=''badge '' + (item.READ_STAT_DESC === ''002'' ? ''bg-label-success'' : ''bg-label-danger'') + ''>' + escapeHtml(item.READ_STAT_DESC_DESC || item.READ_STAT_DESC) + '</span></td>' +
+                            '<td><span class=''badge '' + (item.PIN_STAT === ''002'' ? ''bg-label-success'' : ''bg-label-danger'') + ''>' + escapeHtml(item.PIN_STAT_DESC || item.PIN_STAT) + '</span></td>' +
+                            '<td><span class=''badge '' + (item.PIN_STAT_DESC === ''002'' ? ''bg-label-success'' : ''bg-label-danger'') + ''>' + escapeHtml(item.PIN_STAT_DESC_DESC || item.PIN_STAT_DESC) + '</span></td>' +
+                                '<td class="text-center">' +
+                                    '<div class="dropdown action-dropdown">' +
+                                        '<button class="btn btn-primary btn-xs waves-effect waves-light px-1 py-0" type="button" data-bs-toggle="dropdown" style="font-size:0.85rem;line-height:1.4">' +
+                                            '<i class="bx bx-chevron-down"></i>' +
+                                        '</button>' +
+                                        '<ul class="dropdown-menu dropdown-menu-end">' +
+                                            '<li><a class="dropdown-item" data-action="edit" href="#"><i class="bx bx-edit me-1"></i>ویرایش</a></li>' +
+                                            '<li><a class="dropdown-item" data-action="delete" href="#"><i class="bx bx-trash me-1"></i>حذف</a></li>' +
+                                        '</ul>' +
+                                    '</div>' +
+                                '</td>' +
+                                '</tr>';
+                        }
+                        tbody.innerHTML = html;
+                        renderPagination(totalPages, totalCount);
+                    })
+                    .catch(function () {
+                        tbody.innerHTML = '<tr><td colspan="10" class="text-center text-danger">خطا در ارتباط با سرور</td></tr>';
+                    });
+            }
+
+            function renderPagination(totalPages, totalCount) {
+                var container = document.getElementById('paginationContainer');
+                if (!container) return;
+                var html = '<div class="d-flex justify-content-between align-items-center mt-3">';
+                html += '<span class="text-muted small">' + toPersianNumber(totalCount) + ' مورد</span>';
+                html += '<ul class="pagination pagination-sm mb-0">';
+                html += '<li class="page-item ' + (currentPage <= 1 ? 'disabled' : '') + '"><a class="page-link" href="#" onclick="event.preventDefault(); loadItems(' + (currentPage - 1) + ')">قبلی</a></li>';
+                for (var p = 1; p <= totalPages; p++) {
+                    html += '<li class="page-item ' + (p === currentPage ? 'active' : '') + '"><a class="page-link" href="#" onclick="event.preventDefault(); loadItems(' + p + ')">' + toPersianNumber(p) + '</a></li>';
+                }
+                html += '<li class="page-item ' + (currentPage >= totalPages ? 'disabled' : '') + '"><a class="page-link" href="#" onclick="event.preventDefault(); loadItems(' + (currentPage + 1) + ')">بعدی</a></li>';
+                html += '</ul></div>';
+                container.innerHTML = html;
+            }
+
+            function toPersianNumber(num) {
+                return num.toString().replace(/\d/g, function (d) { return '\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669'[d]; });
+            }
+
+            function toPersianDate(dateStr) {
+                if (!dateStr) return '---';
+                var d = new Date(dateStr.replace(' ', 'T'));
+                if (isNaN(d.getTime())) return '---';
+                return d.toLocaleDateString('fa-IR', { year: 'numeric', month: '2-digit', day: '2-digit' }) + ' \u200e' + d.toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit' });
+            }
+
+            function escapeHtml(text) {
+                if (typeof text !== 'string') return text;
+                var div = document.createElement('div');
+                div.appendChild(document.createTextNode(text));
+                return div.innerHTML;
+            }
+
+            window.loadItems = loadItems;
+            loadItems(1);
+        })();
+    </script>
+}

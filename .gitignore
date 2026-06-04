@@ -1,0 +1,17 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+bin/
+obj/
+*.csproj.user
+
+# Node
+node_modules/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Temp
+frest-admin-html-template-main-4.1.0.3/Frest_Package_v4.1.0.3/1. Theme/frest_extracted/

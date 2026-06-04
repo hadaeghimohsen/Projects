@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+
+<!-- =========================================================
+* Frest Docs - Bootstrap Admin Template | v3.0.0
+==============================================================
+
+* Product Page: https://1.envato.market/frest_admin
+* Created by: PIXINVENT
+* License: You must have a valid license purchased in order to legally use the theme for your project.
+* Copyright PIXINVENT (https://pixinvent.com)
+
+=========================================================
+ -->
+<!-- beautify ignore:start -->
+<html lang="en" class="light-style docs-page  layout-menu-fixed-offcanvas " data-assets-path="assets/">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Navbar - UI elements | Frest - Bootstrap Admin Template </title>
+
+    <meta name="description" content="Start your development with a Dashboard for Bootstrap" />
+    <meta name="keywords" content="dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    <link rel="stylesheet" href="assets/css/docs.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/highlight/highlight.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/docsearch/docsearch.min.css" />
+    
+
+    <!-- Page CSS -->
+    
+
+    <!-- Core JS -->
+    <script src="assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: Don't remove unless you are aware of it, To hide customizer set displayCustomizer value false in config.js.  -->
+    <!-- <script src="assets/vendor/js/template-customizer.js"></script> -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="assets/js/config.js"></script>
+
+  </head>
+
+  <body>
+
+    
+    <!-- Layout wrapper -->
+<div class="layout-wrapper layout-navbar-full ">
+  <div class="layout-container">
+
+    
+    
+
+
+<!-- Navbar main -->
+
+<nav class="layout-navbar navbar navbar-expand-lg align-items-lg-center bg-primary" id="layout-navbar">
+  <div class="container-fluid">
+    
+    <!-- Menu toggle (see assets/css/demo/demo.css) -->
+    <div class="layout-menu-toggle navbar-nav d-lg-none align-items-lg-center">
+      <a class="nav-item nav-link px-0 me-lg-4" href="javascript:void(0)">
+        <i class="bx bx-menu bx-sm align-middle"></i>
+      </a>
+    </div>
+    
+
+    <!-- Brand demo (see assets/css/demo/demo.css) -->
+    <div class="navbar-brand app-brand demo py-0 me-4">
+      <a href="index.html" class="app-brand-link gap-2">
+        <span class="app-brand-logo demo bg-primary">
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>icon</title>
+  <defs>
+    <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+      <stop stop-color="#5A8DEE" offset="0%"></stop>
+      <stop stop-color="#699AF9" offset="100%"></stop>
+    </linearGradient>
+    <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-2">
+      <stop stop-color="#FDAC41" offset="0%"></stop>
+      <stop stop-color="#E38100" offset="100%"></stop>
+    </linearGradient>
+  </defs>
+  <g id="Pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Login---V2" transform="translate(-667.000000, -290.000000)">
+      <g id="Login" transform="translate(519.000000, 244.000000)">
+        <g id="Logo" transform="translate(148.000000, 42.000000)">
+          <g id="icon" transform="translate(0.000000, 4.000000)">
+            <path d="M13.8863636,4.72727273 C18.9447899,4.72727273 23.0454545,8.82793741 23.0454545,13.8863636 C23.0454545,18.9447899 18.9447899,23.0454545 13.8863636,23.0454545 C8.82793741,23.0454545 4.72727273,18.9447899 4.72727273,13.8863636 C4.72727273,13.5423509 4.74623858,13.2027679 4.78318172,12.8686032 L8.54810407,12.8689442 C8.48567157,13.19852 8.45300462,13.5386269 8.45300462,13.8863636 C8.45300462,16.887125 10.8856023,19.3197227 13.8863636,19.3197227 C16.887125,19.3197227 19.3197227,16.887125 19.3197227,13.8863636 C19.3197227,10.8856023 16.887125,8.45300462 13.8863636,8.45300462 C13.5386269,8.45300462 13.19852,8.48567157 12.8689442,8.54810407 L12.8686032,4.78318172 C13.2027679,4.74623858 13.5423509,4.72727273 13.8863636,4.72727273 Z" id="Combined-Shape" fill="#4880EA"></path>
+            <path d="M13.5909091,1.77272727 C20.4442608,1.77272727 26,7.19618701 26,13.8863636 C26,20.5765403 20.4442608,26 13.5909091,26 C6.73755742,26 1.18181818,20.5765403 1.18181818,13.8863636 C1.18181818,13.540626 1.19665566,13.1982714 1.22574292,12.8598734 L6.30410592,12.859962 C6.25499466,13.1951893 6.22958398,13.5378796 6.22958398,13.8863636 C6.22958398,17.8551125 9.52536149,21.0724191 13.5909091,21.0724191 C17.6564567,21.0724191 20.9522342,17.8551125 20.9522342,13.8863636 C20.9522342,9.91761479 17.6564567,6.70030817 13.5909091,6.70030817 C13.2336969,6.70030817 12.8824272,6.72514561 12.5388136,6.77314791 L12.5392575,1.81561642 C12.8859498,1.78721495 13.2366963,1.77272727 13.5909091,1.77272727 Z" id="Combined-Shape2" fill="#fff"></path>
+            <rect id="Rectangle" fill="url(#linearGradient-2)" x="0" y="0" width="7.68181818" height="7.68181818"></rect>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
+
+</span>
+        <span class="app-brand-text demo menu-text fw-bold">Frest</span>
+      </a>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse" id="navbar-collapse">
+      <!-- Divider -->
+      <hr class="d-lg-none w-100 my-2" />
+
+      <!-- <div class="navbar-nav align-items-lg-center"> -->
+      <!-- Search -->
+      <!-- <label class="nav-item navbar-search-box p-0 active">
+          <i class="bx bx-search navbar-icon align-middle pe-2"></i>
+          <span class="navbar-search-input">
+            <input type="text" class="form-control mx-2" placeholder="Search..." style="width:200px" />
+          </span>
+        </label>
+      </div> -->
+
+      <div class="navbar-nav align-items-lg-center ms-auto">
+        
+        <ul class="navbar-nav">
+          
+          <li class="nav-item me-2">
+            <a href="https://demos.pixinvent.com/frest-html-admin-template/html/vertical-menu-template/" target="_blank" class="nav-link"><i class="tf-icons bx bx-target-lock"></i>
+              Live preview</a>
+          </li>
+          
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- / Navbar main -->
+
+    
+
+    <!-- Layout page -->
+    <div class="layout-page">
+
+      
+      
+
+
+
+
+<!-- Menu -->
+<aside id="layout-menu" class="layout-menu menu-doc menu menu-vertical bg-menu-theme">
+
+  
+  <div class="menu-divider mt-0   d-xl-none ">
+  </div>
+
+
+  <!-- Links -->
+  <ul class="menu-inner py-1">
+    <li class="menu-header small fw-semibold">Getting Started</li>
+    <li class="menu-item">
+      <a href="index.html" class="menu-link">
+        <div>Introduction</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="folder-structure.html" class="menu-link">
+        <div>Folder Structure</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="quick-start.html" class="menu-link">
+        <div>Quick Start</div>
+        
+
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="config.html" class="menu-link">
+        <div>Config 🤩</div>
+        
+
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="installation-build.html" class="menu-link">
+        <div>Installation & Build</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="template-customizer.html" class="menu-link">
+        <div>Template Customizer</div>
+        
+
+      </a>
+    </li>
+    <li class="menu-item
+">
+      <a href="javascript:void(0)" class="menu-link menu-toggle">
+        <div>Customization</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="customization-sass.html" class="menu-link">
+            <div>SASS</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="customization-js.html" class="menu-link">
+            <div>JavaScript</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="customization-third-party-plugins.html" class="menu-link">
+            <div>Third Party Plugins</div>
+            
+
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item">
+      <a href="layouts.html" class="menu-link">
+        <div>Layouts</div>
+        
+
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="dependencies.html" class="menu-link">
+        <div>Dependencies</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="faq.html" class="menu-link">
+        <div>FAQs</div>
+      </a>
+    </li>
+    
+    <!-- Apps & Pages -->
+    <li class="menu-divider mb-1"></li>
+    <li class="menu-header small fw-semibold">Design System</li>
+
+    <li class="menu-item">
+      <a href="typography.html" class="menu-link">
+        <div>Typography</div>
+      </a>
+    </li>
+
+    <li class="menu-item">
+      <a href="colors.html" class="menu-link">
+        <div>Colors</div>
+      </a>
+    </li>
+
+    <li class="menu-item">
+      <a href="Icons.html" class="menu-link">
+        <div>Icons</div>
+      </a>
+    </li>
+
+    <!-- Components -->
+    <li class="menu-divider mb-1"></li>
+    <li class="menu-header small fw-semibold">Components</li>
+
+    <!-- UI Elements -->
+    <li class="menu-item
+ active open">
+      <a href="javascript:void(0)" class="menu-link menu-toggle">
+        <div>UI Elements</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="ui-accordion.html" class="menu-link">
+            <div>Accordion</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-alerts.html" class="menu-link">
+            <div>Alerts</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-app-brand.html" class="menu-link">
+            <div>App Brand</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-badges.html" class="menu-link">
+            <div>Badges</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-buttons.html" class="menu-link">
+            <div>Buttons</div>
+          </a>
+        </li>
+        <li class="menu-item
+">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <div>Cards</div>
+          </a>
+          <ul class="menu-sub">
+            <li class="menu-item">
+              <a href="ui-cards-basic.html" class="menu-link">
+                <div>Basic</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="ui-cards-actions.html" class="menu-link">
+                <div>Actions</div>
+                
+
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <a href="ui-carousel.html" class="menu-link">
+            <div>Carousel</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-collapse.html" class="menu-link">
+            <div>Collapse</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-dropdowns.html" class="menu-link">
+            <div>Dropdowns</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-footer.html" class="menu-link">
+            <div>Footer</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-list-groups.html" class="menu-link">
+            <div>List groups</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-modals.html" class="menu-link">
+            <div>Modals</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-menu.html" class="menu-link">
+            <div>Menu</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item active">
+          <a href="ui-navbar.html" class="menu-link">
+            <div>Navbar</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-offcanvas.html" class="menu-link">
+            <div>Offcanvas</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-pagination-breadcrumbs.html" class="menu-link">
+            <div>Pagination &amp; Breadcrumbs</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-popovers.html" class="menu-link">
+            <div>Popovers</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-progress.html" class="menu-link">
+            <div>Progress</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-spinners.html" class="menu-link">
+            <div>Spinners</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-navs.html" class="menu-link">
+            <div>Navs</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-tabs-pills.html" class="menu-link">
+            <div>Tabs &amp; Pills</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-toasts.html" class="menu-link">
+            <div>Toasts</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="ui-tooltips.html" class="menu-link">
+            <div>Tooltips</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Extended components -->
+    <li class="menu-item
+">
+      <a href="javascript:void(0)" class="menu-link menu-toggle">
+        <div>Extended UI</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="extended-ui-avatar.html" class="menu-link">
+            <div>Avatar</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-blockui.html" class="menu-link">
+            <div>BlockUI</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-drag-and-drop.html" class="menu-link">
+            <div>Drag &amp; Drop</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-media-player.html" class="menu-link">
+            <div>Media Player</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-perfect-scrollbar.html" class="menu-link">
+            <div>Perfect scrollbar</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-star-ratings.html" class="menu-link">
+            <div>Star Ratings</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-sweetalert2.html" class="menu-link">
+            <div>SweetAlert2</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-text-divider.html" class="menu-link">
+            <div>Text Divider</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-timeline.html" class="menu-link">
+            <div>Timeline</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-tour.html" class="menu-link">
+            <div>Tour</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-treeview.html" class="menu-link">
+            <div>Treeview</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="extended-ui-misc.html" class="menu-link">
+            <div>Miscellaneous</div>
+            
+
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Forms -->
+    <li class="menu-item
+">
+      <a href="javascript:void(0)" class="menu-link menu-toggle">
+        <div>Forms</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="forms-basic-inputs.html" class="menu-link">
+            <div>Basic Inputs</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-input-groups.html" class="menu-link">
+            <div>Input groups</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-custom-options.html" class="menu-link">
+            <div>Custom Options</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-editors.html" class="menu-link">
+            <div>Editors</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-file-upload.html" class="menu-link">
+            <div>File Upload</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-pickers.html" class="menu-link">
+            <div>Pickers</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-selects.html" class="menu-link">
+            <div>Select &amp; Tags</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-sliders.html" class="menu-link">
+            <div>Sliders</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-switches.html" class="menu-link">
+            <div>Switches</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-extras.html" class="menu-link">
+            <div>Extras</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-validation.html" class="menu-link">
+            <div>Validation</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-wizard.html" class="menu-link">
+            <div>Wizard</div>
+            
+
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="forms-layouts-sticky.html" class="menu-link">
+            <div>Sticky Actions</div>
+            
+
+          </a>
+        </li>
+      </ul>
+    </li>
+    <!-- Tables -->
+    <li class="menu-item">
+      <a href="tables-basic.html" class="menu-link">
+        <div>Tables</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="tables-datatables.html" class="menu-link">
+        <div>Datatables</div>
+        
+
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="utilities.html" class="menu-link">
+        <div>Utilities</div>
+      </a>
+    </li>
+
+    <!-- Charts & Maps -->
+    <li class="menu-divider mb-1"></li>
+    <li class="menu-header small fw-semibold">Charts &amp; Maps</li>
+
+    <li class="menu-item">
+      <a href="charts-apex.html" class="menu-link">
+        <div>Apex Charts</div>
+        
+
+      </a>
+    </li>
+    <li class="menu-item">
+      <a href="charts-chartjs.html" class="menu-link">
+        <div>ChartJS</div>
+        
+
+      </a>
+    </li>
+    <li class="menu-item
+">
+      <a href="javascript:void(0)" class="menu-link menu-toggle">
+        <div>Maps</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="maps-leaflet.html" class="menu-link">
+            <div>Leaflet</div>
+
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Charts & Maps -->
+    <li class="menu-divider mb-1"></li>
+    <li class="menu-header small fw-semibold">Others</li>
+    <li class="menu-item">
+      <a href="credits.html" class="menu-link">
+        <div>Credits</div>
+      </a>
+    </li>
+  </ul>
+</aside>
+<!-- / Menu -->
+
+      
+
+      <!-- Content wrapper -->
+      <div class="content-wrapper">
+
+        <!-- Content -->
+        
+          <div class="container-xxl flex-grow-1 container-p-y">
+            
+            
+<div class="row flex-xl-nowrap">
+  <div class="DocSearch-content col-12 col-xl-10 container-p-y">
+    <h2 class="mb-4 doc-page-title">Navbar</h2>
+    <p>
+      Responsive navigation header, the navbar. Includes support for branding, navigation, and more, including support
+      for
+      our collapse plugin.<br />Read the official
+      <a href="https://getbootstrap.com/docs/5.2/components/navbar/" target="_blank">Bootstrap Documentation</a> for a full list of
+      instructions and
+      other options.
+    </p>
+
+    <hr class="my-5" />
+
+    <!-- Basic Navbar -->
+    <div class="row">
+      <div class="col-12">
+        <h4 id="basic-navbar" class="anchor-heading mb-4 fw-bold">Basic Navbar</h4>
+        <p>
+          Here’s an example of all the sub-components included in a responsive light-themed navbar that automatically
+          collapses at the <code>lg</code> (large) breakpoint.
+        </p>
+        <div class="doc-example">
+          <ul class="nav nav-tabs-example justify-content-end" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="navbar-basic-tab" data-bs-toggle="tab" data-bs-target="#navbar-basic" role="tab" aria-controls="navbar-basic" aria-selected="true">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="navbar-basic-html-tab" data-bs-toggle="tab" data-bs-target="#navbar-basic-html" role="tab" aria-controls="navbar-basic-html" aria-selected="false">HTML</a>
+            </li>
+          </ul>
+          <div class="tab-content doc-example-content" id="tab-tabContent" data-label="Example">
+            <div class="tab-pane fade show active" id="navbar-basic" role="tabpanel" aria-labelledby="navbar-basic-tab">
+              <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="javascript:void(0)">Navbar</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="javascript:void(0)">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">Link</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Dropdown
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="javascript:void(0)">Action</a></li>
+                          <li><a class="dropdown-item" href="javascript:void(0)">Another action</a></li>
+                          <li>
+                            <hr class="dropdown-divider">
+                          </li>
+                          <li><a class="dropdown-item" href="javascript:void(0)">Something else here</a></li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link disabled" href="javascript:void(0)" tabindex="-1">Disabled</a>
+                      </li>
+                    </ul>
+                    <form class="d-flex" action="javascript:void(0)">
+                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                      <button class="btn btn-outline-primary" type="submit">Search</button>
+                    </form>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <div class="tab-pane fade" id="navbar-basic-html" role="tabpanel" aria-labelledby="navbar-basic-html-tab">
+              <div class="doc-clipboard">
+                <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                  Copy
+                </button>
+              </div>
+              <pre
+                class="docs-code"><code class="html">&lt;nav class=&quot;navbar navbar-expand-lg navbar-light bg-navbar-theme&quot;&gt;&#10;  &lt;div class=&quot;container-fluid&quot;&gt;&#10;    &lt;a class=&quot;navbar-brand&quot; href=&quot;javascript:void(0)&quot;&gt;Navbar&lt;/a&gt;&#10;    &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarSupportedContent&quot; aria-controls=&quot;navbarSupportedContent&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;&#10;      &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;&#10;    &lt;/button&gt;&#10;    &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarSupportedContent&quot;&gt;&#10;      &lt;ul class=&quot;navbar-nav me-auto mb-2 mb-lg-0&quot;&gt;&#10;        &lt;li class=&quot;nav-item&quot;&gt;&#10;          &lt;a class=&quot;nav-link active&quot; aria-current=&quot;page&quot; href=&quot;javascript:void(0)&quot;&gt;Home&lt;/a&gt;&#10;        &lt;/li&gt;&#10;        &lt;li class=&quot;nav-item&quot;&gt;&#10;          &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;Link&lt;/a&gt;&#10;        &lt;/li&gt;&#10;        &lt;li class=&quot;nav-item dropdown&quot;&gt;&#10;          &lt;a class=&quot;nav-link dropdown-toggle&quot; href=&quot;javascript:void(0)&quot; id=&quot;navbarDropdown&quot; role=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;&#10;            Dropdown&#10;          &lt;/a&gt;&#10;          &lt;ul class=&quot;dropdown-menu&quot; aria-labelledby=&quot;navbarDropdown&quot;&gt;&#10;            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;javascript:void(0)&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;&#10;            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;javascript:void(0)&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;&#10;            &lt;li&gt;&#10;              &lt;hr class=&quot;dropdown-divider&quot;&gt;&#10;            &lt;/li&gt;&#10;            &lt;li&gt;&lt;a class=&quot;dropdown-item&quot; href=&quot;javascript:void(0)&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;&#10;          &lt;/ul&gt;&#10;        &lt;/li&gt;&#10;        &lt;li class=&quot;nav-item&quot;&gt;&#10;          &lt;a class=&quot;nav-link disabled&quot; href=&quot;javascript:void(0)&quot; tabindex=&quot;-1&quot; &gt;Disabled&lt;/a&gt;&#10;        &lt;/li&gt;&#10;      &lt;/ul&gt;&#10;      &lt;form class=&quot;d-flex&quot; action=&quot;javascript:void(0)&quot;&gt;&#10;        &lt;input class=&quot;form-control me-2&quot; type=&quot;search&quot; placeholder=&quot;Search&quot; aria-label=&quot;Search&quot;&gt;&#10;        &lt;button class=&quot;btn btn-outline-primary&quot; type=&quot;submit&quot;&gt;Search&lt;/button&gt;&#10;      &lt;/form&gt;&#10;    &lt;/div&gt;&#10;  &lt;/div&gt;&#10;&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="alert alert-info mt-3" role="alert">
+          <strong>Tip:</strong> Add <code>.layout-navbar-fixed</code> class to <code>&lt;html&gt;</code> tag for <strong>Fixed
+            navbar</strong>.
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-5" />
+
+    <!-- Supported Content -->
+    <div class="row">
+      <div class="col-12">
+        <h4 id="supported-content" class="anchor-heading mb-4 fw-bold">Supported content</h4>
+        <p>Navbar come with built-in support for a handful of sub-components as below.</p>
+        <p id="navbar-brand" class="anchor-heading mt-5 fw-bold">Brand</p>
+        <p>
+          The <code>.navbar-brand</code> can be applied to most elements, but an anchor works best as some elements
+          might
+          require utility classes or custom styles.
+        </p>
+        <div class="doc-example">
+          <ul class="nav nav-tabs-example justify-content-end" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="navbar-brand-preview-tab" data-bs-toggle="tab" data-bs-target="#navbar-brand-preview" role="tab" aria-controls="navbar-brand-preview" aria-selected="true">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="navbar-brand-html-tab" data-bs-toggle="tab" data-bs-target="#navbar-brand-html" role="tab" aria-controls="navbar-brand-html" aria-selected="false">HTML</a>
+            </li>
+          </ul>
+          <div class="tab-content doc-example-content" id="tab-tabContent" data-label="Example">
+            <div class="tab-pane fade show active" id="navbar-brand-preview" role="tabpanel" aria-labelledby="navbar-brand-preview-tab">
+              <nav class="navbar navbar-light bg-white">
+                <div class="container-fluid">
+                  <a class="navbar-brand fw-bold" href="javascript:void(0);">Navbar</a>
+                </div>
+              </nav>
+            </div>
+            <div class="tab-pane fade" id="navbar-brand-html" role="tabpanel" aria-labelledby="navbar-brand-html-tab">
+              <div class="doc-clipboard">
+                <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                  Copy
+                </button>
+              </div>
+              <pre
+                class="docs-code"><code class="html">&lt;nav class=&quot;navbar navbar-light bg-white&quot;&gt;&#10;  &lt;div class=&quot;container-fluid&quot;&gt;&#10;    &lt;a class=&quot;navbar-brand fw-bold&quot; href=&quot;javascript:void(0);&quot;&gt;Navbar&lt;/a&gt;&#10;  &lt;/div&gt;&#10;&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-5" />
+        <p id="navbar-nav" class="anchor-heading mt-5 fw-bold">Nav</p>
+        <p>
+          Navbar navigation links build on our <code>.nav</code> options with their own modifier class and require the
+          use of
+          toggler classes for proper responsive styling.
+        </p>
+        <div class="doc-example">
+          <ul class="nav nav-tabs-example justify-content-end" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="navbar-nav-preview-tab" data-bs-toggle="tab" data-bs-target="#navbar-nav-preview" role="tab" aria-controls="navbar-nav-preview" aria-selected="true">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="navbar-nav-html-tab" data-bs-toggle="tab" data-bs-target="#navbar-nav-html" role="tab" aria-controls="navbar-nav-html" aria-selected="false">HTML</a>
+            </li>
+          </ul>
+          <div class="tab-content doc-example-content" id="tab-tabContent" data-label="Example">
+            <div class="tab-pane fade show active" id="navbar-nav-preview" role="tabpanel" aria-labelledby="navbar-nav-preview-tab">
+              <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="javascript:void(0);">Navbar</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                      <li class="nav-item active">
+                        <a class="nav-link" href="javascript:void(0);">Home <span class="visually-hidden">(current)</span></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);">Features</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);">Pricing</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link disabled" href="javascript:void(0);" tabindex="-1">Disabled</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <div class="tab-pane fade" id="navbar-nav-html" role="tabpanel" aria-labelledby="navbar-nav-html-tab">
+              <div class="doc-clipboard">
+                <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                  Copy
+                </button>
+              </div>
+              <pre
+                class="docs-code"><code class="html">&lt;nav class=&quot;navbar navbar-expand-lg navbar-light bg-white&quot;&gt;&#10;  &lt;div class=&quot;container-fluid&quot;&gt;&#10;    &lt;a class=&quot;navbar-brand&quot; href=&quot;javascript:void(0);&quot;&gt;Navbar&lt;/a&gt;&#10;    &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarNav&quot; aria-controls=&quot;navbarNav&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;&#10;      &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;&#10;    &lt;/button&gt;&#10;    &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarNav&quot;&gt;&#10;      &lt;ul class=&quot;navbar-nav&quot;&gt;&#10;        &lt;li class=&quot;nav-item active&quot;&gt;&#10;          &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0);&quot;&gt;Home &lt;span class=&quot;visually-hidden&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;&#10;        &lt;/li&gt;&#10;        &lt;li class=&quot;nav-item&quot;&gt;&#10;          &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0);&quot;&gt;Features&lt;/a&gt;&#10;        &lt;/li&gt;&#10;        &lt;li class=&quot;nav-item&quot;&gt;&#10;          &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0);&quot;&gt;Pricing&lt;/a&gt;&#10;        &lt;/li&gt;&#10;        &lt;li class=&quot;nav-item&quot;&gt;&#10;          &lt;a class=&quot;nav-link disabled&quot; href=&quot;javascript:void(0);&quot; tabindex=&quot;-1&quot; &gt;Disabled&lt;/a&gt;&#10;        &lt;/li&gt;&#10;      &lt;/ul&gt;&#10;    &lt;/div&gt;&#10;  &lt;/div&gt;&#10;&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+        <hr class="my-5" />
+        <p id="navbar-form" class="anchor-heading mt-5 fw-bold">Form</p>
+        <p>Place various form controls and components within a navbar with <code>.d-flex</code>.</p>
+        <div class="doc-example">
+          <ul class="nav nav-tabs-example justify-content-end" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="navbar-form-preview-tab" data-bs-toggle="tab" data-bs-target="#navbar-form-preview" role="tab" aria-controls="navbar-form-preview" aria-selected="true">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="navbar-form-html-tab" data-bs-toggle="tab" data-bs-target="#navbar-form-html" role="tab" aria-controls="navbar-form-html" aria-selected="false">HTML</a>
+            </li>
+          </ul>
+          <div class="tab-content doc-example-content" id="tab-tabContent" data-label="Example">
+            <div class="tab-pane fade show active" id="navbar-form-preview" role="tabpanel" aria-labelledby="navbar-form-preview-tab">
+              <nav class="navbar navbar-expand-xl navbar-light bg-white">
+                <div class="container-fluid">
+                  <a class="navbar-brand">Navbar</a>
+
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-form-ex">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse justify-content-end" id="navbar-form-ex">
+                    <form class="d-flex" action="javascript:void(0)">
+                      <input class="form-control me-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <div class="tab-pane fade" id="navbar-form-html" role="tabpanel" aria-labelledby="navbar-form-html-tab">
+              <div class="doc-clipboard">
+                <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                  Copy
+                </button>
+              </div>
+              <pre
+                class="docs-code"><code class="html">&lt;nav class=&quot;navbar navbar-light bg-white&quot;&gt;&#10;  &lt;div class=&quot;container-fluid&quot;&gt;&#10;    &lt;a class=&quot;navbar-brand&quot;&gt;Navbar&lt;/a&gt;&#10;    &lt;form class=&quot;d-flex&quot; action=&quot;javascript:void(0)&quot;&gt;&#10;      &lt;input class=&quot;form-control me-sm-2&quot; type=&quot;search&quot; placeholder=&quot;Search&quot; aria-label=&quot;Search&quot; /&gt;&#10;      &lt;button class=&quot;btn btn-outline-primary my-2 my-sm-0&quot; type=&quot;submit&quot;&gt;Search&lt;/button&gt;&#10;    &lt;/form&gt;&#10;  &lt;/div&gt;&#10;&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-5" />
+        <p id="navbar-text" class="anchor-heading mt-5 fw-bold">Text</p>
+        <p>
+          Navbar may contain bits of text with the help of <code>.navbar-text</code>. This class adjusts vertical
+          alignment
+          and horizontal spacing for strings of text.
+        </p>
+        <div class="doc-example">
+          <ul class="nav nav-tabs-example justify-content-end" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="navbar-text-preview-tab" data-bs-toggle="tab" data-bs-target="#navbar-text-preview" role="tab" aria-controls="navbar-text-preview" aria-selected="true">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="navbar-text-html-tab" data-bs-toggle="tab" data-bs-target="#navbar-text-html" role="tab" aria-controls="navbar-text-html" aria-selected="false">HTML</a>
+            </li>
+          </ul>
+          <div class="tab-content doc-example-content" id="tab-tabContent" data-label="Example">
+            <div class="tab-pane fade show active" id="navbar-text-preview" role="tabpanel" aria-labelledby="navbar-text-preview-tab">
+              <nav class="navbar navbar-expand-xl bg-navbar-theme">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="javascript:void(0)">Navbar</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-2">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbar-ex-2">
+                    <div class="navbar-nav me-auto">
+                      <a class="nav-item nav-link active" href="javascript:void(0)">Home</a>
+                      <a class="nav-item nav-link" href="javascript:void(0)">About</a>
+                      <a class="nav-item nav-link" href="javascript:void(0)">Contact</a>
+                    </div>
+
+                    <span class="navbar-text">
+                      Navbar text with an inline element
+                    </span>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <div class="tab-pane fade" id="navbar-text-html" role="tabpanel" aria-labelledby="navbar-text-html-tab">
+              <div class="doc-clipboard">
+                <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                  Copy
+                </button>
+              </div>
+              <pre
+                class="docs-code"><code class="html">&lt;nav class=&quot;navbar navbar-expand-xl bg-navbar-theme&quot;&gt;&#10;  &lt;div class=&quot;container-fluid&quot;&gt;&#10;    &lt;a class=&quot;navbar-brand&quot; href=&quot;javascript:void(0)&quot;&gt;Navbar&lt;/a&gt;&#10;    &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-ex-2&quot;&gt;&#10;      &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;&#10;    &lt;/button&gt;&#10;&#10;    &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-ex-2&quot;&gt;&#10;      &lt;div class=&quot;navbar-nav me-auto&quot;&gt;&#10;        &lt;a class=&quot;nav-item nav-link active&quot; href=&quot;javascript:void(0)&quot;&gt;Home&lt;/a&gt;&#10;        &lt;a class=&quot;nav-item nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;About&lt;/a&gt;&#10;        &lt;a class=&quot;nav-item nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;Contact&lt;/a&gt;&#10;      &lt;/div&gt;&#10;&#10;      &lt;span class=&quot;navbar-text&quot;&gt;&#10;        Navbar text with an inline element&#10;      &lt;/span&gt;&#10;    &lt;/div&gt;&#10;  &lt;/div&gt;&#10;&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-5" />
+
+    <!-- Open on Hover -->
+    <div class="row">
+      <div class="col-12">
+        <h4 id="open-hover" class="anchor-heading mb-4 fw-bold">Open on Hover </h4>
+        <p>
+          Default bootstrap dropdown open on click. Use <code>dropdown-hover.js</code> and with the help of
+          <code>data-trigger="hover"</code> attribute dropdown will open on hover.
+        </p>
+
+        <div class="doc-example">
+          <div class="doc-example-content" data-label="Code">
+            <div class="doc-clipboard">
+              <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                Copy
+              </button>
+            </div>
+            <pre
+              class="docs-code"><code class="html">&lt;script src=&quot;assets/vendor/js/dropdown-hover.js&quot;&gt;&lt;/script&gt;</code></pre>
+          </div>
+        </div>
+        <div class="doc-example">
+          <ul class="nav nav-tabs-example justify-content-end" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="btn-icon-preview-tab" data-bs-toggle="tab" data-bs-target="#btn-icon-preview" role="tab" aria-controls="btn-icon-preview" aria-selected="true">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="btn-icon-html-tab" data-bs-toggle="tab" data-bs-target="#btn-icon-html" role="tab" aria-controls="btn-icon-html" aria-selected="false">HTML</a>
+            </li>
+          </ul>
+          <div class="tab-content doc-example-content" id="tab-tabContent" data-label="Example">
+            <div class="tab-pane fade show active" id="btn-icon-preview" role="tabpanel" aria-labelledby="btn-icon-preview-tab">
+              <nav class="navbar navbar-expand-lg bg-navbar-theme" style="z-index: 20">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="javascript:void(0)">Navbar</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-15">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbar-ex-15">
+                    <ul class="navbar-nav me-auto">
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0);" data-bs-toggle="dropdown" data-trigger="hover">Dropdown</a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                          <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                          <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <div class="tab-pane fade" id="btn-icon-html" role="tabpanel" aria-labelledby="btn-icon-html-tab">
+              <div class="doc-clipboard">
+                <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                  Copy
+                </button>
+              </div>
+              <pre
+                class="docs-code"><code class="html">&lt;nav class=&quot;navbar navbar-expand-lg bg-navbar-theme&quot;&gt;&#10;  &lt;div class=&quot;container-fluid&quot;&gt;&#10;    &lt;a class=&quot;navbar-brand&quot; href=&quot;javascript:void(0)&quot;&gt;Navbar&lt;/a&gt;&#10;    &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-ex-15&quot;&gt;&#10;      &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;&#10;    &lt;/button&gt;&#10;    &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-ex-15&quot;&gt;&#10;      &lt;ul class=&quot;navbar-nav me-auto&quot;&gt;&#10;        &lt;li class=&quot;nav-item dropdown&quot;&gt;&#10;          &lt;a class=&quot;nav-link dropdown-toggle&quot; href=&quot;javascript:void(0)&quot; data-bs-toggle=&quot;dropdown&quot; data-trigger=&quot;hover&quot;&gt;Dropdown&lt;/a&gt;&#10;          &lt;div class=&quot;dropdown-menu&quot;&gt;&#10;            &lt;a class=&quot;dropdown-item&quot; href=&quot;javascript:void(0)&quot;&gt;Action&lt;/a&gt;&#10;            &lt;a class=&quot;dropdown-item&quot; href=&quot;javascript:void(0)&quot;&gt;Another action&lt;/a&gt;&#10;            &lt;a class=&quot;dropdown-item&quot; href=&quot;javascript:void(0)&quot;&gt;Something else here&lt;/a&gt;&#10;          &lt;/div&gt;&#10;        &lt;/li&gt;        &#10;      &lt;/ul&gt;&#10;    &lt;/div&gt;&#10;  &lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-5" />
+
+    <!-- Mega Dropdown -->
+    <div class="row">
+      <div class="col-12">
+        <h4 id="mega-dropdown" class="anchor-heading mb-4 fw-bold">Mega Dropdown </h4>
+        <p>
+          Mega menu is a drop-down menu lets you pack your web app entire navigation into a single menu. In order to
+          create
+          Mega Dropdown you need to include <code>mega-dropdown.js</code>.
+        </p>
+
+        <div class="doc-example">
+          <div class="doc-example-content" data-label="Code">
+            <div class="doc-clipboard">
+              <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                Copy
+              </button>
+            </div>
+            <pre
+              class="docs-code"><code class="html">&lt;script src=&quot;assets/vendor/js/mega-dropdown.js&quot;&gt;&lt;/script&gt;</code></pre>
+          </div>
+        </div>
+        <p class="pt-4">
+          Use <code>.mega-dropdown</code> to create mega dropdown, Add <code>.mega-link</code> class to the element to
+          close
+          menu on click. Check below example for usage.
+        </p>
+        <div class="doc-example">
+          <ul class="nav nav-tabs-example justify-content-end" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="btn-toggle-states-preview-tab" data-bs-toggle="tab" data-bs-target="#btn-toggle-states-preview" role="tab" aria-controls="btn-toggle-states-preview" aria-selected="true">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" states="btn-size-html-tab" data-bs-toggle="tab" data-bs-target="#btn-toggle-states-html" role="tab" aria-controls="btn-toggle-states-html" aria-selected="false">HTML</a>
+            </li>
+          </ul>
+          <div class="tab-content doc-example-content" id="tab-tabContent" data-label="Example">
+            <div class="tab-pane fade show active" id="btn-toggle-states-preview" role="tabpanel" aria-labelledby="btn-toggle-states-preview-tab">
+              <nav class="navbar navbar-expand-lg bg-navbar-theme" style="z-index: 21">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="javascript:void(0)">Navbar</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-14">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbar-ex-14">
+                    <ul class="navbar-nav me-auto">
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0);" data-bs-toggle="dropdown">Dropdown</a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                          <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                          <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                        </div>
+                      </li>
+                      <li class="nav-item mega-dropdown">
+                        <a class="nav-link dropdown-toggle navbar-ex-14-mega-dropdown mega-dropdown" href="javascript:void(0);" data-bs-toggle="mega-dropdown">Mega</a>
+                        <div class="dropdown-menu px-3 py-0">
+                          <div class="row row-bordered">
+                            <div class="col-sm-6 col-lg p-3">
+                              <h6 class="m-2 fw-bold">Applications</h6>
+                              <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a class="nav-link mega-dropdown-link" href="javascript:void(0)"><i class="tf-icons bx bx-envelope"></i> Email</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link mega-dropdown-link" href="javascript:void(0)"><i class="tf-icons bx bx-chat"></i> Chat</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link mega-dropdown-link" href="javascript:void(0)"><i class="tf-icons bx bx-task"></i> ToDos</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link mega-dropdown-link" href="javascript:void(0)"><i class="tf-icons bx bx-calendar"></i> Calender</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link mega-dropdown-link disabled" href="javascript:void(0)" tabindex="-1"><i class="tf-icons bx bx-block"></i> Disabled</a>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="col-sm-6 col-lg p-3">
+                              <h6 class="m-2 fw-bold">Useful Links</h6>
+                              <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a class="nav-link mega-dropdown-link" href="javascript:void(0)">Profit Margins</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link mega-dropdown-link" href="javascript:void(0)">Overall Profits</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link mega-dropdown-link" href="javascript:void(0)">Gross Profits</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link mega-dropdown-link" href="javascript:void(0)">Net Profits</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link mega-dropdown-link" href="javascript:void(0)">Quarterly Profits</a>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="col-sm-6 col-lg p-3">
+                              <h6 class="my-2 fw-bold">List Group</h6>
+                              <div class="list-group">
+                                <a href="javascript:void(0)" class="list-group-item list-group-item-action mega-dropdown-link">Analytical Reports</a>
+                                <a href="javascript:void(0)" class="list-group-item list-group-item-action mega-dropdown-link">Operational Growth</a>
+                                <a href="javascript:void(0)" class="list-group-item list-group-item-action mega-dropdown-link">Files and Directories</a>
+                                <a href="javascript:void(0)" class="list-group-item list-group-item-action mega-dropdown-link">Audit & Logs</a>
+                                <a href="javascript:void(0)" class="list-group-item list-group-item-action mega-dropdown-link">Customer CRM</a>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-lg p-3">
+                              <form action="javascript:void(0)">
+                                <div class="mb-3">
+                                  <label class="form-label" for="exampleDropdownFormEmail1">Email address</label>
+                                  <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com" />
+                                </div>
+                                <div class="mb-3">
+                                  <label class="form-label" for="exampleDropdownFormPassword1">Password</label>
+                                  <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" />
+                                </div>
+                                <div class="mb-3">
+                                  <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="dropdownCheck" />
+                                    <label class="form-check-label" for="dropdownCheck">
+                                      Remember me
+                                    </label>
+                                  </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Sign in</button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <div class="tab-pane fade" id="btn-toggle-states-html" role="tabpanel" aria-labelledby="btn-toggle-states-html-tab">
+              <div class="doc-clipboard">
+                <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                  Copy
+                </button>
+              </div>
+              <pre
+                class="docs-code"><code class="html">&lt;nav class=&quot;navbar navbar-expand-lg bg-navbar-theme&quot; style=&quot;z-index: 21&quot;&gt;&#10;  &lt;div class=&quot;container-fluid&quot;&gt;&#10;    &lt;a class=&quot;navbar-brand&quot; href=&quot;javascript:void(0)&quot;&gt;Navbar&lt;/a&gt;&#10;    &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-ex-14&quot;&gt;&#10;      &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;&#10;    &lt;/button&gt;&#10;&#10;    &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-ex-14&quot;&gt;&#10;      &lt;ul class=&quot;navbar-nav me-auto&quot;&gt;&#10;        &lt;li class=&quot;nav-item dropdown&quot;&gt;&#10;          &lt;a class=&quot;nav-link dropdown-toggle&quot; href=&quot;javascript:void(0)&quot; data-bs-toggle=&quot;dropdown&quot;&gt;Dropdown&lt;/a&gt;&#10;          &lt;div class=&quot;dropdown-menu&quot;&gt;&#10;            &lt;a class=&quot;dropdown-item&quot; href=&quot;javascript:void(0)&quot;&gt;Action&lt;/a&gt;&#10;            &lt;a class=&quot;dropdown-item&quot; href=&quot;javascript:void(0)&quot;&gt;Another action&lt;/a&gt;&#10;            &lt;a class=&quot;dropdown-item&quot; href=&quot;javascript:void(0)&quot;&gt;Something else here&lt;/a&gt;&#10;          &lt;/div&gt;&#10;        &lt;/li&gt;&#10;        &lt;li class=&quot;nav-item mega-dropdown&quot;&gt;&#10;          &lt;a class=&quot;nav-link dropdown-toggle navbar-ex-14-mega-dropdown&quot; href=&quot;javascript:void(0)&quot; data-bs-toggle=&quot;mega-dropdown&quot;&gt;Mega&lt;/a&gt;&#10;          &lt;div class=&quot;dropdown-menu px-3 py-0&quot;&gt;&#10;            &lt;div class=&quot;row row-bordered&quot;&gt;&#10;              &lt;div class=&quot;col-sm-6 col-lg p-3&quot;&gt;&#10;                &lt;h6 class=&quot;m-2 fw-bold&quot;&gt;Applications&lt;/h6&gt;&#10;                &lt;ul class=&quot;nav flex-column&quot;&gt;&#10;                  &lt;li class=&quot;nav-item&quot;&gt;&#10;                    &lt;a class=&quot;nav-link mega-dropdown-link&quot; href=&quot;javascript:void(0)&quot;&#10;                      &gt;&lt;i class=&quot;tf-icons bx bx-envelope&quot;&gt;&lt;/i&gt; Email&lt;/a&#10;                    &gt;&#10;                  &lt;/li&gt;&#10;                  &lt;li class=&quot;nav-item&quot;&gt;&#10;                    &lt;a class=&quot;nav-link mega-dropdown-link&quot; href=&quot;javascript:void(0)&quot;&#10;                      &gt;&lt;i class=&quot;tf-icons bx bx-chat&quot;&gt;&lt;/i&gt; Chat&lt;/a&#10;                    &gt;&#10;                  &lt;/li&gt;&#10;                  &lt;li class=&quot;nav-item&quot;&gt;&#10;                    &lt;a class=&quot;nav-link mega-dropdown-link&quot; href=&quot;javascript:void(0)&quot;&#10;                      &gt;&lt;i class=&quot;tf-icons bx bx-task&quot;&gt;&lt;/i&gt; ToDos&lt;/a&#10;                    &gt;&#10;                  &lt;/li&gt;&#10;                  &lt;li class=&quot;nav-item&quot;&gt;&#10;                    &lt;a class=&quot;nav-link mega-dropdown-link&quot; href=&quot;javascript:void(0)&quot;&#10;                      &gt;&lt;i class=&quot;tf-icons bx bx-calendar&quot;&gt;&lt;/i&gt; Calender&lt;/a&#10;                    &gt;&#10;                  &lt;/li&gt;&#10;                  &lt;li class=&quot;nav-item&quot;&gt;&#10;                    &lt;a&#10;                      class=&quot;nav-link mega-dropdown-link disabled&quot;&#10;                      href=&quot;javascript:void(0)&quot;&#10;                      tabindex=&quot;-1&quot;&#10;                      &#10;                      &gt;&lt;i class=&quot;tf-icons bx bx-block&quot;&gt;&lt;/i&gt; Disabled&lt;/a&#10;                    &gt;&#10;                  &lt;/li&gt;&#10;                &lt;/ul&gt;&#10;              &lt;/div&gt;&#10;              &lt;div class=&quot;col-sm-6 col-lg p-3&quot;&gt;&#10;                &lt;h6 class=&quot;m-2 fw-bold&quot;&gt;Useful Links&lt;/h6&gt;&#10;                &lt;ul class=&quot;nav flex-column&quot;&gt;&#10;                  &lt;li class=&quot;nav-item&quot;&gt;&#10;                    &lt;a class=&quot;nav-link mega-dropdown-link&quot; href=&quot;javascript:void(0)&quot;&gt;Profit Margins&lt;/a&gt;&#10;                  &lt;/li&gt;&#10;                  &lt;li class=&quot;nav-item&quot;&gt;&#10;                    &lt;a class=&quot;nav-link mega-dropdown-link&quot; href=&quot;javascript:void(0)&quot;&gt;Overall Profits&lt;/a&gt;&#10;                  &lt;/li&gt;&#10;                  &lt;li class=&quot;nav-item&quot;&gt;&#10;                    &lt;a class=&quot;nav-link mega-dropdown-link&quot; href=&quot;javascript:void(0)&quot;&gt;Gross Profits&lt;/a&gt;&#10;                  &lt;/li&gt;&#10;                  &lt;li class=&quot;nav-item&quot;&gt;&#10;                    &lt;a class=&quot;nav-link mega-dropdown-link&quot; href=&quot;javascript:void(0)&quot;&gt;Net Profits&lt;/a&gt;&#10;                  &lt;/li&gt;&#10;                  &lt;li class=&quot;nav-item&quot;&gt;&#10;                    &lt;a class=&quot;nav-link mega-dropdown-link&quot; href=&quot;javascript:void(0)&quot;&gt;Quarterly Profits&lt;/a&gt;&#10;                  &lt;/li&gt;&#10;                &lt;/ul&gt;&#10;              &lt;/div&gt;&#10;              &lt;div class=&quot;col-sm-6 col-lg p-3&quot;&gt;&#10;                &lt;h6 class=&quot;my-2 fw-bold&quot;&gt;List Group&lt;/h6&gt;&#10;                &lt;div class=&quot;list-group&quot;&gt;&#10;                  &lt;a href=&quot;javascript:void(0)&quot; class=&quot;list-group-item list-group-item-action mega-dropdown-link&quot;&#10;                    &gt;Analytical Reports&lt;/a&#10;                  &gt;&#10;                  &lt;a href=&quot;javascript:void(0)&quot; class=&quot;list-group-item list-group-item-action mega-dropdown-link&quot;&#10;                    &gt;Operational Growth&lt;/a&#10;                  &gt;&#10;                  &lt;a href=&quot;javascript:void(0)&quot; class=&quot;list-group-item list-group-item-action mega-dropdown-link&quot;&#10;                    &gt;Files and Directories&lt;/a&#10;                  &gt;&#10;                  &lt;a href=&quot;javascript:void(0)&quot; class=&quot;list-group-item list-group-item-action mega-dropdown-link&quot;&#10;                    &gt;Audit &amp; Logs&lt;/a&#10;                  &gt;&#10;                  &lt;a href=&quot;javascript:void(0)&quot; class=&quot;list-group-item list-group-item-action mega-dropdown-link&quot;&#10;                    &gt;Customer CRM&lt;/a&#10;                  &gt;&#10;                &lt;/div&gt;&#10;              &lt;/div&gt;&#10;              &lt;div class=&quot;col-sm-6 col-lg p-3&quot;&gt;&#10;                &lt;form action=&quot;javascript:void(0)&quot;&gt;&#10;                  &lt;div class=&quot;mb-3&quot;&gt;&#10;                    &lt;label for=&quot;exampleDropdownFormEmail1&quot;&gt;Email address&lt;/label&gt;&#10;                    &lt;input&#10;                      type=&quot;email&quot;&#10;                      class=&quot;form-control&quot;&#10;                      id=&quot;exampleDropdownFormEmail1&quot;&#10;                      placeholder=&quot;email@example.com&quot;&#10;                    /&gt;&#10;                  &lt;/div&gt;&#10;                  &lt;div class=&quot;mb-3&quot;&gt;&#10;                    &lt;label for=&quot;exampleDropdownFormPassword1&quot;&gt;Password&lt;/label&gt;&#10;                    &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;exampleDropdownFormPassword1&quot; placeholder=&quot;Password&quot; /&gt;&#10;                  &lt;/div&gt;&#10;                  &lt;div class=&quot;mb-3&quot;&gt;&#10;                    &lt;div class=&quot;form-check&quot;&gt;&#10;                      &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;dropdownCheck&quot; /&gt;&#10;                      &lt;label class=&quot;form-check-label&quot; for=&quot;dropdownCheck&quot;&gt;&#10;                        Remember me&#10;                      &lt;/label&gt;&#10;                    &lt;/div&gt;&#10;                  &lt;/div&gt;&#10;                  &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Sign in&lt;/button&gt;&#10;                &lt;/form&gt;&#10;              &lt;/div&gt;&#10;            &lt;/div&gt;&#10;          &lt;/div&gt;&#10;        &lt;/li&gt;&#10;      &lt;/ul&gt;&#10;    &lt;/div&gt;&#10;    &lt;/div&gt;&#10;  &lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-5" />
+
+    <!-- Color Schemes -->
+    <div class="row">
+      <div class="col-12">
+        <h4 id="color-schemes" class="anchor-heading mb-4 fw-bold">Color Schemes </h4>
+        <p>
+          Theming the navbar has never been easier thanks to the combination of theming classes and
+          <code>background-color</code> utilities. Choose from <code>.navbar-light</code> for use with light background
+          colors, or <code>.navbar-dark</code> for dark background colors. Then, customize with <code>.bg-*</code>
+          utilities.
+        </p>
+
+        <!-- Primary -->
+        <p>
+          Create navbar with Primary Color scheme by using <code>.navbar-dark</code> & <code>.bg-primary</code> classes along with <code>.navbar</code>.
+        </p>
+        <div class="doc-example">
+          <ul class="nav nav-tabs-example justify-content-end" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="navbar-primary-preview-tab" data-bs-toggle="tab" data-bs-target="#navbar-primary-preview" role="tab" aria-controls="navbar-primary-preview" aria-selected="true">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" states="btn-size-html-tab" data-bs-toggle="tab" data-bs-target="#navbar-primary-html" role="tab" aria-controls="navbar-primary-html" aria-selected="false">HTML</a>
+            </li>
+          </ul>
+          <div class="tab-content doc-example-content" id="tab-tabContent" data-label="Example">
+            <div class="tab-pane fade show active" id="navbar-primary-preview" role="tabpanel" aria-labelledby="navbar-primary-preview-tab">
+              <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="javascript:void(0)">Primary</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-7">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbar-ex-7">
+                    <div class="navbar-nav me-auto">
+                      <a class="nav-item nav-link active" href="javascript:void(0)">Home</a>
+                      <a class="nav-item nav-link" href="javascript:void(0)">About</a>
+                      <a class="nav-item nav-link" href="javascript:void(0)">Contact</a>
+                      <a class="nav-item nav-link disabled" href="javascript:void(0)">Disabled</a>
+                    </div>
+                    <ul class="navbar-nav ms-lg-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-user"></i> Profile</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-cog"></i> Settings</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-lock-open-alt"></i> Logout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <div class="tab-pane fade" id="navbar-primary-html" role="tabpanel" aria-labelledby="navbar-primary-html-tab">
+              <div class="doc-clipboard">
+                <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                  Copy
+                </button>
+              </div>
+              <pre
+                class="docs-code"><code class="html">&lt;nav class=&quot;navbar navbar-expand-lg navbar-dark bg-primary&quot;&gt;&#10;  &lt;div class=&quot;container-fluid&quot;&gt;&#10;   &lt;a class=&quot;navbar-brand&quot; href=&quot;javascript:void(0)&quot;&gt;Primary&lt;/a&gt;&#10;   &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-ex-7&quot;&gt;&#10;   &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;&#10;   &lt;/button&gt;&#10;&#10;   &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-ex-7&quot;&gt;&#10;   &lt;div class=&quot;navbar-nav me-auto&quot;&gt;&#10;      &lt;a class=&quot;nav-item nav-link active&quot; href=&quot;javascript:void(0)&quot;&gt;Home&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;About&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;Contact&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link disabled&quot; href=&quot;javascript:void(0)&quot;&gt;Disabled&lt;/a&gt;&#10;   &lt;/div&gt;&#10;   &lt;ul class=&quot;navbar-nav ms-lg-auto&quot;&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-user&quot;&gt;&lt;/i&gt; Profile&lt;/a&gt;&#10;      &lt;/li&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-cog&quot;&gt;&lt;/i&gt; Settings&lt;/a&gt;&#10;      &lt;/li&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-lock-open-alt&quot;&gt;&lt;/i&gt; Logout&lt;/a&gt;&#10;      &lt;/li&gt;&#10;   &lt;/ul&gt;&#10;   &lt;/div&gt;&#10;  &lt;/div&gt;&#10;&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secondary -->
+        <p class="mt-4 mb-0">
+          Create navbar with Secondary Color scheme by using <code>.navbar-dark</code> & <code>.bg-secondary</code> classes along with <code>.navbar</code>.
+        </p>
+        <div class="doc-example">
+          <ul class="nav nav-tabs-example justify-content-end" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="navbar-secondary-preview-tab" data-bs-toggle="tab" data-bs-target="#navbar-secondary-preview" role="tab" aria-controls="navbar-secondary-preview" aria-selected="true">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" states="btn-size-html-tab" data-bs-toggle="tab" data-bs-target="#navbar-secondary-html" role="tab" aria-controls="navbar-secondary-html" aria-selected="false">HTML</a>
+            </li>
+          </ul>
+          <div class="tab-content doc-example-content" id="tab-tabContent" data-label="Example">
+            <div class="tab-pane fade show active" id="navbar-secondary-preview" role="tabpanel" aria-labelledby="navbar-secondary-preview-tab">
+              <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="javascript:void(0)">Secondary</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-7">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbar-ex-7">
+                    <div class="navbar-nav me-auto">
+                      <a class="nav-item nav-link active" href="javascript:void(0)">Home</a>
+                      <a class="nav-item nav-link" href="javascript:void(0)">About</a>
+                      <a class="nav-item nav-link" href="javascript:void(0)">Contact</a>
+                      <a class="nav-item nav-link disabled" href="javascript:void(0)">Disabled</a>
+                    </div>
+                    <ul class="navbar-nav ms-lg-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-user"></i> Profile</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-cog"></i> Settings</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-lock-open-alt"></i> Logout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <div class="tab-pane fade" id="navbar-secondary-html" role="tabpanel" aria-labelledby="navbar-secondary-html-tab">
+              <div class="doc-clipboard">
+                <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                  Copy
+                </button>
+              </div>
+              <pre
+                class="docs-code"><code class="html">&lt;nav class=&quot;navbar navbar-expand-lg navbar-dark bg-secondary&quot;&gt;&#10;  &lt;div class=&quot;container-fluid&quot;&gt;&#10;   &lt;a class=&quot;navbar-brand&quot; href=&quot;javascript:void(0)&quot;&gt;Primary&lt;/a&gt;&#10;   &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-ex-7&quot;&gt;&#10;   &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;&#10;   &lt;/button&gt;&#10;&#10;   &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-ex-7&quot;&gt;&#10;   &lt;div class=&quot;navbar-nav me-auto&quot;&gt;&#10;      &lt;a class=&quot;nav-item nav-link active&quot; href=&quot;javascript:void(0)&quot;&gt;Home&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;About&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;Contact&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link disabled&quot; href=&quot;javascript:void(0)&quot;&gt;Disabled&lt;/a&gt;&#10;   &lt;/div&gt;&#10;   &lt;ul class=&quot;navbar-nav ms-lg-auto&quot;&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-user&quot;&gt;&lt;/i&gt; Profile&lt;/a&gt;&#10;      &lt;/li&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-cog&quot;&gt;&lt;/i&gt; Settings&lt;/a&gt;&#10;      &lt;/li&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-lock-open-alt&quot;&gt;&lt;/i&gt; Logout&lt;/a&gt;&#10;      &lt;/li&gt;&#10;   &lt;/ul&gt;&#10;   &lt;/div&gt;&#10;  &lt;/div&gt;&#10;&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Success -->
+        <p class="mt-4 mb-0">
+          Create navbar with Success Color scheme by using <code>.navbar-dark</code> & <code>.bg-success</code> classes along with <code>.navbar</code>.
+        </p>
+        <div class="doc-example">
+          <ul class="nav nav-tabs-example justify-content-end" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="navbar-success-preview-tab" data-bs-toggle="tab" data-bs-target="#navbar-success-preview" role="tab" aria-controls="navbar-success-preview" aria-selected="true">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" states="btn-size-html-tab" data-bs-toggle="tab" data-bs-target="#navbar-success-html" role="tab" aria-controls="navbar-success-html" aria-selected="false">HTML</a>
+            </li>
+          </ul>
+          <div class="tab-content doc-example-content" id="tab-tabContent" data-label="Example">
+            <div class="tab-pane fade show active" id="navbar-success-preview" role="tabpanel" aria-labelledby="navbar-success-preview-tab">
+              <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="javascript:void(0)">Success</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-7">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbar-ex-7">
+                    <div class="navbar-nav me-auto">
+                      <a class="nav-item nav-link active" href="javascript:void(0)">Home</a>
+                      <a class="nav-item nav-link" href="javascript:void(0)">About</a>
+                      <a class="nav-item nav-link" href="javascript:void(0)">Contact</a>
+                      <a class="nav-item nav-link disabled" href="javascript:void(0)">Disabled</a>
+                    </div>
+                    <ul class="navbar-nav ms-lg-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-user"></i> Profile</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-cog"></i> Settings</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-lock-open-alt"></i> Logout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <div class="tab-pane fade" id="navbar-success-html" role="tabpanel" aria-labelledby="navbar-success-html-tab">
+              <div class="doc-clipboard">
+                <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                  Copy
+                </button>
+              </div>
+              <pre
+                class="docs-code"><code class="html">&lt;nav class=&quot;navbar navbar-expand-lg navbar-dark bg-succes&quot;&gt;&#10;  &lt;div class=&quot;container-fluid&quot;&gt;&#10;   &lt;a class=&quot;navbar-brand&quot; href=&quot;javascript:void(0)&quot;&gt;Primary&lt;/a&gt;&#10;   &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-ex-7&quot;&gt;&#10;   &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;&#10;   &lt;/button&gt;&#10;&#10;   &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-ex-7&quot;&gt;&#10;   &lt;div class=&quot;navbar-nav me-auto&quot;&gt;&#10;      &lt;a class=&quot;nav-item nav-link active&quot; href=&quot;javascript:void(0)&quot;&gt;Home&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;About&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;Contact&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link disabled&quot; href=&quot;javascript:void(0)&quot;&gt;Disabled&lt;/a&gt;&#10;   &lt;/div&gt;&#10;   &lt;ul class=&quot;navbar-nav ms-lg-auto&quot;&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-user&quot;&gt;&lt;/i&gt; Profile&lt;/a&gt;&#10;      &lt;/li&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-cog&quot;&gt;&lt;/i&gt; Settings&lt;/a&gt;&#10;      &lt;/li&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-lock-open-alt&quot;&gt;&lt;/i&gt; Logout&lt;/a&gt;&#10;      &lt;/li&gt;&#10;   &lt;/ul&gt;&#10;   &lt;/div&gt;&#10;  &lt;/div&gt;&#10;&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Danger -->
+        <p class="mt-4 mb-0">
+          Create navbar with Danger Color scheme by using <code>.navbar-dark</code> & <code>.bg-danger</code> classes along with <code>.navbar</code>.
+        </p>
+        <div class="doc-example">
+          <ul class="nav nav-tabs-example justify-content-end" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="navbar-danger-preview-tab" data-bs-toggle="tab" data-bs-target="#navbar-danger-preview" role="tab" aria-controls="navbar-danger-preview" aria-selected="true">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" states="btn-size-html-tab" data-bs-toggle="tab" data-bs-target="#navbar-danger-html" role="tab" aria-controls="navbar-danger-html" aria-selected="false">HTML</a>
+            </li>
+          </ul>
+          <div class="tab-content doc-example-content" id="tab-tabContent" data-label="Example">
+            <div class="tab-pane fade show active" id="navbar-danger-preview" role="tabpanel" aria-labelledby="navbar-danger-preview-tab">
+              <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="javascript:void(0)">Danger</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-7">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbar-ex-7">
+                    <div class="navbar-nav me-auto">
+                      <a class="nav-item nav-link active" href="javascript:void(0)">Home</a>
+                      <a class="nav-item nav-link" href="javascript:void(0)">About</a>
+                      <a class="nav-item nav-link" href="javascript:void(0)">Contact</a>
+                      <a class="nav-item nav-link disabled" href="javascript:void(0)">Disabled</a>
+                    </div>
+                    <ul class="navbar-nav ms-lg-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-user"></i> Profile</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-cog"></i> Settings</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-lock-open-alt"></i> Logout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <div class="tab-pane fade" id="navbar-danger-html" role="tabpanel" aria-labelledby="navbar-danger-html-tab">
+              <div class="doc-clipboard">
+                <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                  Copy
+                </button>
+              </div>
+              <pre
+                class="docs-code"><code class="html">&lt;nav class=&quot;navbar navbar-expand-lg navbar-dark bg-danger&quot;&gt;&#10;  &lt;div class=&quot;container-fluid&quot;&gt;&#10;   &lt;a class=&quot;navbar-brand&quot; href=&quot;javascript:void(0)&quot;&gt;Primary&lt;/a&gt;&#10;   &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-ex-7&quot;&gt;&#10;   &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;&#10;   &lt;/button&gt;&#10;&#10;   &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-ex-7&quot;&gt;&#10;   &lt;div class=&quot;navbar-nav me-auto&quot;&gt;&#10;      &lt;a class=&quot;nav-item nav-link active&quot; href=&quot;javascript:void(0)&quot;&gt;Home&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;About&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;Contact&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link disabled&quot; href=&quot;javascript:void(0)&quot;&gt;Disabled&lt;/a&gt;&#10;   &lt;/div&gt;&#10;   &lt;ul class=&quot;navbar-nav ms-lg-auto&quot;&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-user&quot;&gt;&lt;/i&gt; Profile&lt;/a&gt;&#10;      &lt;/li&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-cog&quot;&gt;&lt;/i&gt; Settings&lt;/a&gt;&#10;      &lt;/li&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-lock-open-alt&quot;&gt;&lt;/i&gt; Logout&lt;/a&gt;&#10;      &lt;/li&gt;&#10;   &lt;/ul&gt;&#10;   &lt;/div&gt;  &lt;/div&gt;&#10;&#10;&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Warning -->
+        <p class="mt-4 mb-0">
+          Create navbar with Warning Color scheme by using <code>.navbar-dark</code> & <code>.bg-warning</code> classes along with <code>.navbar</code>.
+        </p>
+        <div class="doc-example">
+          <ul class="nav nav-tabs-example justify-content-end" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="navbar-warning-preview-tab" data-bs-toggle="tab" data-bs-target="#navbar-warning-preview" role="tab" aria-controls="navbar-warning-preview" aria-selected="true">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" states="btn-size-html-tab" data-bs-toggle="tab" data-bs-target="#navbar-warning-html" role="tab" aria-controls="navbar-warning-html" aria-selected="false">HTML</a>
+            </li>
+          </ul>
+          <div class="tab-content doc-example-content" id="tab-tabContent" data-label="Example">
+            <div class="tab-pane fade show active" id="navbar-warning-preview" role="tabpanel" aria-labelledby="navbar-warning-preview-tab">
+              <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="javascript:void(0)">Warning</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-7">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbar-ex-7">
+                    <div class="navbar-nav me-auto">
+                      <a class="nav-item nav-link active" href="javascript:void(0)">Home</a>
+                      <a class="nav-item nav-link" href="javascript:void(0)">About</a>
+                      <a class="nav-item nav-link" href="javascript:void(0)">Contact</a>
+                      <a class="nav-item nav-link disabled" href="javascript:void(0)">Disabled</a>
+                    </div>
+                    <ul class="navbar-nav ms-lg-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-user"></i> Profile</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-cog"></i> Settings</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-lock-open-alt"></i> Logout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <div class="tab-pane fade" id="navbar-warning-html" role="tabpanel" aria-labelledby="navbar-warning-html-tab">
+              <div class="doc-clipboard">
+                <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                  Copy
+                </button>
+              </div>
+              <pre
+                class="docs-code"><code class="html">&lt;nav class=&quot;navbar navbar-expand-lg navbar-dark bg-warning&quot;&gt;&#10;  &lt;div class=&quot;container-fluid&quot;&gt;&#10;   &lt;a class=&quot;navbar-brand&quot; href=&quot;javascript:void(0)&quot;&gt;Primary&lt;/a&gt;&#10;   &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-ex-7&quot;&gt;&#10;   &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;&#10;   &lt;/button&gt;&#10;&#10;   &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-ex-7&quot;&gt;&#10;   &lt;div class=&quot;navbar-nav me-auto&quot;&gt;&#10;      &lt;a class=&quot;nav-item nav-link active&quot; href=&quot;javascript:void(0)&quot;&gt;Home&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;About&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;Contact&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link disabled&quot; href=&quot;javascript:void(0)&quot;&gt;Disabled&lt;/a&gt;&#10;   &lt;/div&gt;&#10;   &lt;ul class=&quot;navbar-nav ms-lg-auto&quot;&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-user&quot;&gt;&lt;/i&gt; Profile&lt;/a&gt;&#10;      &lt;/li&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-cog&quot;&gt;&lt;/i&gt; Settings&lt;/a&gt;&#10;      &lt;/li&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-lock-open-alt&quot;&gt;&lt;/i&gt; Logout&lt;/a&gt;&#10;      &lt;/li&gt;&#10;   &lt;/ul&gt;&#10;   &lt;/div&gt;&#10;  &lt;/div&gt;&#10;&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info -->
+        <p class="mt-4 mb-0">
+          Create navbar with Info Color scheme by using <code>.navbar-dark</code> & <code>.bg-info</code> classes along with <code>.navbar</code>.
+        </p>
+        <div class="doc-example">
+          <ul class="nav nav-tabs-example justify-content-end" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="navbar-info-preview-tab" data-bs-toggle="tab" data-bs-target="#navbar-info-preview" role="tab" aria-controls="navbar-info-preview" aria-selected="true">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" states="btn-size-html-tab" data-bs-toggle="tab" data-bs-target="#navbar-info-html" role="tab" aria-controls="navbar-info-html" aria-selected="false">HTML</a>
+            </li>
+          </ul>
+          <div class="tab-content doc-example-content" id="tab-tabContent" data-label="Example">
+            <div class="tab-pane fade show active" id="navbar-info-preview" role="tabpanel" aria-labelledby="navbar-info-preview-tab">
+              <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="javascript:void(0)">Info</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-7">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbar-ex-7">
+                    <div class="navbar-nav me-auto">
+                      <a class="nav-item nav-link active" href="javascript:void(0)">Home</a>
+                      <a class="nav-item nav-link" href="javascript:void(0)">About</a>
+                      <a class="nav-item nav-link" href="javascript:void(0)">Contact</a>
+                      <a class="nav-item nav-link disabled" href="javascript:void(0)">Disabled</a>
+                    </div>
+                    <ul class="navbar-nav ms-lg-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-user"></i> Profile</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-cog"></i> Settings</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-lock-open-alt"></i> Logout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <div class="tab-pane fade" id="navbar-info-html" role="tabpanel" aria-labelledby="navbar-info-html-tab">
+              <div class="doc-clipboard">
+                <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                  Copy
+                </button>
+              </div>
+              <pre
+                class="docs-code"><code class="html">&lt;nav class=&quot;navbar navbar-expand-lg navbar-dark bg-info&quot;&gt;&#10;  &lt;div class=&quot;container-fluid&quot;&gt;&#10;   &lt;a class=&quot;navbar-brand&quot; href=&quot;javascript:void(0)&quot;&gt;Primary&lt;/a&gt;&#10;   &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-ex-7&quot;&gt;&#10;   &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;&#10;   &lt;/button&gt;&#10;&#10;   &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-ex-7&quot;&gt;&#10;   &lt;div class=&quot;navbar-nav me-auto&quot;&gt;&#10;      &lt;a class=&quot;nav-item nav-link active&quot; href=&quot;javascript:void(0)&quot;&gt;Home&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;About&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;Contact&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link disabled&quot; href=&quot;javascript:void(0)&quot;&gt;Disabled&lt;/a&gt;&#10;   &lt;/div&gt;&#10;   &lt;ul class=&quot;navbar-nav ms-lg-auto&quot;&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-user&quot;&gt;&lt;/i&gt; Profile&lt;/a&gt;&#10;      &lt;/li&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-cog&quot;&gt;&lt;/i&gt; Settings&lt;/a&gt;&#10;      &lt;/li&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-lock-open-alt&quot;&gt;&lt;/i&gt; Logout&lt;/a&gt;&#10;      &lt;/li&gt;&#10;   &lt;/ul&gt;&#10;   &lt;/div&gt;&#10;  &lt;/div&gt;&#10;&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dark -->
+        <p class="mt-4 mb-0">
+          Create navbar with Dark Color scheme by using <code>.navbar-dark</code> & <code>.bg-dark</code> classes along with <code>.navbar</code>.
+        </p>
+        <div class="doc-example">
+          <ul class="nav nav-tabs-example justify-content-end" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="navbar-dark-preview-tab" data-bs-toggle="tab" data-bs-target="#navbar-dark-preview" role="tab" aria-controls="navbar-dark-preview" aria-selected="true">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" states="btn-size-html-tab" data-bs-toggle="tab" data-bs-target="#navbar-dark-html" role="tab" aria-controls="navbar-dark-html" aria-selected="false">HTML</a>
+            </li>
+          </ul>
+          <div class="tab-content doc-example-content" id="tab-tabContent" data-label="Example">
+            <div class="tab-pane fade show active" id="navbar-dark-preview" role="tabpanel" aria-labelledby="navbar-dark-preview-tab">
+              <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="javascript:void(0)">Dark</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-7">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbar-ex-7">
+                    <div class="navbar-nav me-auto">
+                      <a class="nav-item nav-link active" href="javascript:void(0)">Home</a>
+                      <a class="nav-item nav-link" href="javascript:void(0)">About</a>
+                      <a class="nav-item nav-link" href="javascript:void(0)">Contact</a>
+                      <a class="nav-item nav-link disabled" href="javascript:void(0)">Disabled</a>
+                    </div>
+                    <ul class="navbar-nav ms-lg-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-user"></i> Profile</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-cog"></i> Settings</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-lock-open-alt"></i> Logout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <div class="tab-pane fade" id="navbar-dark-html" role="tabpanel" aria-labelledby="navbar-dark-html-tab">
+              <div class="doc-clipboard">
+                <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                  Copy
+                </button>
+              </div>
+              <pre
+                class="docs-code"><code class="html">&lt;nav class=&quot;navbar navbar-expand-lg navbar-dark bg-dark&quot;&gt;&#10;  &lt;div class=&quot;container-fluid&quot;&gt;&#10;   &lt;a class=&quot;navbar-brand&quot; href=&quot;javascript:void(0)&quot;&gt;Primary&lt;/a&gt;&#10;   &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-ex-7&quot;&gt;&#10;   &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;&#10;   &lt;/button&gt;&#10;&#10;   &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-ex-7&quot;&gt;&#10;   &lt;div class=&quot;navbar-nav me-auto&quot;&gt;&#10;      &lt;a class=&quot;nav-item nav-link active&quot; href=&quot;javascript:void(0)&quot;&gt;Home&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;About&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;Contact&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link disabled&quot; href=&quot;javascript:void(0)&quot;&gt;Disabled&lt;/a&gt;&#10;   &lt;/div&gt;&#10;   &lt;ul class=&quot;navbar-nav ms-lg-auto&quot;&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-user&quot;&gt;&lt;/i&gt; Profile&lt;/a&gt;&#10;      &lt;/li&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-cog&quot;&gt;&lt;/i&gt; Settings&lt;/a&gt;&#10;      &lt;/li&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-lock-open-alt&quot;&gt;&lt;/i&gt; Logout&lt;/a&gt;&#10;      &lt;/li&gt;&#10;   &lt;/ul&gt;&#10;   &lt;/div&gt;&#10;  &lt;/div&gt;&#10;&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- White -->
+        <p class="mt-4 mb-0">
+          Create navbar with White Color scheme by using <code>.navbar-light</code> & <code>.bg-white</code> classes along with <code>.navbar</code>.
+        </p>
+        <div class="doc-example">
+          <ul class="nav nav-tabs-example justify-content-end" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="navbar-light-preview-tab" data-bs-toggle="tab" data-bs-target="#navbar-light-preview" role="tab" aria-controls="navbar-light-preview" aria-selected="true">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" states="btn-size-html-tab" data-bs-toggle="tab" data-bs-target="#navbar-light-html" role="tab" aria-controls="navbar-light-html" aria-selected="false">HTML</a>
+            </li>
+          </ul>
+          <div class="tab-content doc-example-content" id="tab-tabContent" data-label="Example">
+            <div class="tab-pane fade show active" id="navbar-light-preview" role="tabpanel" aria-labelledby="navbar-light-preview-tab">
+              <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="javascript:void(0)">White</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-7">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbar-ex-7">
+                    <div class="navbar-nav me-auto">
+                      <a class="nav-item nav-link active" href="javascript:void(0)">Home</a>
+                      <a class="nav-item nav-link" href="javascript:void(0)">About</a>
+                      <a class="nav-item nav-link" href="javascript:void(0)">Contact</a>
+                      <a class="nav-item nav-link disabled" href="javascript:void(0)">Disabled</a>
+                    </div>
+                    <ul class="navbar-nav ms-lg-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-user"></i> Profile</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-cog"></i> Settings</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="tf-icons navbar-icon bx bx-lock-open-alt"></i> Logout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <div class="tab-pane fade" id="navbar-light-html" role="tabpanel" aria-labelledby="navbar-light-html-tab">
+              <div class="doc-clipboard">
+                <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                  Copy
+                </button>
+              </div>
+              <pre
+                class="docs-code"><code class="html">&lt;nav class=&quot;navbar navbar-expand-lg navbar-light bg-white&quot;&gt;&#10;  &lt;div class=&quot;container-fluid&quot;&gt;&#10;   &lt;a class=&quot;navbar-brand&quot; href=&quot;javascript:void(0)&quot;&gt;Primary&lt;/a&gt;&#10;   &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-ex-7&quot;&gt;&#10;   &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;&#10;   &lt;/button&gt;&#10;&#10;   &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-ex-7&quot;&gt;&#10;   &lt;div class=&quot;navbar-nav me-auto&quot;&gt;&#10;      &lt;a class=&quot;nav-item nav-link active&quot; href=&quot;javascript:void(0)&quot;&gt;Home&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;About&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;Contact&lt;/a&gt;&#10;      &lt;a class=&quot;nav-item nav-link disabled&quot; href=&quot;javascript:void(0)&quot;&gt;Disabled&lt;/a&gt;&#10;   &lt;/div&gt;&#10;   &lt;ul class=&quot;navbar-nav ms-lg-auto&quot;&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-user&quot;&gt;&lt;/i&gt; Profile&lt;/a&gt;&#10;      &lt;/li&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-cog&quot;&gt;&lt;/i&gt; Settings&lt;/a&gt;&#10;      &lt;/li&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;         &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;i class=&quot;tf-icons navbar-icon bx bx-lock-open-alt&quot;&gt;&lt;/i&gt; Logout&lt;/a&gt;&#10;      &lt;/li&gt;&#10;   &lt;/ul&gt;&#10;   &lt;/div&gt;&#10;  &lt;/div&gt;&#10;&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-5" />
+
+    <!-- Navbar Theme -->
+    <div class="row">
+      <div class="col-12">
+        <h4 id="navbar-theme" class="anchor-heading mb-4 fw-bold">Navbar</h4>
+        <p>
+          Here's an example of basic responsive navbar theme <code>.bg-navbar-theme</code> that have theme navbar bg
+          color
+          and automatically collapses at the large breakpoint.
+        </p>
+
+        <div class="doc-example">
+          <ul class="nav nav-tabs-example justify-content-end" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="navbar-themes-tab" data-bs-toggle="tab" data-bs-target="#navbar-themes" role="tab" aria-controls="navbar-themes" aria-selected="true">Preview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="navbar-themes-html-tab" data-bs-toggle="tab" data-bs-target="#navbar-themes-html" role="tab" aria-controls="navbar-themes-html" aria-selected="false">HTML</a>
+            </li>
+          </ul>
+          <div class="tab-content doc-example-content" id="tab-tabContent" data-label="Example">
+            <div class="tab-pane fade show active" id="navbar-themes" role="tabpanel" aria-labelledby="navbar-themes-tab">
+              <nav class="navbar navbar-expand-xl bg-navbar-theme" style="z-index: 20">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="javascript:void(0)">Navbar</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-1">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbar-ex-1">
+                    <ul class="navbar-nav me-auto">
+                      <li class="nav-item active">
+                        <a class="nav-link" href="javascript:void(0)">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">Link</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0);" data-bs-toggle="dropdown">Dropdown link</a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                          <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                          <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link disabled" href="javascript:void(0)">Disabled</a>
+                      </li>
+                    </ul>
+
+                    <form class="d-flex my-2 my-lg-0" action="javascript:void(0)">
+                      <input class="form-control me-sm-2" type="text" placeholder="Search" />
+                      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <div class="tab-pane fade" id="navbar-themes-html" role="tabpanel" aria-labelledby="navbar-themes-html-tab">
+              <div class="doc-clipboard">
+                <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                  Copy
+                </button>
+              </div>
+              <pre
+                class="docs-code"><code class="html">&lt;nav class=&quot;navbar navbar-expand-xl bg-navbar-theme&quot;&gt;&#10;  &lt;div class=&quot;container-fluid&quot;&gt;&#10;  &lt;a class=&quot;navbar-brand&quot; href=&quot;javascript:void(0)&quot;&gt;Navbar&lt;/a&gt;&#10;  &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbar-ex-1&quot;&gt;&#10;    &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;&#10;  &lt;/button&gt;&#10;&#10;  &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbar-ex-1&quot;&gt;&#10;    &lt;ul class=&quot;navbar-nav me-auto&quot;&gt;&#10;      &lt;li class=&quot;nav-item active&quot;&gt;&#10;        &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;Home&lt;/a&gt;&#10;      &lt;/li&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;        &lt;a class=&quot;nav-link&quot; href=&quot;javascript:void(0)&quot;&gt;Link&lt;/a&gt;&#10;      &lt;/li&gt;&#10;      &lt;li class=&quot;nav-item dropdown&quot;&gt;&#10;        &lt;a class=&quot;nav-link dropdown-toggle&quot; href=&quot;javascript:void(0)&quot; data-bs-toggle=&quot;dropdown&quot;&gt;Dropdown link&lt;/a&gt;&#10;        &lt;div class=&quot;dropdown-menu&quot;&gt;&#10;          &lt;a class=&quot;dropdown-item&quot; href=&quot;javascript:void(0)&quot;&gt;Action&lt;/a&gt;&#10;          &lt;a class=&quot;dropdown-item&quot; href=&quot;javascript:void(0)&quot;&gt;Another action&lt;/a&gt;&#10;          &lt;a class=&quot;dropdown-item&quot; href=&quot;javascript:void(0)&quot;&gt;Something else here&lt;/a&gt;&#10;        &lt;/div&gt;&#10;      &lt;/li&gt;&#10;      &lt;li class=&quot;nav-item&quot;&gt;&#10;        &lt;a class=&quot;nav-link disabled&quot; href=&quot;javascript:void(0)&quot;&gt;Disabled&lt;/a&gt;&#10;      &lt;/li&gt;&#10;    &lt;/ul&gt;&#10;&#10;    &lt;form class=&quot;d-flex my-2 my-lg-0&quot; action=&quot;javascript:void(0)&quot;&gt;&#10;      &lt;input class=&quot;form-control me-sm-2&quot; type=&quot;text&quot; placeholder=&quot;Search&quot; /&gt;&#10;      &lt;button class=&quot;btn btn-outline-primary my-2 my-sm-0&quot; type=&quot;submit&quot;&gt;Search&lt;/button&gt;&#10;    &lt;/form&gt;&#10;  &lt;/div&gt;&#10;  &lt;/div&gt;&#10;&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+        <p class="pt-4">
+          Here is the theme navbar bg color mixin which allow you to easily customize navbar style by adding your own
+          class
+          and colors.
+        </p>
+
+        <div class="doc-example">
+          <div class="doc-example-content" data-label="Mixin">
+            <div class="doc-clipboard">
+              <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                Copy
+              </button>
+            </div>
+            <pre
+              class="docs-code"><code class="css">@mixin template-navbar-style($parent, $bg, $color: null, $active-color: null, $border: null)</code></pre>
+          </div>
+        </div>
+
+        <div class="doc-example">
+          <div class="doc-example-content" data-label="Usage">
+            <div class="doc-clipboard">
+              <button type="button" class="btn-clipboard" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard">
+                Copy
+              </button>
+            </div>
+            <pre
+              class="docs-code"><code class="css">@include template-navbar-style('.my-bg-navbar-theme', #fff, $color: $text-muted, $active-color: $body-color);</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-none d-xl-block col-xl-2 doc-sidebar container-p-y">
+    <nav id="vertical-nav" class="navbar p-0">
+      <ul class="doc-sidebar-nav">
+        <li class="doc-entry doc-h2"><a class="nav-link" href="#basic-navbar">Basic Navbar</a></li>
+        <li class="doc-entry doc-h2">
+          <a class="nav-link" href="#supported-content">Content</a>
+          <ul>
+            <li class="doc-entry doc-h3"><a class="nav-link" href="#navbar-brand">Brand</a></li>
+            <li class="doc-entry doc-h3"><a class="nav-link" href="#navbar-nav">Nav</a></li>
+            <li class="doc-entry doc-h3"><a class="nav-link" href="#navbar-form">Form</a></li>
+            <li class="doc-entry doc-h3"><a class="nav-link" href="#navbar-text">Text</a></li>
+          </ul>
+        </li>
+        <li class="doc-entry doc-h2">
+          <a class="nav-link" href="#open-hover">Open on Hover <span class="badge badge-center badge-sm  rounded-pill bg-label-danger">C</span></a>
+        </li>
+        <li class="doc-entry doc-h2">
+          <a class="nav-link" href="#mega-dropdown">Mega Dropdown <span class="badge badge-center badge-sm  rounded-pill bg-label-danger">C</span></a>
+        </li>
+        <li class="doc-entry doc-h2"><a class="nav-link" href="#color-schemes">Color Schemes</a></li>
+        <li class="doc-entry doc-h2">
+          <a class="nav-link" href="#navbar-theme">Navbar Theme <span class="badge badge-center badge-sm  rounded-pill bg-label-danger">C</span></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+          </div>
+          <!-- / Content -->
+
+          
+          <footer class="content-footer footer">
+  <div class="container-fluid d-flex flex-wrap justify-content-between align-items-center text-center py-3">
+    <div>
+      © 2017- <script>
+      document.write(new Date().getFullYear())
+
+      </script>
+      
+      <a href="https://pixinvent.com" class="footer-text fw-bolder" target="_blank">PIXINVENT</a>, Hand-crafted
+      & Made with ❤️
+      
+    </div>
+    <div>
+      
+      <a href="https://www.facebook.com/pixinvents" class="footer-link me-3" target="_blank"><i class="tf-icons bx bxl-facebook"></i></a>
+       
+      <a href="https://twitter.com/pixinvents" class="footer-link me-3" target="_blank"><i class="tf-icons bx bxl-twitter"></i></a>
+       
+      <a href="https://github.com/pixinvent" class="footer-link me-3" target="_blank"><i class="tf-icons bx bxl-github"></i></a>
+       
+      <a href="https://dribbble.com/pixinvent" class="footer-link me-3" target="_blank"><i class="tf-icons bx bxl-dribbble"></i></a>
+       
+      <a href="https://www.instagram.com/pixinvents/" class="footer-link me-3" target="_blank"><i class="tf-icons bx bxl-instagram"></i></a>
+      
+    </div>
+  </div>
+</footer>
+
+          
+        </div>
+        <!-- Content wrapper -->
+
+      </div>
+      <!-- / Layout page -->
+
+    </div>
+
+     
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
+    
+    <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+    <div class="drag-target"></div>
+  </div>
+  <!-- / Layout wrapper -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/libs/highlight/highlight.js"></script>
+    <script src="assets/vendor/libs/clipboard/clipboard.js"></script>
+    
+    <script src="assets/vendor/libs/popper/popper.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/libs/hammer/hammer.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+    <script type="text/javascript" src="assets/vendor/libs/docsearch/docsearch.min.js"></script>
+    <!-- Vendors JS -->
+    <script src="assets/vendor/js/dropdown-hover.js"></script>
+<script src="assets/vendor/js/mega-dropdown.js"></script>
+
+    <!-- Page JS -->
+    <script src="assets/js/docs.js"></script>
+    <script src="assets/js/ui-navbar.js"></script>
+  </body>
+
+</html>
+
+
+<!-- beautify ignore:end -->
+

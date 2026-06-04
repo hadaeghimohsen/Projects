@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  Ref Constraints for Table ROLE_SYSTEM_REPORT
+--------------------------------------------------------
+
+  ALTER TABLE "FCEO$KRNL"."ROLE_SYSTEM_REPORT" ADD CONSTRAINT "FK_RLSR_ROLE" FOREIGN KEY ("ROLE_CODE")
+	  REFERENCES "FCEO$KRNL"."ROLE" ("CODE") ENABLE;
+  ALTER TABLE "FCEO$KRNL"."ROLE_SYSTEM_REPORT" ADD CONSTRAINT "FK_RLSR_SYSR" FOREIGN KEY ("SYSR_CODE")
+	  REFERENCES "FCEO$KRNL"."SYSTEM_REPORT" ("CODE") ENABLE;

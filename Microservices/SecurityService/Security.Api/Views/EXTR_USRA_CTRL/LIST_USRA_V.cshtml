@@ -1,0 +1,211 @@
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "لیست کاربران";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h4 class="fw-bold mb-0">لیست کاربران</h4>
+        <p class="text-muted mt-1 mb-0">مدیریت و مشاهده اطلاعات کاربران سیستم</p>
+    </div>
+    <a href="@Url.Action("DASH_BORD_V", "DASH_BORD_CTRL")" class="btn btn-outline-secondary">
+        <i class="bx bx-arrow-right me-1"></i>بازگشت
+    </a>
+</div>
+
+<div class="table-wrap">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <input type="text" id="filterUserName" class="form-control" placeholder="نام کاربری" onkeypress="if(event.key==='Enter'){loadUsers(1)}">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="filterPhone" class="form-control" placeholder="تلفن همراه" onkeypress="if(event.key==='Enter'){loadUsers(1)}">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="filterEmail" class="form-control" placeholder="ایمیل" onkeypress="if(event.key==='Enter'){loadUsers(1)}">
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary w-100" onclick="loadUsers(1)">جستجو</button>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover mb-0" id="usersTable">
+                <thead>
+                    <tr>
+                        <th>نام کاربری</th>
+                        <th>نام و نام خانوادگی</th>
+                        <th>وضعیت</th>
+                        <th>تلفن همراه</th>
+                        <th>ایمیل</th>
+                        <th>ایمیل تایید</th>
+                        <th>احراز دو مرحله‌ای</th>
+                        <th>تاریخ ایجاد</th>
+                        <th>آخرین ویرایش</th>
+                        <th style="width:60px">عملیات</th>
+                    </tr>
+                </thead>
+                <tbody id="usersTableBody">
+                    <tr>
+                        <td colspan="10" class="text-center text-muted">در حال بارگذاری...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="paginationContainer" class="px-3 pb-3 pt-2"></div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        (function () {
+            var tbody = document.getElementById('usersTableBody');
+            var currentPage = 1;
+
+            function getFilter() {
+                return {
+                    userName: document.getElementById('filterUserName').value,
+                    phone: document.getElementById('filterPhone').value,
+                    email: document.getElementById('filterEmail').value
+                };
+            }
+
+            function loadUsers(page) {
+                showLoading();
+                var f = getFilter();
+                var q = 'page=' + page
+                    + '&userName=' + encodeURIComponent(f.userName)
+                    + '&phone=' + encodeURIComponent(f.phone)
+                    + '&email=' + encodeURIComponent(f.email);
+                fetch('/EXTR_USRA_CTRL/LIST_USRA_U?' + q)
+                    .then(function (r) { return r.json(); })
+                    .then(function (data) {
+                        hideLoading();
+                        if (data.rspncode !== '0') {
+                            tbody.innerHTML = '<tr><td colspan="10" class="text-center text-danger">خطا در دریافت اطلاعات</td></tr>';
+                            return;
+                        }
+
+                        var users = data.data;
+                        currentPage = parseInt(data.page_numb) || 1;
+                        var totalCount = parseInt(data.total_count) || 0;
+                        var pageSize = parseInt(data.page_size) || 20;
+                        var totalPages = Math.ceil(totalCount / pageSize) || 1;
+
+                        if (!users || users.length === 0) {
+                            tbody.innerHTML = '<tr><td colspan="10" class="text-center text-muted">کاربری یافت نشد</td></tr>';
+                            renderPagination(totalPages, totalCount);
+                            return;
+                        }
+
+                        var html = '';
+                        for (var i = 0; i < users.length; i++) {
+                            var u = users[i];
+                            var statClass = u.STAT === '002' ? 'bg-label-success' : 'bg-label-danger';
+                            var emalVerfClass = u.EMAL_VERF_STAT === 'YES' ? 'bg-label-success' : 'bg-label-warning';
+                            var totpClass = u.TOTP_STAT === 'YES' ? 'bg-label-success' : 'bg-label-secondary';
+
+                            html += '<tr>' +
+                                '<td><strong>' + escapeHtml(u.USER_APP_NAME) + '</strong></td>' +
+                                '<td>' + escapeHtml(u.USER_APP_DESC || '---') + '</td>' +
+                                '<td><span class="badge ' + statClass + '">' + escapeHtml(u.STAT_DESC || u.STAT) + '</span></td>' +
+                                '<td>' + escapeHtml(u.PHON_NUMB || '---') + '</td>' +
+                                '<td>' + escapeHtml(u.EMAL_ADRS || '---') + '</td>' +
+                                '<td><span class="badge ' + emalVerfClass + '">' + escapeHtml(u.EMAL_VERF_STAT_DESC || u.EMAL_VERF_STAT) + '</span></td>' +
+                                '<td><span class="badge ' + totpClass + '">' + escapeHtml(u.TOTP_STAT_DESC || u.TOTP_STAT) + '</span></td>' +
+                                '<td>' + toPersianDate(u.CRET_DATE) + '</td>' +
+                                '<td>' + toPersianDate(u.MDFY_DATE) + '</td>' +
+                                '<td class="text-center">' +
+                                    '<div class="dropdown action-dropdown">' +
+                                        '<button class="btn btn-primary btn-xs waves-effect waves-light px-1 py-0" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size:0.85rem;line-height:1.4">' +
+                                            '<i class="bx bx-chevron-down"></i>' +
+                                        '</button>' +
+                                        '<ul class="dropdown-menu dropdown-menu-end" data-username="' + escapeHtml(u.USER_APP_NAME) + '">' +
+                                            '<li><a class="dropdown-item" data-action="edit" href="#"><i class="bx bx-edit me-1"></i>ویرایش</a></li>' +
+                                            '<li><a class="dropdown-item" data-action="delete" href="#"><i class="bx bx-trash me-1"></i>حذف</a></li>' +
+                                            '<li><hr class="dropdown-divider"></li>' +
+                                            '<li><a class="dropdown-item" data-action="activate" href="#"><i class="bx bx-check-circle me-1"></i>فعال کردن</a></li>' +
+                                            '<li><a class="dropdown-item" data-action="deactivate" href="#"><i class="bx bx-x-circle me-1"></i>غیرفعال کردن</a></li>' +
+                                            '<li><hr class="dropdown-divider"></li>' +
+                                            '<li><a class="dropdown-item" data-action="send-email" href="#"><i class="bx bx-mail-send me-1"></i>ارسال ایمیل تاییدیه</a></li>' +
+                                            '<li><hr class="dropdown-divider"></li>' +
+                                            '<li><a class="dropdown-item" data-action="change-password" href="#"><i class="bx bx-key me-1"></i>تغییر رمز کاربری</a></li>' +
+                                            '<li><a class="dropdown-item" data-action="totp-settings" href="#"><i class="bx bx-shield-quarter me-1"></i>تنظیم احراز هویت دو مرحله‌ای</a></li>' +
+                                            '<li><a class="dropdown-item" data-action="duplicate" href="#"><i class="bx bx-copy me-1"></i>نمونه‌برداری از کاربر</a></li>' +
+                                        '</ul>' +
+                                    '</div>' +
+                                '</td>' +
+                                '</tr>';
+                        }
+                        tbody.innerHTML = html;
+                        renderPagination(totalPages, totalCount);
+                    })
+                    .catch(function () {
+                        hideLoading();
+                        tbody.innerHTML = '<tr><td colspan="10" class="text-center text-danger">خطا در ارتباط با سرور</td></tr>';
+                    });
+            }
+
+            function renderPagination(totalPages, totalCount) {
+                var container = document.getElementById('paginationContainer');
+                if (!container) return;
+                var html = '';
+                html += '<div class="d-flex justify-content-between align-items-center mt-3">';
+                html += '<span class="text-muted small">' + toPersianNumber(totalCount) + ' کاربر</span>';
+                html += '<ul class="pagination pagination-sm mb-0">';
+                html += '<li class="page-item ' + (currentPage <= 1 ? 'disabled' : '') + '"><a class="page-link" href="#" onclick="event.preventDefault(); loadUsers(' + (currentPage - 1) + ')">قبلی</a></li>';
+                for (var p = 1; p <= totalPages; p++) {
+                    html += '<li class="page-item ' + (p === currentPage ? 'active' : '') + '"><a class="page-link" href="#" onclick="event.preventDefault(); loadUsers(' + p + ')">' + toPersianNumber(p) + '</a></li>';
+                }
+                html += '<li class="page-item ' + (currentPage >= totalPages ? 'disabled' : '') + '"><a class="page-link" href="#" onclick="event.preventDefault(); loadUsers(' + (currentPage + 1) + ')">بعدی</a></li>';
+                html += '</ul></div>';
+                container.innerHTML = html;
+            }
+
+            function toPersianNumber(num) {
+                return num.toString().replace(/\d/g, function (d) {
+                    return '\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669'[d];
+                });
+            }
+
+            function toPersianDate(dateStr) {
+                if (!dateStr) return '---';
+                var d = new Date(dateStr.replace(' ', 'T'));
+                if (isNaN(d.getTime())) return '---';
+                var datePart = d.toLocaleDateString('fa-IR', {
+                    year: 'numeric', month: '2-digit', day: '2-digit'
+                });
+                var timePart = d.toLocaleTimeString('fa-IR', {
+                    hour: '2-digit', minute: '2-digit'
+                });
+                return '<span dir="ltr">' + datePart + ' \u200e' + timePart + '</span>';
+            }
+
+            document.addEventListener('click', function (e) {
+                var item = e.target.closest('.dropdown-item[data-action]');
+                if (!item) return;
+                e.preventDefault();
+                var username = item.closest('.dropdown-menu').getAttribute('data-username');
+                var action = item.getAttribute('data-action');
+                var labels = {edit: 'ویرایش', delete: 'حذف', activate: 'فعال کردن', deactivate: 'غیرفعال کردن', 'send-email': 'ارسال ایمیل تاییدیه', 'change-password': 'تغییر رمز کاربری', 'totp-settings': 'تنظیم احراز هویت دو مرحله‌ای', duplicate: 'نمونه‌برداری از کاربر'};
+                if (action === 'edit') {
+                    window.location.href = '/EXTR_USRA_CTRL/GETP_USRA_V?userName=' + encodeURIComponent(username);
+                    return;
+                }
+                alert(labels[action] + ' کاربر: ' + username);
+            });
+
+            function escapeHtml(text) {
+                if (typeof text !== 'string') return text;
+                var div = document.createElement('div');
+                div.appendChild(document.createTextNode(text));
+                return div.innerHTML;
+            }
+
+            window.loadUsers = loadUsers;
+            loadUsers(1);
+        })();
+    </script>
+}

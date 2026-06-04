@@ -1,0 +1,178 @@
+﻿@{
+    Layout = "_LayoutAuth";
+    ViewData["Title"] = "ورود به سیستم";
+}
+
+<div class="authentication-wrapper authentication-cover">
+    <div class="authentication-inner row m-0">
+        <div class="d-none d-lg-flex col-lg-7 col-xl-8 align-items-center authentication-cover-img-bg">
+            <div class="flex-row text-center mx-auto">
+                <img src="~/frest-assets/img/pages/login-light.png" alt="Auth Cover" width="520" class="img-fluid authentication-cover-img" data-app-light-img="pages/login-light.png" data-app-dark-img="pages/login-dark.png">
+                <div class="mx-auto mt-4">
+                    <h3>به سامانه مدیریت خوش آمدید</h3>
+                    <p class="text-muted">
+                        سامانه جامع مدیریت کاربران و احراز هویت<br>
+                        امنیت بالا با تایید دو مرحله‌ای
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex col-12 col-lg-5 col-xl-4 align-items-center authentication-bg p-sm-5 p-4">
+            <div class="w-px-400 mx-auto">
+                <div class="app-brand mb-4">
+                    <a href="~/" class="app-brand-link gap-2 mb-2">
+                        <span class="app-brand-logo demo">
+                            <svg width="26" height="26" viewbox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="5.5" y="5.5" width="15" height="15" rx="3" fill="url(#lg-grad)" />
+                                <circle cx="13" cy="13" r="4" fill="#fff" />
+                                <defs>
+                                    <linearGradient id="lg-grad" x1="0" y1="0" x2="26" y2="26">
+                                        <stop stop-color="#5A8DEE" />
+                                        <stop offset="1" stop-color="#699AF9" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </span>
+                        <span class="app-brand-text demo h3 mb-0 fw-bold">سامانه مدیریت</span>
+                    </a>
+                </div>
+                <h4 class="mb-3 secondary-font">خوش آمدید!</h4>
+                <p class="mb-4 text-muted">لطفا وارد حساب خود شده و ماجراجویی را شروع کنید</p>
+
+                <form id="loginForm" class="mb-3" method="post" action="javascript:void(0);">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">نام کاربری</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="نام کاربری خود را وارد کنید" autofocus dir="auto">
+                    </div>
+                    <div class="mb-3 form-password-toggle">
+                        <div class="d-flex justify-content-between">
+                            <label class="form-label" for="password">رمز عبور</label>
+                            <a href="javascript:void(0);">
+                                <small class="text-muted">رمز عبور را فراموش کردید؟</small>
+                            </a>
+                        </div>
+                        <div class="input-group input-group-merge">
+                            <input type="password" id="password" class="form-control" name="password" placeholder="············" aria-describedby="password" dir="auto">
+                            <span class="input-group-text cursor-pointer" id="toggle-password"><i class="bx bx-hide"></i></span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="remember-me">
+                            <label class="form-check-label" for="remember-me">من را به خاطر بسپار <small class="text-muted">(۷ روز)</small></label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary d-grid w-100 waves-effect waves-light">ورود</button>
+                    <div id="message" class="mt-3"></div>
+                </form>
+
+                <div class="text-center mt-1">
+                    <p class="text-muted mb-0">
+                        حساب کاربری ندارید؟
+                        <a href="@Url.Action("RGTR_USRA_V", "EXTR_USRA_CTRL")" class="fw-bold">ثبت نام کنید</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        (function () {
+            var loginForm = document.getElementById('loginForm');
+            var usernameInput = document.getElementById('username');
+            var passwordInput = document.getElementById('password');
+            var messageDiv = document.getElementById('message');
+            var rememberCheck = document.getElementById('remember-me');
+            var loginBtn = loginForm.querySelector('button[type="submit"]');
+
+            if (localStorage.getItem('rememberedUser')) {
+                usernameInput.value = localStorage.getItem('rememberedUser');
+                rememberCheck.checked = true;
+            }
+
+            document.getElementById('toggle-password').addEventListener('click', function () {
+                var pwd = passwordInput;
+                var icon = this.querySelector('i');
+                if (pwd.type === 'password') {
+                    pwd.type = 'text';
+                    icon.className = 'bx bx-show';
+                } else {
+                    pwd.type = 'password';
+                    icon.className = 'bx bx-hide';
+                }
+            });
+
+            async function tryLogin(payload, maxRetries) {
+                for (var attempt = 1; attempt <= maxRetries; attempt++) {
+                    try {
+                        var response = await fetch('/EXTR_USRA_CTRL/LGIN_USRA_U', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        return await response.json();
+                    } catch (err) {
+                        if (attempt === maxRetries) throw err;
+                        await new Promise(function (r) { setTimeout(r, 1000); });
+                    }
+                }
+            }
+
+            loginForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                var username = usernameInput.value.trim();
+                var password = passwordInput.value;
+
+                messageDiv.className = '';
+                messageDiv.textContent = '';
+                loginBtn.disabled = true;
+
+                if (!username || !password) {
+                    messageDiv.className = 'alert alert-danger';
+                    messageDiv.textContent = 'لطفا نام کاربری و رمز عبور را وارد کنید';
+                    loginBtn.disabled = false;
+                    return;
+                }
+
+                if (rememberCheck.checked) {
+                    localStorage.setItem('rememberedUser', username);
+                } else {
+                    localStorage.removeItem('rememberedUser');
+                }
+
+                var payload = JSON.stringify({
+                    lgintype: '001',
+                    USER_APP_NAME: username,
+                    PASS_WORD: password,
+                    REMEMBER_ME: rememberCheck.checked ? '1' : '0'
+                });
+
+                showLoading('در حال ورود به سیستم...');
+
+                try {
+                    var data = await tryLogin(payload, 3);
+
+                    if (data.success) {
+                        localStorage.setItem('token', data.token);
+                        messageDiv.className = 'alert alert-success';
+                        messageDiv.textContent = 'در حال انتقال به داشبورد...';
+                        window.location.href = '@Url.Action("DASH_BORD_V", "DASH_BORD_CTRL")';
+                    } else {
+                        hideLoading();
+                        loginBtn.disabled = false;
+                        messageDiv.className = 'alert alert-danger';
+                        messageDiv.textContent = data.rspndesc || data.oracleErrorMessage || 'خطا در ورود';
+                    }
+                } catch {
+                    hideLoading();
+                    loginBtn.disabled = false;
+                    messageDiv.className = 'alert alert-danger';
+                    messageDiv.innerHTML = '<strong>سرور در دسترس نیست</strong><br>پس از بررسی اتصال خود، مجددا تلاش کنید';
+                }
+            });
+        })();
+    </script>
+}

@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  Ref Constraints for Table CONNECTION_STRING
+--------------------------------------------------------
+
+  ALTER TABLE "FCEO$KRNL"."CONNECTION_STRING" ADD CONSTRAINT "FK_CSTR_DSRC" FOREIGN KEY ("DSRC_CODE")
+	  REFERENCES "FCEO$KRNL"."DATASOURCE" ("CODE") ENABLE;
+  ALTER TABLE "FCEO$KRNL"."CONNECTION_STRING" ADD CONSTRAINT "FK_CSTR_USRA" FOREIGN KEY ("USRA_CODE")
+	  REFERENCES "FCEO$KRNL"."USER_APPLICATION" ("CODE") ENABLE;

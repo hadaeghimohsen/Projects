@@ -1,0 +1,101 @@
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "داشبورد";
+}
+
+<div class="hero-search">
+    <div class="position-relative" style="z-index:2">
+        <h2 class="hero-title">به سامانه مدیریت خوش آمدید</h2>
+        <p class="hero-subtitle">مدیریت کاربران، نقش‌ها، دسترسی‌ها و تنظیمات امنیتی</p>
+        <div class="position-relative">
+            <i class="bx bx-search search-icon"></i>
+            <input type="text" class="search-input" placeholder="هر چی میخوای اینجا جستجو کن ...">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-6 col-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span class="fw-semibold d-block mb-1">کل کاربران</span>
+                        <h3 class="card-title mb-2">--</h3>
+                        <small class="text-muted">تعداد کل کاربران ثبت شده</small>
+                    </div>
+                    <div class="avatar flex-shrink-0">
+                        <img src="~/frest-assets/img/icons/unicons/chart-success.png" alt="users" class="rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span class="fw-semibold d-block mb-1">کاربران فعال</span>
+                        <h3 class="card-title mb-2">--</h3>
+                        <small class="text-muted">کاربران با وضعیت فعال</small>
+                    </div>
+                    <div class="avatar flex-shrink-0">
+                        <img src="~/frest-assets/img/icons/unicons/wallet-info.png" alt="active" class="rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span class="fw-semibold d-block mb-1">کاربران غیرفعال</span>
+                        <h3 class="card-title mb-2">--</h3>
+                        <small class="text-muted">کاربران با وضعیت غیرفعال</small>
+                    </div>
+                    <div class="avatar flex-shrink-0">
+                        <img src="~/frest-assets/img/icons/unicons/paypal.png" alt="inactive" class="rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span class="fw-semibold d-block mb-1">نشست‌های فعال</span>
+                        <h3 class="card-title mb-2">--</h3>
+                        <small class="text-muted">کاربران آنلاین</small>
+                    </div>
+                    <div class="avatar flex-shrink-0">
+                        <img src="~/frest-assets/img/icons/unicons/cc-primary.png" alt="sessions" class="rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <h5 class="card-header">کاربران اخیر</h5>
+            <div class="card-body">
+                <p class="text-muted mb-0">آخرین کاربران ثبت نام شده در سیستم نمایش داده می‌شوند.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <h5 class="card-header">فعالیت‌های اخیر</h5>
+            <div class="card-body">
+                <p class="text-muted mb-0">آخرین فعالیت‌های انجام شده در سیستم.</p>
+            </div>
+        </div>
+    </div>
+</div>

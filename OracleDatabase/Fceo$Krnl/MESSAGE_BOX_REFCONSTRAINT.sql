@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  Ref Constraints for Table MESSAGE_BOX
+--------------------------------------------------------
+
+  ALTER TABLE "FCEO$KRNL"."MESSAGE_BOX" ADD CONSTRAINT "FK_MSGB_BRDC" FOREIGN KEY ("BRDC_CODE")
+	  REFERENCES "FCEO$KRNL"."BROADCAST_CONFIG" ("CODE") ENABLE;
+  ALTER TABLE "FCEO$KRNL"."MESSAGE_BOX" ADD CONSTRAINT "FK_MSGB_SYS" FOREIGN KEY ("SYS_CODE")
+	  REFERENCES "FCEO$KRNL"."SYSTEM_APPLICATION" ("CODE") ENABLE;

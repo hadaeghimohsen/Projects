@@ -1,0 +1,8 @@
+--------------------------------------------------------
+--  Ref Constraints for Table USER_HOST_SESSION
+--------------------------------------------------------
+
+  ALTER TABLE "FCEO$KRNL"."USER_HOST_SESSION" ADD CONSTRAINT "FK_USON_HINF" FOREIGN KEY ("HINF_CODE")
+	  REFERENCES "FCEO$KRNL"."HOST_INFORMATION" ("CODE") ENABLE;
+  ALTER TABLE "FCEO$KRNL"."USER_HOST_SESSION" ADD CONSTRAINT "FK_USON_USRA" FOREIGN KEY ("USRA_CODE")
+	  REFERENCES "FCEO$KRNL"."USER_APPLICATION" ("CODE") ENABLE;

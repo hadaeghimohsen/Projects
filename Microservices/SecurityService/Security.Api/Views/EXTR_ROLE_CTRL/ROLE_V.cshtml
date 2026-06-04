@@ -1,0 +1,55 @@
+@{
+    ViewData["Title"] = "مدیریت نقش‌ها";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    <div class="content-wrapper container-xxl p-1">
+        <div class="content-header row">
+            <div class="content-header-left col-md-9 col-12 mb-2">
+                <div class="row breadcrumbs-top">
+                    <div class="col-12">
+                        <h2 class="content-header-title float-start">مدیریت نقش‌ها</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-body">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">لیست نقش‌ها</h4>
+                    <button type="button" class="btn btn-primary" onclick="showCreateModal()">نقش جدید</button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="rolesTable">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>نام نقش</th>
+                                    <th>توضیحات</th>
+                                    <th>وضعیت</th>
+                                    <th>عملیات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td colspan="5" class="text-center">در حال بارگذاری...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        async function loadRoles() {
+            // TODO: add LIST_ROLE_U function to EXTR_ROLE_PKG in Oracle
+        }
+        loadRoles();
+    </script>
+}

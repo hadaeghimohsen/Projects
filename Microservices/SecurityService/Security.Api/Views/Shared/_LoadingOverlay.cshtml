@@ -1,0 +1,45 @@
+<div id="loadingOverlay" class="loading-overlay" style="display:none;">
+    <div class="loading-spinner">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">در حال پردازش...</span>
+        </div>
+        <div class="loading-text mt-2">در حال پردازش...</div>
+    </div>
+</div>
+
+<style>
+    .loading-overlay {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.35);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        direction: rtl;
+    }
+    .loading-spinner {
+        background: #fff;
+        border-radius: 12px;
+        padding: 30px 45px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        text-align: center;
+    }
+    .loading-text {
+        font-size: 14px;
+        color: #5A8DEE;
+        font-weight: 600;
+    }
+</style>
+
+<script>
+    function showLoading(text) {
+        var overlay = document.getElementById('loadingOverlay');
+        var textEl = overlay.querySelector('.loading-text');
+        if (text) textEl.textContent = text;
+        overlay.style.display = 'flex';
+    }
+    function hideLoading() {
+        document.getElementById('loadingOverlay').style.display = 'none';
+    }
+</script>

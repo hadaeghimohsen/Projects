@@ -1,0 +1,34 @@
+--------------------------------------------------------
+--  DDL for Trigger CG$BDML_UAIN
+--------------------------------------------------------
+
+  CREATE OR REPLACE NONEDITIONABLE TRIGGER "FCEO$KRNL"."CG$BDML_UAIN" BEFORE DELETE OR INSERT OR UPDATE
+ON USER_APPLICATION_INSTANCE 
+REFERENCING NEW AS N OLD AS O
+FOR EACH ROW
+DECLARE
+  v_tmp NUMBER;
+BEGIN
+  IF INSERTING THEN
+    :N.CODE := SYS_GUID();
+    :N.CRET_DATE := SYSDATE;
+    SELECT NVL(APP_CNTX_PKG.GET_CNTX_U('userappname'), USER),
+           NVL(:N.STAT, '002')
+      INTO :N.CRET_BY,
+           :N.STAT
+      FROM dual;
+  ELSIF UPDATING THEN
+    :N.MDFY_DATE := SYSDATE;
+    SELECT NVL(APP_CNTX_PKG.GET_CNTX_U('userappname'), USER)
+      INTO :N.MDFY_BY
+      FROM dual;
+    NULL;
+  ELSIF DELETING THEN
+    NULL;
+  END IF;
+EXCEPTION
+  WHEN OTHERS THEN
+    RAISE;
+END CG$BDML_UINS;
+/
+ALTER TRIGGER "FCEO$KRNL"."CG$BDML_UAIN" ENABLE;
