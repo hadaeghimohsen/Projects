@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.IdentityModel.Tokens;
 using Security.Api.Configs;
 
+const string AuthScheme = "JWT_OR_COOKIE";
+
 // تشخیص خودکار محیط بر اساس نام کامپیوتر
 var envName = Environment.MachineName switch
 {
@@ -131,10 +133,10 @@ var key = Encoding.ASCII.GetBytes(jwtSettings.SecretKey);
 
 builder.Services.AddAuthentication(options =>
 {
-    options.DefaultScheme = "JWT_OR_COOKIE";
-    options.DefaultChallengeScheme = "JWT_OR_COOKIE";
+    options.DefaultScheme = AuthScheme;
+    options.DefaultChallengeScheme = AuthScheme;
 })
-.AddPolicyScheme("JWT_OR_COOKIE", "JWT_OR_COOKIE", options =>
+.AddPolicyScheme(AuthScheme, AuthScheme, options =>
 {
     options.ForwardDefaultSelector = context =>
     {
@@ -165,13 +167,6 @@ builder.Services.AddAuthentication(options =>
 
 var app = builder.Build();
 
-// 5. Middleware Pipeline (ترتیب درست)
-//if (app.Environment.IsDevelopment())
-//{
-//    app.UseSwagger();
-//    app.UseSwaggerUI();
-//}
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();        // اول فایل‌های استاتیک
 
@@ -194,4 +189,4 @@ app.MapGet("/", context =>
     return Task.CompletedTask;
 });
 
-app.Run();
+await app.RunAsync();
