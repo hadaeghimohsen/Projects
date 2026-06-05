@@ -42,7 +42,7 @@
                 <form id="registerForm" class="mb-3" method="post" action="javascript:void(0);">
                     <div class="mb-3">
                         <label for="regUsername" class="form-label">نام کاربری</label>
-                        <input type="text" class="form-control" id="regUsername" placeholder="نام کاربری خود را وارد کنید" autofocus dir="auto">
+                        <input type="text" class="form-control" id="regUsername" placeholder="نام کاربری خود را وارد کنید" autofocus dir="ltr" inputmode="latin" autocapitalize="off" onkeypress="return event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode >= 97 && event.keyCode <= 122 || event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode === 8 || event.keyCode === 46 || event.keyCode === 45 || event.keyCode === 95">
                     </div>
                     <div class="mb-3">
                         <label for="regUserDesc" class="form-label">نام و نام خانوادگی</label>
@@ -59,14 +59,14 @@
                     <div class="mb-3 form-password-toggle">
                         <label class="form-label" for="regPassword">رمز عبور</label>
                         <div class="input-group input-group-merge">
-                            <input type="password" id="regPassword" class="form-control" placeholder="············" dir="auto">
+                            <input type="password" id="regPassword" class="form-control" placeholder="············" dir="ltr" inputmode="latin" autocapitalize="off" onkeypress="return event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode >= 97 && event.keyCode <= 122 || event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode >= 33 && event.keyCode <= 64 || event.keyCode === 8 || event.keyCode === 32">
                             <span class="input-group-text cursor-pointer" id="toggle-reg-password"><i class="bx bx-hide"></i></span>
                         </div>
                     </div>
                     <div class="mb-3 form-password-toggle">
                         <label class="form-label" for="regConfirm">تکرار رمز عبور</label>
                         <div class="input-group input-group-merge">
-                            <input type="password" id="regConfirm" class="form-control" placeholder="············" dir="auto">
+                            <input type="password" id="regConfirm" class="form-control" placeholder="············" dir="ltr" inputmode="latin" autocapitalize="off" onkeypress="return event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode >= 97 && event.keyCode <= 122 || event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode >= 33 && event.keyCode <= 64 || event.keyCode === 8 || event.keyCode === 32">
                             <span class="input-group-text cursor-pointer" id="toggle-reg-confirm"><i class="bx bx-hide"></i></span>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
             form.addEventListener('submit', async function (e) {
                 e.preventDefault();
 
-                var username = document.getElementById('regUsername').value.trim();
+                var username = document.getElementById('regUsername').value.trim().toUpperCase();
                 var userDesc = document.getElementById('regUserDesc').value.trim();
                 var phone = document.getElementById('regPhone').value.trim();
                 var email = document.getElementById('regEmail').value.trim();

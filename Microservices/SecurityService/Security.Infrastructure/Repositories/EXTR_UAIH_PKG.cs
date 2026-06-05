@@ -40,7 +40,7 @@ namespace Security.Infrastructure.Repositories
                         await ctxCmd.ExecuteNonQueryAsync();
                     }
                 }
-                catch { }
+                catch { /* context setting is best-effort */ }
             }
 
             using var command = new OracleCommand($"EXTR_UAIH_PKG.{functionName}", connection)

@@ -1,0 +1,231 @@
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "ویرایش کاربر";
+    var userName = ViewData["EditUserName"] as string;
+}
+
+<style>
+    .profile-avatar-wrap {
+        position: relative;
+        cursor: pointer;
+        border-radius: 50%;
+        overflow: hidden;
+        display: inline-block;
+        width: 110px;
+        height: 110px;
+    }
+    .profile-avatar-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    .profile-avatar-wrap .avatar-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50%;
+        background: linear-gradient(to top, rgba(0,0,0,0.35), transparent);
+        color: #fff;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: 10px;
+        opacity: 0;
+        transition: opacity 0.25s;
+    }
+    .profile-avatar-wrap:hover .avatar-overlay {
+        opacity: 1;
+    }
+    .profile-avatar-wrap .avatar-overlay i {
+        font-size: 20px;
+    }
+</style>
+
+<div class="card" style="max-width: 800px; margin: 0 auto;">
+    <div class="card-header d-flex justify-content-between align-items-center py-2">
+        <h5 class="fw-bold mb-0">ویرایش کاربر</h5>
+        <a href="@Url.Action("LIST_USRA_V", "EXTR_USRA_CTRL")" class="btn btn-outline-secondary btn-sm">
+            <i class="bx bx-arrow-right me-1"></i>بازگشت به لیست
+        </a>
+    </div>
+    <div class="text-center pt-4 pb-2 border-bottom">
+        <div class="profile-avatar-wrap">
+            <img src="~/frest-assets/img/avatars/1.png" alt="avatar" id="profileAvatar">
+            <div class="avatar-overlay">
+                <i class="bx bx-camera"></i>
+            </div>
+            <input type="file" id="avatarInput" accept="image/*" style="display:none">
+        </div>
+        <h5 class="mt-2 mb-0" id="profileName">---</h5>
+        <small class="text-muted" id="profileUsername">@userName</small>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <input type="hidden" id="edtCode">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">نام کاربری</label>
+                <input type="text" class="form-control" id="edtUserName" readonly>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">نام و نام خانوادگی</label>
+                <input type="text" class="form-control" id="edtUserDesc">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">تغییر رمز در ورود بعدی</label>
+                <select class="form-select" id="edtMustChngPass"></select>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">تلفن همراه</label>
+                <input type="text" class="form-control" id="edtPhone">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">ایمیل</label>
+                <input type="email" class="form-control" id="edtEmail">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">زبان/منطقه</label>
+                <select class="form-select" id="edtRegnLang"></select>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">اندازه صفحه</label>
+                <input type="number" class="form-control" id="edtPageSize" min="5" max="200">
+            </div>
+            <div class="col-12 mb-3">
+                <label class="form-label">توضیحات / یادداشت</label>
+                <textarea class="form-control" id="edtCmnt" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <button class="btn btn-primary px-5" onclick="saveUser()">ذخیره تغییرات</button>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        (function () {
+            var editUser = '@(ViewData["EditUserName"] ?? "")';
+            var domainCache = {};
+
+            function loadDomains(callback) {
+                var payload = JSON.stringify({
+                    operation: { type: '001', desc: 'Get all domains' },
+                    pagenumb: 1
+                });
+                fetch('/EXTR_ASDM_CTRL/LIST_ASDM_U', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                })
+                .then(function (r) { return r.json(); })
+                .then(function (res) {
+                    if (res.rspncode !== '0' || !res.data) return;
+                    for (var i = 0; i < res.data.length; i++) {
+                        var d = res.data[i];
+                        if (!domainCache[d.CODE]) domainCache[d.CODE] = [];
+                        domainCache[d.CODE].push({ valu: d.VALU, desc: d.DOMN_DESC });
+                    }
+                    if (callback) callback();
+                })
+                .catch(function () { if (callback) callback(); });
+            }
+
+            function populateSelect(id, domainCode, selected) {
+                var sel = document.getElementById(id);
+                if (!sel) return;
+                var items = domainCache[domainCode] || [];
+                var html = '';
+                for (var i = 0; i < items.length; i++) {
+                    var v = items[i].valu;
+                    html += '<option value="' + v + '"' + (v === selected ? ' selected' : '') + '>' + items[i].desc + '</option>';
+                }
+                sel.innerHTML = html;
+                if (selected && !sel.value) sel.value = selected;
+            }
+
+            function loadProfile() {
+                if (!editUser) return;
+                showLoading();
+                var payload = JSON.stringify({
+                    USER_APP_NAME: editUser,
+                    operation: { type: '004', desc: 'Get user profile' }
+                });
+                fetch('/EXTR_USRA_CTRL/GETP_USRA_U', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                })
+                .then(function (r) { return r.json(); })
+                .then(function (res) {
+                    hideLoading();
+                    if (res.rspncode !== '0') { showToast('خطا در دریافت اطلاعات', 'error'); return; }
+                    var u = res.result.USER_INFO;
+                    document.getElementById('profileName').textContent = u.USER_APP_DESC || u.USER_APP_NAME;
+                    document.getElementById('profileUsername').textContent = u.USER_APP_NAME;
+                    document.getElementById('edtCode').value = u.CODE || '';
+                    document.getElementById('edtUserName').value = u.USER_APP_NAME || '';
+                    document.getElementById('edtUserDesc').value = u.USER_APP_DESC || '';
+                    document.getElementById('edtPhone').value = u.PHON_NUMB || '';
+                    document.getElementById('edtEmail').value = u.EMAL_ADRS || '';
+                    document.getElementById('edtCmnt').value = u.CMNT || '';
+                    document.getElementById('edtPageSize').value = '20';
+                    loadDomains(function () {
+                        populateSelect('edtMustChngPass', 'D YSNO', u.MUST_CHNG_PASS || '001');
+                        populateSelect('edtRegnLang', 'D RGLN', u.REGN_LANG || '054');
+                    });
+                })
+                .catch(function () { hideLoading(); showToast('خطا در ارتباط با سرور', 'error'); });
+            }
+
+            window.saveUser = function () {
+                var payload = JSON.stringify({
+                    USER_APP_NAME: editUser,
+                    operation: { type: '001', desc: 'update record' },
+                    filter: {
+                        CODE: document.getElementById('edtCode').value,
+                        USER_APP_NAME: editUser
+                    },
+                    updateset: {
+                        USER_APP_DESC: document.getElementById('edtUserDesc').value,
+                        MUST_CHNG_PASS: document.getElementById('edtMustChngPass').value,
+                        CMNT: document.getElementById('edtCmnt').value,
+                        PHON_NUMB: document.getElementById('edtPhone').value,
+                        REGN_LANG: document.getElementById('edtRegnLang').value,
+                        EMAL_ADRS: document.getElementById('edtEmail').value,
+                        VIEW_PAGE_SIZE: document.getElementById('edtPageSize').value
+                    }
+                });
+                showLoading();
+                fetch('/EXTR_USRA_CTRL/UPDT_USRA_U', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                })
+                .then(function (r) { return r.json(); })
+                .then(function (res) {
+                    hideLoading();
+                    if (res.rspncode === '0') {
+                        showToast('اطلاعات با موفقیت ذخیره شد', 'success');
+                    } else {
+                        showToast('خطا در ذخیره اطلاعات: ' + (res.rspndesc || ''), 'error');
+                    }
+                })
+                .catch(function () { hideLoading(); showToast('خطا در ارتباط با سرور', 'error'); });
+            };
+
+            document.getElementById('profileAvatar')?.addEventListener('click', function () {
+                document.getElementById('avatarInput').click();
+            });
+            document.getElementById('avatarInput')?.addEventListener('change', function (e) {
+                if (e.target.files && e.target.files[0]) {
+                    var img = document.getElementById('profileAvatar');
+                    img.src = URL.createObjectURL(e.target.files[0]);
+                }
+            });
+
+            loadProfile();
+        })();
+    </script>
+}

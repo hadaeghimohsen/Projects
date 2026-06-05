@@ -1,4 +1,4 @@
-﻿using Security.Domain.Interfaces;
+using Security.Domain.Interfaces;
 using Oracle.ManagedDataAccess.Client;
 using System.Data;
 using Oracle.ManagedDataAccess.Types;
@@ -40,7 +40,7 @@ namespace Security.Infrastructure.Repositories
                         await ctxCmd.ExecuteNonQueryAsync();
                     }
                 }
-                catch { }
+                catch { /* context setting is best-effort */ }
             }
 
             using var command = new OracleCommand($"EXTR_GPUA_PKG.{functionName}", connection)

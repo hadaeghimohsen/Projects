@@ -409,63 +409,92 @@
       END;
    END;
       
-   FUNCTION UPDT_USRA_U(p_in CLOB) 
-   RETURN CLOB
-   IS       
-      l_out CLOB;
-      l_strt PLS_INTEGER := DBMS_UTILITY.GET_TIME;
+    FUNCTION UPDT_USRA_U(p_in CLOB) 
+    RETURN CLOB
+    IS       
+       l_out CLOB;
+       l_strt PLS_INTEGER := DBMS_UTILITY.GET_TIME;
+       l_json_in JSON_OBJECT_T;
+       l_updateset JSON_OBJECT_T;
+       l_dml_input JSON_OBJECT_T;
+       l_keys JSON_KEY_LIST;
+       l_user_code RAW(16);
+       l_user_name VARCHAR2(100);
 
-      -- Manage exception handling
-      l_sqlcode  NUMBER;
-      l_sqlerrm  VARCHAR2(4000);
-      l_backtrac VARCHAR2(4000);
-            
-      l_row USER_APPLICATION%ROWTYPE;
-      l_tjson CLOB;
-      l_excp EXCEPTION;
-   BEGIN
-      -- Parse ورودی
-      -- Sample data input : {oprttype: "001", oprtdesc: "Update common user data", CODE: "", USER_APP_DESC: "", CMNT: ""}      
-      
-      -- get column data from json
-      -- 1. In the first step, we want to check that we have access to execute this procedure.
-      l_tjson := (EXTR_USRA_PKG.CHCK_PRIV_U('{"SYS_CODE": 1, "PRVL_RWNO": 39, "PRVL_DESC": "UPDATE USRA"}'));
-      -- IF NOT ACCESS TO PRIVILEGE
-      IF(JSON_VALUE(l_tjson, '$.rspncode') != 0) THEN RAISE l_excp; END IF;
-      
-      -- IF YOU HAVE ACCESS PRIVILEGE WE CAN DO YOUR JOB
-      l_tjson := (DML_USRA_PKG.UPD_OPRT_U(p_in));
-      -- CHECK JOB RUN SUCCESSFULLY?
-      IF(JSON_VALUE(l_tjson, '$.rspncode') != 0) THEN RAISE l_excp; END IF;      
-      
-      <<L$EndF>>
-      -- Serialize برگردوندن به CLOB
-      RETURN 
-         JSON_OBJECT(
-            'rspncode' VALUE '0',
-            'rspndesc' VALUE 'success',
-            'elpstime' VALUE (DBMS_UTILITY.GET_TIME - l_strt)               
-         );
-   EXCEPTION
-      WHEN OTHERS THEN
-      BEGIN
-         l_sqlcode  := SQLCODE;
-         l_sqlerrm   := SQLERRM;
-         l_backtrac := DBMS_UTILITY.FORMAT_ERROR_BACKTRACE;
-         SELECT 
-           JSON_OBJECT(
-               'rspncode' VALUE '-1',
-               'rspndesc' VALUE 'failed',
-               'elpstime' VALUE (DBMS_UTILITY.GET_TIME - l_strt),
-               'sqlerrm' VALUE l_sqlerrm,
-               'sqlcode' VALUE l_sqlcode,
-               'sqlbacktrac' VALUE l_backtrac
-           )
-           INTO l_out
-           FROM DUAL;
-         RETURN l_out;
-      END;
-   END;
+       -- Manage exception handling
+       l_sqlcode  NUMBER;
+       l_sqlerrm  VARCHAR2(4000);
+       l_backtrac VARCHAR2(4000);
+             
+       l_row USER_APPLICATION%ROWTYPE;
+       l_tjson CLOB;
+       l_excp EXCEPTION;
+    BEGIN
+       -- Parse ورودی
+       -- Sample: {USER_APP_NAME: "", operation: {type: "001", desc: "update record"}, updateset: {USER_APP_DESC: "", ...}}
+       l_json_in := JSON_OBJECT_T.parse(p_in);
+       l_user_name := l_json_in.GET_STRING('USER_APP_NAME');
+       
+       -- get column data from json
+       -- 1. In the first step, we want to check that we have access to execute this procedure.
+       l_tjson := (EXTR_USRA_PKG.CHCK_PRIV_U('{"SYS_CODE": 1, "PRVL_RWNO": 39, "PRVL_DESC": "UPDATE USRA"}'));
+       -- IF NOT ACCESS TO PRIVILEGE
+       IF(JSON_VALUE(l_tjson, '$.rspncode') != 0) THEN RAISE l_excp; END IF;
+       
+       -- 2. Get user CODE from filter
+       BEGIN
+          l_user_code := HEXTORAW(JSON_VALUE(p_in, '$.filter.CODE'));
+       EXCEPTION WHEN OTHERS THEN RAISE l_excp; END;
+       
+       -- 3. Build DML input from updateset + CODE
+       l_updateset := l_json_in.GET_OBJECT('updateset');
+       l_dml_input := JSON_OBJECT_T();
+       l_dml_input.PUT('CODE', RAWTOHEX(l_user_code));
+       
+       IF l_updateset IS NOT NULL THEN
+          l_keys := l_updateset.GET_KEY_NAMES;
+          FOR i IN 1..l_keys.COUNT LOOP
+             IF l_updateset.GET(l_keys(i)).IS_NULL THEN
+                l_dml_input.PUT(l_keys(i), NULL);
+             ELSE
+                l_dml_input.PUT(l_keys(i), l_updateset.GET_STRING(l_keys(i)));
+             END IF;
+          END LOOP;
+       END IF;
+       
+       -- IF YOU HAVE ACCESS PRIVILEGE WE CAN DO YOUR JOB
+       l_tjson := (DML_USRA_PKG.UPD_OPRT_U(l_dml_input.TO_CLOB));
+       -- CHECK JOB RUN SUCCESSFULLY?
+       IF(JSON_VALUE(l_tjson, '$.rspncode') != 0) THEN RAISE l_excp; END IF;      
+       
+       <<L$EndF>>
+       -- Serialize برگردوندن به CLOB
+       RETURN 
+          JSON_OBJECT(
+             'rspncode' VALUE '0',
+             'rspndesc' VALUE 'success',
+             'elpstime' VALUE (DBMS_UTILITY.GET_TIME - l_strt)               
+          );
+    EXCEPTION
+       WHEN OTHERS THEN
+       BEGIN
+          l_sqlcode  := SQLCODE;
+          l_sqlerrm   := SQLERRM;
+          l_backtrac := DBMS_UTILITY.FORMAT_ERROR_BACKTRACE;
+          SELECT 
+            JSON_OBJECT(
+                'rspncode' VALUE '-1',
+                'rspndesc' VALUE 'failed',
+                'elpstime' VALUE (DBMS_UTILITY.GET_TIME - l_strt),
+                'sqlerrm' VALUE l_sqlerrm,
+                'sqlcode' VALUE l_sqlcode,
+                'sqlbacktrac' VALUE l_backtrac
+            )
+            INTO l_out
+            FROM DUAL;
+          RETURN l_out;
+       END;
+    END;
       
    FUNCTION ACTV_USRA_U(p_in CLOB) 
    RETURN CLOB

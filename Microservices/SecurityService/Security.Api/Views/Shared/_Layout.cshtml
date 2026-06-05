@@ -19,6 +19,20 @@
     <script src="~/frest-assets/vendor/js/helpers.js"></script>
     <script src="~/frest-assets/vendor/js/template-customizer.js"></script>
     <script src="~/frest-assets/js/config.js"></script>
+    <style>
+        .toast-container { position: fixed; z-index: 9999; pointer-events: none; }
+        .toast-container.tc-top-left { top: 70px; left: 20px; }
+        .toast-container.tc-bottom-right { bottom: 20px; right: 20px; }
+        .toast-item {
+            pointer-events: auto; padding: 12px 20px; margin-bottom: 8px; border-radius: 8px;
+            font-size: 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+            opacity: 0; transform: translateY(-10px);
+            transition: opacity 0.3s, transform 0.3s; max-width: 380px; min-width: 250px;
+        }
+        .toast-item.show { opacity: 1; transform: translateY(0); }
+        .toast-item.toast-success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .toast-item.toast-error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+    </style>
     @await RenderSectionAsync("Styles", required: false)
 </head>
 <body>
@@ -103,6 +117,11 @@
                                             <li class="menu-item">
                                                 <a href="javascript:void(0);" class="menu-link">
                                                     <div>کپی کاربر</div>
+                                                </a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="javascript:void(0);" class="menu-link">
+                                                    <div>نمونه‌برداری از کاربر</div>
                                                 </a>
                                             </li>
                                             <li class="menu-item">
@@ -420,6 +439,22 @@
     <script src="~/frest-assets/vendor/js/menu.js"></script>
     <script src="~/frest-assets/js/main.js"></script>
     @await Html.PartialAsync("_LoadingOverlay")
+
+    <div class="toast-container tc-top-left" id="toastSuccess"></div>
+    <div class="toast-container tc-bottom-right" id="toastError"></div>
+    <script>
+        window.showToast = function (msg, type) {
+            var container = type === 'success' ? document.getElementById('toastSuccess') : document.getElementById('toastError');
+            var el = document.createElement('div');
+            el.className = 'toast-item toast-' + type;
+            el.textContent = msg;
+            container.appendChild(el);
+            requestAnimationFrame(function () { el.classList.add('show'); });
+            var dur = type === 'success' ? 3000 : 5000;
+            setTimeout(function () { el.classList.remove('show'); setTimeout(function () { el.remove(); }, 300); }, dur);
+        };
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
