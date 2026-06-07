@@ -11,4 +11,7 @@ public class LoginResponseDto
     public string Rspndesc { get; set; } = string.Empty;
     public string OracleErrorMessage { get; set; } = string.Empty;
     public int Elpstime { get; set; }
+
+    public bool RequiresTotp { get; set; } = false;
+    public string TotpToken { get; set; } = string.Empty;
 }

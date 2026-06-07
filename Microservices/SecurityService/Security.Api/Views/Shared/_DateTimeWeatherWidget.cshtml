@@ -1,0 +1,15 @@
+@* DateTime & Weather Widget *@
+<li class="nav-item d-none d-md-flex align-items-center">
+    <div class="widget-dt">
+        <span class="dt-clock" id="dtClock">--:--:--</span>
+        <span class="dt-date" id="dtDate"></span>
+        <span class="dt-divider"></span>
+        <span class="dt-weather" id="dtWeather" data-city="@(Configuration.GetSection("WeatherSettings")["City"] ?? "تهران")"></span>
+    </div>
+</li>
+<li class="nav-item d-flex align-items-center">
+    <button type="button" class="style-switcher-toggle" title="تغییر تم" aria-label="تغییر تم">
+        <i class="bx bx-moon"></i>
+    </button>
+</li>
+<div id="weatherOverlay" class="weather-overlay"></div>

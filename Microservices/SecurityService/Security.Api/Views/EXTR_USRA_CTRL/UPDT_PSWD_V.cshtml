@@ -1,0 +1,24 @@
+@* Change Password Modal - User-specific view *@
+<div class="modal fade" id="changePasswordModal" tabindex="-1" aria-hidden="true" dir="rtl">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content confirm-modal-content">
+            <div class="confirm-modal-icon is-warning">
+                <i class="bx bx-key"></i>
+            </div>
+            <h5 class="confirm-modal-title">تغییر رمز کاربری</h5>
+            <p class="confirm-modal-message" id="cpMsg">رمز جدید را برای کاربر وارد کنید.</p>
+            <div class="text-start w-100 mb-2">
+                <label class="form-label small mb-1">رمز جدید</label>
+                <input type="password" id="cpNewPwd" class="form-control form-control-sm" autocomplete="new-password" />
+            </div>
+            <div class="text-start w-100 mb-3">
+                <label class="form-label small mb-1">تکرار رمز جدید</label>
+                <input type="password" id="cpCnfmPwd" class="form-control form-control-sm" autocomplete="new-password" />
+            </div>
+            <div class="confirm-modal-actions">
+                <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal" id="cpCancel">انصراف</button>
+                <button type="button" class="btn btn-primary" id="cpOk">تغییر رمز</button>
+            </div>
+        </div>
+    </div>
+</div>

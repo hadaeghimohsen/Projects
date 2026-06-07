@@ -27,6 +27,9 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHttpClient();
+builder.Services.AddSingleton<Security.Application.Interfaces.ITotpService, Security.Infrastructure.Services.TotpService>();
+builder.Services.AddSingleton<Security.Application.Interfaces.ITotpLoginStore, Security.Infrastructure.Services.TotpLoginStore>();
 
 // 2. Connection String
 var connectionString = builder.Configuration.GetConnectionString("OracleDb")

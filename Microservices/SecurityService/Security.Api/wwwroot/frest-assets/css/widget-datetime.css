@@ -1,0 +1,156 @@
+.widget-dt {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    white-space: nowrap;
+    transition: background 0.2s;
+    user-select: none;
+}
+.widget-dt:hover {
+    background: rgba(90, 141, 238, 0.08);
+}
+.widget-dt .dt-divider {
+    width: 1px;
+    height: 22px;
+    background: rgba(0,0,0,0.1);
+    margin: 0 4px;
+}
+.dark-style .widget-dt .dt-divider {
+    background: rgba(255,255,255,0.12);
+}
+.widget-dt .dt-clock {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--bs-body-color, inherit);
+}
+.widget-dt .dt-date {
+    color: var(--bs-secondary-color, #6c757d);
+    font-size: 12px;
+}
+.widget-dt .dt-weather {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--bs-body-color, inherit);
+}
+.widget-dt .dt-weather .wi-city {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-left: 2px;
+}
+.widget-dt .dt-weather .wi-temp {
+    font-weight: 600;
+    font-size: 14px;
+}
+.widget-dt .dt-weather .wi-icon {
+    font-size: 18px;
+    line-height: 1;
+}
+.style-switcher-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: var(--bs-body-color, inherit);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    font-size: 18px;
+    padding: 0;
+}
+.style-switcher-toggle:hover {
+    background: rgba(90, 141, 238, 0.12);
+    transform: scale(1.1);
+}
+.style-switcher-toggle:active {
+    transform: scale(0.95);
+}
+[data-bs-theme="dark"] .style-switcher-toggle:hover,
+.dark-style .style-switcher-toggle:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Auth top bar */
+.auth-topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 16px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-size: 13px;
+    direction: rtl;
+    user-select: none;
+}
+.dark-style .auth-topbar {
+    background: rgba(30,30,45,0.85);
+    border-bottom-color: rgba(255,255,255,0.06);
+}
+.auth-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.auth-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.auth-topbar .dt-sep {
+    opacity: 0.3;
+    font-size: 14px;
+}
+.auth-topbar .dt-clock {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.auth-topbar .dt-date {
+    font-size: 12px;
+    opacity: 0.8;
+}
+.auth-topbar .dt-weather {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.auth-topbar .dt-weather .wi-city {
+    font-size: 12px;
+    opacity: 0.7;
+}
+.auth-topbar .dt-weather .wi-temp {
+    font-weight: 600;
+    font-size: 13px;
+}
+.auth-topbar .auth-version {
+    font-size: 11px;
+    opacity: 0.5;
+    direction: ltr;
+}
+.auth-version-footer {
+    position: fixed;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    font-size: 10px;
+    opacity: 0.3;
+    direction: ltr;
+    pointer-events: none;
+}
+.auth-body {
+    padding-top: 44px;
+}

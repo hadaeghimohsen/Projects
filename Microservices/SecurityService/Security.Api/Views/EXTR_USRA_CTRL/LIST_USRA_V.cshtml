@@ -63,6 +63,8 @@
     <div id="paginationContainer" class="px-3 pb-3 pt-2"></div>
 </div>
 
+@await Html.PartialAsync("UPDT_PSWD_V")
+
 @section Scripts {
     <script>
         (function () {
@@ -210,8 +212,101 @@
                     window.location.href = '/EXTR_USRA_CTRL/UPDT_USRA_V?userName=' + encodeURIComponent(username);
                     return;
                 }
+                if (action === 'totp-settings') {
+                    window.location.href = '/EXTR_USRA_CTRL/TOTP_STNG_V?userName=' + encodeURIComponent(username);
+                    return;
+                }
+                if (action === 'activate') {
+                    showConfirm({
+                        title: 'فعال کردن کاربر',
+                        message: 'آیا می‌خواهید کاربر "' + username + '" را فعال کنید؟',
+                        type: 'success',
+                        okText: 'بله، فعال شود',
+                        okClass: 'btn-success'
+                    }).then(function (ok) {
+                        if (ok) toggleUserStatus(username, 'ACTV');
+                    });
+                    return;
+                }
+                if (action === 'deactivate') {
+                    showConfirm({
+                        title: 'غیرفعال کردن کاربر',
+                        message: 'آیا می‌خواهید کاربر "' + username + '" را غیرفعال کنید؟',
+                        type: 'danger',
+                        okText: 'بله، غیرفعال شود',
+                        okClass: 'btn-danger'
+                    }).then(function (ok) {
+                        if (ok) toggleUserStatus(username, 'DACT');
+                    });
+                    return;
+                }
+                if (action === 'change-password') {
+                    var actor = localStorage.getItem('rememberedUser') || '';
+                    openChangePassword(actor, username).then(function (data) {
+                        if (data) changePassword(data.actor, data.target, data.newPwd);
+                    });
+                    return;
+                }
                 showToast(labels[action] + ' کاربر: ' + username, 'error');
             });
+
+            function changePassword(actor, target, newPwd) {
+                var payload = JSON.stringify({
+                    operation: { type: '004', desc: 'Change password' },
+                    USER_APP_NAME: actor,
+                    filter: { USER_APP_NAME: target },
+                    updateset: { PASS_WORD: newPwd }
+                });
+                showLoading();
+                fetch('/EXTR_USRA_CTRL/UPDT_PSWD_U', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                })
+                .then(function (r) { return r.json(); })
+                .then(function (res) {
+                    hideLoading();
+                    if (res.rspncode === '0') {
+                        showToast('رمز کاربر "' + target + '" تغییر کرد', 'success');
+                    } else {
+                        showToast('تغییر رمز کاربر "' + target + '" انجام نشد', 'error');
+                    }
+                })
+                .catch(function () {
+                    hideLoading();
+                    showToast('تغییر رمز کاربر "' + target + '" انجام نشد', 'error');
+                });
+            }
+
+            function toggleUserStatus(username, op) {
+                var endpoint = op === 'ACTV' ? '/EXTR_USRA_CTRL/ACTV_USRA_U' : '/EXTR_USRA_CTRL/DACT_USRA_U';
+                var currentUser = localStorage.getItem('rememberedUser') || '';
+                var payload = JSON.stringify({
+                    operation: { type: op === 'ACTV' ? '002' : '003', desc: op === 'ACTV' ? 'activate user' : 'deactivate user' },
+                    USER_APP_NAME: currentUser,
+                    filter: { USER_APP_NAME: username }
+                });
+                showLoading();
+                fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                })
+                .then(function (r) { return r.json(); })
+                .then(function (res) {
+                    hideLoading();
+                    if (res.rspncode === '0') {
+                        showToast(op === 'ACTV' ? 'کاربر "' + username + '" فعال شد' : 'کاربر "' + username + '" غیرفعال شد', 'success');
+                        loadUsers(currentPage);
+                    } else {
+                        showToast(op === 'ACTV' ? 'فعال‌سازی کاربر "' + username + '" انجام نشد' : 'غیرفعال‌سازی کاربر "' + username + '" انجام نشد', 'error');
+                    }
+                })
+                .catch(function () {
+                    hideLoading();
+                    showToast(op === 'ACTV' ? 'فعال‌سازی کاربر "' + username + '" انجام نشد' : 'غیرفعال‌سازی کاربر "' + username + '" انجام نشد', 'error');
+                });
+            }
 
             function escapeHtml(text) {
                 if (typeof text !== 'string') return text;
@@ -247,6 +342,62 @@
 
             window.loadUsers = loadUsers;
             loadUsers(1);
+
+            // Change password modal logic
+            var cpModalEl = document.getElementById('changePasswordModal');
+            var cpNewPwdEl = document.getElementById('cpNewPwd');
+            var cpCnfmPwdEl = document.getElementById('cpCnfmPwd');
+            var cpMsgEl = document.getElementById('cpMsg');
+            var cpOkBtn = document.getElementById('cpOk');
+            var cpCancelBtn = document.getElementById('cpCancel');
+            var cpBsModal = (typeof bootstrap !== 'undefined' && cpModalEl) ? new bootstrap.Modal(cpModalEl, { backdrop: 'static', keyboard: true }) : null;
+            var cpActor = '';
+            var cpTarget = '';
+
+            function cpReset() {
+                cpNewPwdEl.value = '';
+                cpCnfmPwdEl.value = '';
+                cpMsgEl.style.color = '';
+            }
+
+            function cpShowError(text) {
+                cpMsgEl.textContent = text;
+                cpMsgEl.style.color = '#f87171';
+            }
+
+            window.openChangePassword = function (actor, target) {
+                if (!cpBsModal) return Promise.resolve(null);
+                cpActor = actor;
+                cpTarget = target;
+                cpReset();
+                cpMsgEl.textContent = 'تغییر رمز کاربری "' + target + '":';
+                cpBsModal.show();
+                setTimeout(function () { cpNewPwdEl.focus() }, 400);
+
+                return new Promise(function (resolve) {
+                    var cleanup = function () {
+                        cpOkBtn.removeEventListener('click', onOk);
+                        cpCancelBtn.removeEventListener('click', onCancel);
+                    };
+                    var onOk = function () {
+                        var newPwd = cpNewPwdEl.value;
+                        var cnfmPwd = cpCnfmPwdEl.value;
+                        if (!newPwd) { cpShowError('رمز جدید نمی‌تواند خالی باشد.'); return; }
+                        if (newPwd.length < 6) { cpShowError('رمز باید حداقل ۶ کاراکتر باشد.'); return; }
+                        if (newPwd !== cnfmPwd) { cpShowError('رمز و تکرار آن یکسان نیستند.'); return; }
+                        cleanup();
+                        cpBsModal.hide();
+                        resolve({ newPwd: newPwd, target: cpTarget, actor: cpActor });
+                    };
+                    var onCancel = function () {
+                        cleanup();
+                        cpBsModal.hide();
+                        resolve(null);
+                    };
+                    cpOkBtn.addEventListener('click', onOk);
+                    cpCancelBtn.addEventListener('click', onCancel);
+                });
+            };
         })();
     </script>
 }

@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="~/frest-assets/vendor/css/rtl/rtl.css">
     <link rel="stylesheet" href="~/frest-assets/css/custom-fonts.css">
     <link rel="stylesheet" href="~/frest-assets/css/custom.css">
+    <link rel="stylesheet" href="~/frest-assets/css/widget-datetime.css">
+    <link rel="stylesheet" href="~/frest-assets/css/weather-effects.css">
+    <link rel="stylesheet" href="~/frest-assets/css/terminal.css">
+    <link rel="stylesheet" href="~/frest-assets/css/confirm-modal.css">
     <link rel="stylesheet" href="~/frest-assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="~/frest-assets/vendor/libs/typeahead-js/typeahead.css">
     <script src="~/frest-assets/vendor/js/helpers.js"></script>
@@ -398,6 +402,7 @@
                                 </div>
                             </div>
                             <ul class="navbar-nav flex-row align-items-center ms-auto">
+                                @await Html.PartialAsync("_DateTimeWeatherWidget")
                                 <li class="nav-item dropdown-user dropdown">
                                     <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                                         <div class="avatar avatar-online">
@@ -421,7 +426,7 @@
                     </div>
                     <footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                            <div class="mb-2 mx-auto">© @DateTime.Now.Year - تمامی حقوق محفوظ است</div>
+                            <div class="mb-2 mx-auto">© @DateTime.Now.Year - تمامی حقوق محفوظ است <span class="mx-2">|</span> <span dir="ltr" style="font-size:11px;opacity:0.5">v@(Configuration.GetSection("AppSettings")["Version"] ?? "1.0.0")</span></div>
                         </div>
                     </footer>
                 </div>
@@ -439,6 +444,11 @@
     <script src="~/frest-assets/vendor/js/menu.js"></script>
     <script src="~/frest-assets/js/main.js"></script>
     @await Html.PartialAsync("_LoadingOverlay")
+    @await Html.PartialAsync("_TerminalConsole")
+    @await Html.PartialAsync("_ConfirmModal")
+    <script src="~/frest-assets/js/widget-datetime.js"></script>
+    <script src="~/frest-assets/js/terminal.js"></script>
+    <script src="~/frest-assets/js/confirm-modal.js"></script>
 
     <div class="toast-container tc-top-left" id="toastSuccess"></div>
     <div class="toast-container tc-bottom-right" id="toastError"></div>

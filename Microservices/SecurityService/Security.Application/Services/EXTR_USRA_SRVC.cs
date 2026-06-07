@@ -53,6 +53,9 @@ namespace Security.Application.Services
         public async Task<string> DSBL_TOTP_U(string p_in)
             => await _repository.DSBL_TOTP_U(p_in);
 
+        public async Task<string> READ_TOTP_U(string p_in)
+            => await _repository.READ_TOTP_U(p_in);
+
         public async Task<string> GETP_USRA_U(string p_in)
             => await _repository.GETP_USRA_U(p_in);
 

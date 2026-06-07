@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="~/frest-assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css">
     <link rel="stylesheet" href="~/frest-assets/css/demo.css">
     <link rel="stylesheet" href="~/frest-assets/vendor/css/rtl/rtl.css">
+    <link rel="stylesheet" href="~/frest-assets/css/widget-datetime.css">
+    <link rel="stylesheet" href="~/frest-assets/css/weather-effects.css">
+    <link rel="stylesheet" href="~/frest-assets/css/terminal.css">
     <link rel="stylesheet" href="~/frest-assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="~/frest-assets/vendor/libs/typeahead-js/typeahead.css">
     <link rel="stylesheet" href="~/frest-assets/vendor/libs/formvalidation/dist/css/formValidation.min.css">
@@ -22,8 +25,26 @@
     <script src="~/frest-assets/js/config.js"></script>
     @await RenderSectionAsync("Styles", required: false)
 </head>
-<body>
+<body class="auth-body">
+    @* Auth Top Bar *@
+    <div class="auth-topbar">
+        <div class="auth-topbar-left">
+            <span class="dt-clock" id="dtClock">--:--:--</span>
+            <span class="dt-sep">|</span>
+            <span class="dt-date" id="dtDate"></span>
+            <span class="dt-sep">|</span>
+            <span class="dt-weather" id="dtWeather" data-city="@(Configuration.GetSection("WeatherSettings")["City"] ?? "تهران")"></span>
+        </div>
+        <div class="auth-topbar-right">
+            <span class="auth-version">نسخه @(Configuration.GetSection("AppSettings")["Version"] ?? "1.0.0")</span>
+            <button type="button" class="style-switcher-toggle" title="تغییر تم" aria-label="تغییر تم">
+                <i class="bx bx-moon"></i>
+            </button>
+        </div>
+    </div>
     @RenderBody()
+    <div id="weatherOverlay" class="weather-overlay"></div>
+    <div class="auth-version-footer">نسخه @(Configuration.GetSection("AppSettings")["Version"] ?? "1.0.0")</div>
     <script src="~/frest-assets/vendor/libs/jquery/jquery.js"></script>
     <script src="~/frest-assets/vendor/libs/popper/popper.js"></script>
     <script src="~/frest-assets/vendor/js/bootstrap.js"></script>
@@ -38,6 +59,9 @@
     <script src="~/frest-assets/js/main.js"></script>
     <script src="~/frest-assets/js/pages-auth.js"></script>
     @await Html.PartialAsync("_LoadingOverlay")
+    @await Html.PartialAsync("_TerminalConsole")
+    <script src="~/frest-assets/js/widget-datetime.js"></script>
+    <script src="~/frest-assets/js/terminal.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

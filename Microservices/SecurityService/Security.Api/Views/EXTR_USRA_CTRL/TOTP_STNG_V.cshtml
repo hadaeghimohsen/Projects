@@ -1,0 +1,386 @@
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "تنظیم احراز هویت دو مرحله‌ای";
+    var totpUserName = (ViewData["TotpUserName"] as string) ?? (Context.Request.Query["userName"].ToString()) ?? "";
+    var totpStat = (ViewData["TotpStat"] as string) ?? "001";
+    var totpUserDesc = (ViewData["TotpUserDesc"] as string) ?? "";
+    var isEnabled = totpStat == "002";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="fw-bold mb-0">
+            <i class="bx bx-shield-quarter me-1"></i>
+            تنظیم احراز هویت دو مرحله‌ای (TOTP)
+        </h5>
+        <a href="@Url.Action("LIST_USRA_V", "EXTR_USRA_CTRL")" class="btn btn-outline-secondary btn-sm">
+            <i class="bx bx-arrow-right me-1"></i>بازگشت به لیست کاربران
+        </a>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="mb-2">
+                        <span class="text-muted small">کاربر هدف:</span>
+                        <strong id="totpTargetUser" class="ms-1" dir="ltr" data-target-user="@totpUserName">@totpUserName</strong>
+                    </div>
+                    <div class="mb-2">
+                        <span class="text-muted small">توضیحات:</span>
+                        <strong id="totpUserDesc" class="ms-1" dir="ltr">@totpUserDesc</strong>
+                    </div>
+                    <div class="mb-2">
+                        <span class="text-muted small">عملگر:</span>
+                        <strong id="totpActor" class="ms-1" dir="ltr"></strong>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="mb-2">
+                        <span class="text-muted small d-block">وضعیت فعلی:</span>
+                        <span id="totpCurrentStatus" class="badge @(isEnabled ? "bg-label-success" : "bg-label-secondary")">@(isEnabled ? "فعال" : "غیرفعال")</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-lg-7">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h6 class="mb-0"><i class="bx bx-qr-scan me-1"></i>مرحله ۱: مقداردهی اولیه</h6>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted small mb-3">
+                        با کلیک روی دکمه زیر، یک کلید مخفی برای کاربر ساخته می‌شود. سپس QR code نمایش داده می‌شود.
+                        کاربر باید این QR را با اپلیکیشن authenticator (مثل Google Authenticator یا Microsoft Authenticator) اسکن کند.
+                    </p>
+                    <div class="text-center mb-3">
+                        <button id="btnInit" class="btn btn-primary">
+                            <i class="bx bx-key me-1"></i>ساخت کلید و نمایش QR
+                        </button>
+                    </div>
+                    <button id="btnDisable" class="btn btn-outline-danger d-none w-100 mt-2">
+                        <i class="bx bx-shield-x me-1"></i>غیرفعال‌سازی TOTP
+                    </button>
+
+                    <div id="initResult" class="mt-4 d-none">
+                        <div class="text-center">
+                            <div class="d-inline-block p-2 bg-white border rounded shadow-sm">
+                                <img id="qrImage" alt="QR Code" style="width:200px;height:200px;display:block;" />
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <div class="d-inline-flex align-items-center gap-2 px-3 py-2 bg-light border rounded" dir="ltr" style="max-width:100%;">
+                                <code id="secretInput" class="fw-bold text-primary user-select-all" style="letter-spacing:0.15em;font-size:1rem;word-break:break-all;"></code>
+                                <button class="btn btn-sm btn-link p-0 ms-1" type="button" id="btnCopySecret" title="کپی کلید">
+                                    <i class="bx bx-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="alert alert-info small mt-3 mb-0">
+                            <i class="bx bx-info-circle me-1"></i>
+                            کلید مخفی ذخیره شد. QR را با اپلیکیشن authenticator اسکن کنید یا کلید را دستی وارد کنید.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5 d-none" id="verifyCard">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h6 class="mb-0"><i class="bx bx-check-shield me-1"></i>مرحله ۲: تأیید و فعال‌سازی</h6>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted small mb-3">
+                        کد ۶ رقمی که اپلیکیشن authenticator نمایش می‌دهد را در کادر زیر وارد کنید و دکمه تأیید را بزنید.
+                    </p>
+                    <div class="mb-3">
+                        <label class="form-label small">کد تأیید</label>
+                        <input id="codeInput" type="text" maxlength="6" inputmode="numeric" pattern="[0-9]{6}"
+                               class="form-control form-control-lg text-center fw-bold"
+                               placeholder="------" dir="ltr" style="letter-spacing:0.5rem;font-size:1.5rem;" />
+                    </div>
+                    <button id="btnVerify" class="btn btn-success w-100" disabled>
+                        <i class="bx bx-check-circle me-1"></i>تأیید و فعال‌سازی
+                    </button>
+
+                    <div class="mt-4 pt-3 border-top">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <span class="text-muted">کد فعلی شما:</span>
+                            <span id="liveCode" class="badge bg-label-primary fs-6" dir="ltr">------</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between small mt-2">
+                            <span class="text-muted">زمان باقیمانده:</span>
+                            <span id="liveCountdown" class="badge bg-label-secondary" dir="ltr">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        (function () {
+            var targetUser = document.getElementById('totpTargetUser').dataset.targetUser || document.getElementById('totpTargetUser').textContent.trim();
+            if (!targetUser) {
+                var params = new URLSearchParams(window.location.search);
+                targetUser = params.get('userName') || '';
+            }
+            if (!targetUser) {
+                showToast('نام کاربری مشخص نیست', 'error');
+                return;
+            }
+
+            // status از سرور اومده - نیازی به loadCurrentStatus نیست
+            var serverStatus = '@totpStat';
+            setStatus(serverStatus);
+            var actorEl = document.getElementById('totpActor');
+            actorEl.textContent = localStorage.getItem('rememberedUser') || '';
+
+            var btnInit = document.getElementById('btnInit');
+            var btnDisable = document.getElementById('btnDisable');
+            var btnVerify = document.getElementById('btnVerify');
+            var btnCopy = document.getElementById('btnCopySecret');
+            var initResult = document.getElementById('initResult');
+            var verifyCard = document.getElementById('verifyCard');
+            var qrImage = document.getElementById('qrImage');
+            var secretInput = document.getElementById('secretInput');
+            var codeInput = document.getElementById('codeInput');
+            var liveCode = document.getElementById('liveCode');
+            var liveCountdown = document.getElementById('liveCountdown');
+            var statusBadge = document.getElementById('totpCurrentStatus');
+
+            var currentSecret = '';
+
+            function buildPayload(extra) {
+                var base = {
+                    USER_APP_NAME: localStorage.getItem('rememberedUser') || '',
+                    filter: { USER_APP_NAME: targetUser }
+                };
+                if (extra) {
+                    for (var k in extra) base[k] = extra[k];
+                }
+                return JSON.stringify(base);
+            }
+
+            function setStatus(stat) {
+                if (stat === '002') {
+                    statusBadge.className = 'badge bg-label-success';
+                    statusBadge.textContent = 'فعال';
+                    btnDisable.classList.remove('d-none');
+                } else if (stat === '001') {
+                    statusBadge.className = 'badge bg-label-secondary';
+                    statusBadge.textContent = 'غیرفعال';
+                    btnDisable.classList.add('d-none');
+                } else {
+                    statusBadge.className = 'badge bg-label-warning';
+                    statusBadge.textContent = 'نامشخص';
+                    btnDisable.classList.add('d-none');
+                }
+            }
+
+            function loadCurrentStatus() {
+                var payload = JSON.stringify({
+                    operation: { type: '001', desc: 'show user' },
+                    USER_APP_NAME: localStorage.getItem('rememberedUser') || '',
+                    filter: { USER_APP_NAME: targetUser }
+                });
+                fetch('/EXTR_USRA_CTRL/LIST_USRA_U', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: payload
+                })
+                .then(function (r) { return r.json(); })
+                .then(function (data) {
+                    if (data.rspncode === '0' && data.data && data.data.length > 0) {
+                        var info = data.data[0];
+                        setStatus(info.TOTP_STAT);
+                    } else {
+                        setStatus(null);
+                    }
+                })
+                .catch(function () { setStatus(null); });
+            }
+
+            btnInit.addEventListener('click', function () {
+                showLoading();
+                fetch('/EXTR_USRA_CTRL/TOTP_STNG_U', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(buildPayload())
+                })
+                .then(function (r) { return r.json(); })
+                .then(function (data) {
+                    hideLoading();
+                    if (data.rspncode !== '0') {
+                        showToast('خطا: ' + (data.rspndesc || 'نامشخص'), 'error');
+                        return;
+                    }
+                    currentSecret = data.data.TOTP_SCRT_KEY;
+                    secretInput.textContent = currentSecret;
+                    qrImage.src = 'data:image/png;base64,' + data.data.TOTP_QR;
+                    initResult.classList.remove('d-none');
+                    verifyCard.classList.remove('d-none');
+                    btnVerify.disabled = false;
+                    setStatus('NO');
+                    showToast('کلید مخفی ساخته شد. لطفاً QR را اسکن کنید.', 'success');
+                })
+                .catch(function (e) {
+                    hideLoading();
+                    showToast('خطا در ارتباط با سرور: ' + e.message, 'error');
+                });
+            });
+
+            btnVerify.addEventListener('click', function () {
+                var code = codeInput.value.trim();
+                if (!/^\d{6}$/.test(code)) {
+                    showToast('کد باید ۶ رقم باشد', 'error');
+                    return;
+                }
+                showLoading();
+                fetch('/EXTR_USRA_CTRL/TOTP_STNG_U', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(buildPayload({ CODE: code, SCRT_KEY: currentSecret }))
+                })
+                .then(function (r) { return r.json(); })
+                .then(function (data) {
+                    hideLoading();
+                    if (data.rspncode !== '0') {
+                        showToast(data.rspndesc || 'کد تأیید نامعتبر است', 'error');
+                        return;
+                    }
+                    setStatus('YES');
+                    initResult.classList.add('d-none');
+                    btnVerify.disabled = true;
+                    codeInput.value = '';
+                    currentSecret = '';
+                    showToast('احراز هویت دو مرحله‌ای برای کاربر "' + targetUser + '" فعال شد', 'success');
+                })
+                .catch(function (e) {
+                    hideLoading();
+                    showToast('خطا: ' + e.message, 'error');
+                });
+            });
+
+            btnDisable.addEventListener('click', function () {
+                showConfirm({
+                    title: 'غیرفعال‌سازی TOTP',
+                    message: 'آیا می‌خواهید احراز هویت دو مرحله‌ای کاربر "' + targetUser + '" را غیرفعال کنید؟',
+                    type: 'danger',
+                    okText: 'بله، غیرفعال شود',
+                    okClass: 'btn-danger'
+                }).then(function (ok) {
+                    if (!ok) return;
+                    showLoading();
+                    fetch('/EXTR_USRA_CTRL/DSBL_TOTP_U', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            operation: { type: '006', desc: 'DISABLE TOTP' },
+                            USER_APP_NAME: localStorage.getItem('rememberedUser') || '',
+                            filter: { USER_APP_NAME: targetUser }
+                        })
+                    })
+                    .then(function (r) { return r.json(); })
+                    .then(function (data) {
+                        hideLoading();
+                        if (data.rspncode === '0') {
+                            setStatus('NO');
+                            initResult.classList.add('d-none');
+                            btnVerify.disabled = true;
+                            currentSecret = '';
+                            showToast('TOTP برای کاربر "' + targetUser + '" غیرفعال شد', 'success');
+                        } else {
+                            showToast('غیرفعال‌سازی انجام نشد', 'error');
+                        }
+                    })
+                    .catch(function () {
+                        hideLoading();
+                        showToast('غیرفعال‌سازی انجام نشد', 'error');
+                    });
+                });
+            });
+
+            btnCopy.addEventListener('click', function () {
+                navigator.clipboard.writeText(currentSecret).then(function () {
+                    showToast('کلید مخفی کپی شد', 'success');
+                });
+            });
+
+            codeInput.addEventListener('input', function () {
+                codeInput.value = codeInput.value.replace(/\D/g, '').substring(0, 6);
+            });
+
+            function updateLiveCode() {
+                if (!currentSecret) {
+                    liveCode.textContent = '------';
+                    liveCountdown.textContent = '--';
+                    return;
+                }
+                try {
+                    var keyBytes = base32ToBytes(currentSecret);
+                    var now = Math.floor(Date.now() / 1000);
+                    var counter = Math.floor(now / 30);
+                    var code = totpCompute(keyBytes, counter);
+                    liveCode.textContent = code.substring(0, 3) + ' ' + code.substring(3);
+                    var remain = 30 - (now % 30);
+                    liveCountdown.textContent = remain + 's';
+                } catch (e) {
+                    liveCode.textContent = '------';
+                    liveCountdown.textContent = '--';
+                }
+            }
+
+            function base32ToBytes(b32) {
+                var alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
+                var bits = '';
+                var clean = b32.replace(/=+$/, '').toUpperCase();
+                for (var i = 0; i < clean.length; i++) {
+                    var v = alpha.indexOf(clean[i]);
+                    if (v < 0) continue;
+                    bits += v.toString(2).padStart(5, '0');
+                }
+                var bytes = [];
+                for (var j = 0; j + 8 <= bits.length; j += 8) {
+                    bytes.push(parseInt(bits.substring(j, j + 8), 2));
+                }
+                return new Uint8Array(bytes);
+            }
+
+            function totpCompute(keyBytes, counter) {
+                var buf = new ArrayBuffer(8);
+                var view = new DataView(buf);
+                view.setUint32(0, Math.floor(counter / 0x100000000));
+                view.setUint32(4, counter & 0xffffffff);
+                return hotp(keyBytes, new Uint8Array(buf));
+            }
+
+            function hotp(key, counter) {
+                return sha1Hmac(key, counter).then(function (hash) {
+                    var offset = hash[19] & 0xf;
+                    var bin = ((hash[offset] & 0x7f) << 24) |
+                              ((hash[offset + 1] & 0xff) << 16) |
+                              ((hash[offset + 2] & 0xff) << 8) |
+                              (hash[offset + 3] & 0xff);
+                    return (bin % 1000000).toString().padStart(6, '0');
+                });
+            }
+
+            function sha1Hmac(key, data) {
+                return crypto.subtle.importKey('raw', key, { name: 'HMAC', hash: 'SHA-1' }, false, ['sign'])
+                    .then(function (k) { return crypto.subtle.sign('HMAC', k, data); })
+                    .then(function (sig) { return new Uint8Array(sig); });
+            }
+
+            setInterval(updateLiveCode, 1000);
+            loadCurrentStatus();
+            updateLiveCode();
+        })();
+    </script>
+}

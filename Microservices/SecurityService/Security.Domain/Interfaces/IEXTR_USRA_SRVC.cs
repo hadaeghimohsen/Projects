@@ -191,6 +191,18 @@ public interface IEXTR_USRA_SRVC
 
     /// <summary>
     /// ******************************************************************************
+    /// FUNCTION NAME: READ_TOTP_U
+    /// PURPOSE (EN):  Read TOTP secret and status for a user (login flow only)
+    /// PURPOSE (FA):  خواندن کلید مخفی و وضعیت TOTP کاربر (فقط در فلو ورود)
+    /// ALTERNATIVE NAME: GetTotpSecretForLoginAsync
+    /// PARAMETERS:    p_in (JSON string) - {filter:{USER_APP_NAME:...}}
+    /// RETURNS:       JSON string containing TOTP_SCRT_KEY and TOTP_STAT
+    /// ******************************************************************************
+    /// </summary>
+    Task<string> READ_TOTP_U(string p_in);
+
+    /// <summary>
+    /// ******************************************************************************
     /// FUNCTION NAME: GETP_USRA_U
     /// PURPOSE (EN):  Show profile and connection for user
     /// PURPOSE (FA):  نمایش اطلاعات کاربر و نحوه اتصال به پایگاه داده

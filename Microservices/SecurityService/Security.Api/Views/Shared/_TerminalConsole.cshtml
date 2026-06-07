@@ -1,0 +1,21 @@
+@* Terminal Console *@
+<button type="button" id="terminalToggle" class="terminal-toggle" title="Open console (Ctrl+`)" dir="ltr">
+    <i class="bx bx-terminal"></i>
+</button>
+<div id="terminalConsole" class="terminal-console" dir="ltr">
+    <div class="terminal-header">
+        <span class="terminal-title"><i class="bx bx-terminal" style="font-size:14px"></i> Console</span>
+        <div class="terminal-header-actions">
+            <button type="button" id="terminalMaximize" class="terminal-btn" title="Expand/Minimize"><i class="bx bx-expand"></i></button>
+            <button type="button" id="terminalClose" class="terminal-btn" title="close">×</button>
+        </div>
+    </div>
+    <div class="terminal-output" id="terminalOutput" dir="ltr">
+        <div class="terminal-line info">Fceo Security Console <span class="highlight">v@(Configuration.GetSection("AppSettings")["Version"] ?? "1.0.0")</span></div>
+        <div class="terminal-line output">Ready. Type <span class="highlight">help</span> for commands.</div>
+    </div>
+    <div class="terminal-input-line" dir="ltr">
+        <span class="terminal-prompt">$</span>
+        <div class="terminal-field"><input type="text" id="terminalInput" class="terminal-input-hidden" autocomplete="off" spellcheck="false" dir="ltr" /><span class="terminal-input-display" id="terminalDisplay"></span><span class="terminal-block-cursor" id="terminalCursor"></span></div>
+    </div>
+</div>
